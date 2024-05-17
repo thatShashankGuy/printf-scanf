@@ -1,0 +1,1 @@
+Static Site for Blogs 

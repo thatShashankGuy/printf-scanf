@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Home on Shashank Shekhar</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content in Home on Shashank Shekhar</description>
+    <generator>Hugo -- 0.126.1</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Async IO programming with Node js</title>
+      <link>http://localhost:1313/blog/ionodejs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/ionodejs/</guid>
+      <description>Async IO programming with Node js Introduction Asynchronous programming is a technique that enables your program to start a potentially long-running task and still be able to be responsive to other events while that task runs, rather than having to wait until that task has finished.
+Consider Node/ Browser Architecture , When program starts it start a main thread on which wil run your javascript program . While one set of instructions ( code ) is running on this thread the thread is busy</description>
+    </item>
+    <item>
+      <title>Coding My Way Out of Burnout</title>
+      <link>http://localhost:1313/blog/burnout/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/burnout/</guid>
+      <description>Coding My Way Out of Burnout December 25, 2023 About three months ago, I felt intense pressure in my career. I did not feel like learning anything, and doing my job was a struggle. At that point in time, I didn&amp;rsquo;t understand what was going on, but now I know I was going through a phase of burnout.
+Burnouts are quite common in the workforce, and you will find hundreds of people sharing their stories of burnout.</description>
+    </item>
+    <item>
+      <title>Database Paradigms - ACID, BASE and CAP in brief</title>
+      <link>http://localhost:1313/blog/acidbasecap/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/acidbasecap/</guid>
+      <description>Database Paradigms: ACID, BASE, and CAP in brief December 28, 2023 When starting a project, one of the earliest design decisions you need to make is selecting a database. There are various databases available in the market.
+Initially, most databases were of SQL flavors, grouped as Relational Databases, and they used the de facto method of saving data into tables and establishing relationships between these tables. You can read more about History of SQL.</description>
+    </item>
+    <item>
+      <title>Pointers in Go</title>
+      <link>http://localhost:1313/blog/gopointers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/gopointers/</guid>
+      <description>Pointers in Go In Go, a pointer is a variable that stores the memory address of another variable. We use the ampersand (&amp;amp;) operator to get the memory address of a variable, and the asterisk (*) operator to declare a pointer variable or to access the value pointed to by a pointer.
+In the example code provided, p is a pointer to the variable x. We can use the * operator to access the value stored in the memory location pointed to by p.</description>
+    </item>
+    <item>
+      <title>The Typescript Programming Guide</title>
+      <link>http://localhost:1313/blog/typescript/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/typescript/</guid>
+      <description>The Typescript Programming Guide Introduction By now, TypeScript has emerged as a fully-fledged de facto standard for writing secure, enterprise-grade Node apps. I am building this guide from my experience and the TypeScript handbook to offer a brief introduction for those transitioning from JavaScript but please beware I am no SME on typescript. Readers should have some familiarity with JavaScript and Object-Oriented Programming (OOP). As we all are busy people I have kept the guide as concise as possible while being as clear as I can.</description>
+    </item>
+  </channel>
+</rss>
