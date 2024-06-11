@@ -1,0 +1,675 @@
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #faf8f1"
+  lang="en-us"
+>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>The Typescript Programming Guide - Shashank Shekhar</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  
+  <meta name="description" content="Introduction By now, TypeScript has emerged as a fully-fledged de facto standard for writing secure, enterprise-grade Node apps. I am building this guide from my experience and the TypeScript handbook to offer a brief introduction for those transitioning from JavaScript but please beware I am no SME on typescript. Readers should have some familiarity with JavaScript and Object-Oriented Programming (OOP). As we all are busy people I have kept the guide as concise as possible while being as clear as I can." />
+  <meta name="author" content="Shashank Shekhar" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="http://localhost:1313/main.min.css" />
+
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="http://localhost:1313/theme.png" />
+
+  
+  
+  
+  
+  
+
+  
+  
+  <link rel="preload" as="image" href="http://localhost:1313/github.svg" />
+  
+  <link rel="preload" as="image" href="http://localhost:1313/linkedin.svg" />
+  
+  <link rel="preload" as="image" href="http://localhost:1313/rss.svg" />
+  
+  
+
+  
+  
+  <script
+    defer
+    src="http://localhost:1313/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+
+  
+  <link rel="icon" href="http://localhost:1313/fav.png" />
+  <link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.126.1">
+
+  
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
+      href="http://localhost:1313/"
+      >Shashank Shekhar</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#faf8f1'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/about/"
+        >About Me</a
+      >
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/"
+        >Blogs</a
+      >
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/notice_board/"
+        >Notice</a
+      >
+      
+    </nav>
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:ml-12 lg:mt-0 lg:items-center lg:space-x-6"
+    >
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./github.svg)"
+        href="https://github.com/https://github.com/thatShashankGuy"
+        target="_blank"
+        rel="me"
+      >
+        github
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./linkedin.svg)"
+        href="https://linkedin.com/in/https://www.linkedin.com/in/thatshashanguy/"
+        target="_blank"
+        rel="me"
+      >
+        linkedin
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./rss.svg)"
+        href="http://localhost:1313/index.xml"
+        target="_blank"
+        rel="alternate"
+      >
+        rss
+      </a>
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">The Typescript Programming Guide</h1>
+
+    
+    <div class="text-sm antialiased opacity-60">
+      
+      <time>Oct 12, 2023</time>
+      
+      
+      
+      
+      <span class="mx-1">&middot;</span>
+      <span>Shashank Shekhar</span>
+      
+    </div>
+    
+  </header>
+
+  <section><h2 id="introduction">Introduction</h2>
+<p>By now, TypeScript has emerged as a fully-fledged de facto standard for writing secure, enterprise-grade Node apps. I am building this guide from  my experience and the TypeScript handbook to offer a brief introduction for those transitioning from JavaScript but please beware I am no SME on typescript. Readers should have some familiarity with JavaScript and Object-Oriented Programming (OOP). As we all are busy people I have kept the guide as concise as possible while being as clear as  I can. For a deeper dive into any topic, resources are provided at the end.</p>
+<h2 id="typescript-as-a-superset-of-javascript">TypeScript as a Superset of JavaScript</h2>
+<p>All JavaScript code is valid TypeScript. This means you can create a TypeScript file using pure JavaScript and then compile that script using the TypeScript compiler (<code>tsc</code>).</p>
+<p>For our exercises, we&rsquo;ll utilize the <a href="https://www.typescriptlang.org/play">TypeScript playground</a>.</p>
+<p>Consider this JavaScript code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">func1</span>(<span style="color:#a6e22e">a</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">a</span>;
+</span></span><span style="display:flex;"><span>} 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">c</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">func1</span>(<span style="color:#ae81ff">7</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">c</span>); <span style="color:#75715e">// 14
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">c</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">func1</span>(<span style="color:#e6db74">&#39;s&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">c</span>); <span style="color:#75715e">// 7s
+</span></span></span></code></pre></div><p>When you compile this JavaScript code in the playground, it should compile without issues.</p>
+<h2 id="writing-your-first-typescript-code">Writing Your First TypeScript Code</h2>
+<p>Let&rsquo;s transition the JavaScript example above to TypeScript by introducing types:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">func1</span>(<span style="color:#a6e22e">a</span>: <span style="color:#66d9ef">number</span>)<span style="color:#f92672">:</span> <span style="color:#66d9ef">number</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">a</span>;
+</span></span><span style="display:flex;"><span>} 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">c</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">func1</span>(<span style="color:#ae81ff">7</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">c</span>); <span style="color:#75715e">// 14
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// c = func1(&#39;s&#39;);  This would raise an error
+</span></span></span></code></pre></div><p>In TypeScript, we use the <code>:</code> notation to denote types. Here are some foundational TypeScript types:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">a</span>: <span style="color:#66d9ef">number</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">b</span>: <span style="color:#66d9ef">string</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">c</span>: <span style="color:#66d9ef">boolean</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">d</span><span style="color:#f92672">:</span> [];  <span style="color:#75715e">// array
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">e</span><span style="color:#f92672">:</span> {};  <span style="color:#75715e">// object
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">f</span>: <span style="color:#66d9ef">unknown</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>: <span style="color:#66d9ef">never</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">h</span>: <span style="color:#66d9ef">any</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span>: <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">j</span>: <span style="color:#66d9ef">undefined</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">k</span>: <span style="color:#66d9ef">void</span>;
+</span></span></code></pre></div><p>We&rsquo;ll further explore <code>any</code>, <code>unknown</code>, and <code>never</code> later in this guide.</p>
+<h2 id="type-safety-and-type-inference">Type Safety and Type Inference</h2>
+<p>Here&rsquo;s the syntax for explicitly defining types:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">a</span>: <span style="color:#66d9ef">number</span>;
+</span></span></code></pre></div><p>Once a type is declared, TypeScript enforces constraints related to data type assignments:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>;       <span style="color:#75715e">// Valid
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// a = &#39;six&#39;;  This would be flagged
+</span></span></span></code></pre></div><p>If types aren&rsquo;t explicitly declared, TypeScript uses type inference to identify and then enforce the type:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>;           <span style="color:#75715e">// TypeScript infers that a is of type number
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// a = &#39;six&#39;;       This would result in an error
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">78</span>;              <span style="color:#75715e">// Valid
+</span></span></span></code></pre></div><h2 id="return-types">Return Types</h2>
+<p>Functions in TypeScript can also be associated with return types, which help in indicating the kind of data a function returns. Given that functions are first-class citizens in JavaScript, associating them with a return type is essential.</p>
+<p>We can also infer return types, which means that if the function&rsquo;s return type is obvious from the code, TypeScript will automatically determine it. However, explicitly defining return types can enhance readability and reduce potential errors.</p>
+<p>Here&rsquo;s an example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">func1</span>(<span style="color:#a6e22e">a</span>: <span style="color:#66d9ef">number</span>)<span style="color:#f92672">:</span> <span style="color:#66d9ef">number</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">a</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">func1</span>(<span style="color:#ae81ff">7</span>)); <span style="color:#75715e">// Outputs: number
+</span></span></span></code></pre></div><h2 id="advanced-types-any-unknown-and-never">Advanced Types: <code>any</code>, <code>unknown</code>, and <code>never</code></h2>
+<h3 id="the-any-type">The <code>any</code> Type</h3>
+<p>The <code>any</code> type in TypeScript denotes that a variable could essentially be of any data type. It&rsquo;s like writing plain JavaScript without the benefits of TypeScript&rsquo;s type-checking:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">variable</span>: <span style="color:#66d9ef">any</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;string&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">variable</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">variable</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+</span></span></code></pre></div><p>While it offers flexibility, overuse of <code>any</code>  defeats the purpose of using TypeScript. It&rsquo;s best to use it sparsely.</p>
+<h3 id="the-unknown-type">The <code>unknown</code> Type</h3>
+<p>The <code>unknown</code> type is a type-safe counterpart to <code>any</code>. It allows anything to be assigned to it, but to use it further, you&rsquo;ll need to provide type checks or type assertions.</p>
+<p>Here&rsquo;s a simple distinction between <code>any</code> and <code>unknown</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">vAny</span>: <span style="color:#66d9ef">any</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">vUnknown</span>: <span style="color:#66d9ef">unknown</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">s1</span>: <span style="color:#66d9ef">string</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">vAny</span>;     
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// let s2: string = vUnknown;  This would be flagged
+</span></span></span></code></pre></div><h3 id="the-never-type">The <code>never</code> Type</h3>
+<p>The <code>never</code> type indicates values that will never occur. For instance:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">throwError</span>(<span style="color:#a6e22e">errorMsg</span>: <span style="color:#66d9ef">string</span>)<span style="color:#f92672">:</span> <span style="color:#66d9ef">never</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#a6e22e">errorMsg</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>While both <code>void</code> and <code>never</code> indicate the absence of a value, they&rsquo;re used differently. With <code>void</code>, a function doesn&rsquo;t return a value. With <code>never</code>, a function will not complete normally (e.g., it will throw an error).</p>
+<h2 id="unions">Unions</h2>
+<p>Unions are way to combine multiple primitive type to form  a custom type .</p>
+<p>Consider a system  which emits a signal in either true and false  or 0 and 1. If you want to store the data in a variable but you are not sure what will it emit next so you handle you function.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">emit</span>() <span style="color:#75715e">// true 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">emit</span>() <span style="color:#75715e">// this time it emits 1 and your typescript will throw erorr  because of the inference typescript have assinged a the type of boolean 
+</span></span></span></code></pre></div><p>In this scenario you can create a <code>union</code> of boolean and Number type so that variable can store either  number or boolean</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">a</span>  : <span style="color:#66d9ef">boolean</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">number</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span> <span style="color:#75715e">// valid 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#75715e">// valid 
+</span></span></span></code></pre></div><h3 id="literal-types">Literal Types</h3>
+<p>But we can optimize this as well as we know that system will only emit 1s and 0s so no need to create an union with Number   you can create union with <code>Literal Types</code>. Literal Types as name suggest enforce storing only a particular value or a handful of values in case of union . Lets update our function</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">a</span> : <span style="color:#66d9ef">boolean</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#75715e">//valid 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span> <span style="color:#75715e">// valid 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span> <span style="color:#75715e">//valid 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#75715e">// valid 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#75715e">// invalid - typescript will throw errror 
+</span></span></span></code></pre></div><p>you can use Literal types and Unions for custom checkers</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">checker</span> : <span style="color:#66d9ef">undefined</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">|</span> <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">false</span>
+</span></span></code></pre></div><h3 id="narrowing">Narrowing</h3>
+<p>Consider a function called  handleSyscall which takes an argument x  provided at runtime  , x can either have data of type string or it could be undefined . so we define res with type string | undefined . We want to return syscall response with message all lowercase. Lets write code forthat</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">handleSysCall</span>(<span style="color:#a6e22e">x</span> : <span style="color:#66d9ef">string</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">undefined</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span>  <span style="color:#a6e22e">x</span>.<span style="color:#a6e22e">toLowerCase</span>() <span style="color:#75715e">// Typescript throws a error - &gt; &#39;x&#39; is possibly &#39;undefined&#39;.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">syscall</span>()
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">handleSysCall</span>(<span style="color:#a6e22e">x</span>)
+</span></span></code></pre></div><p>Notice that we dont know the type of x at the run time we cannot run string operation as there is a good chance x will be undefined
+To handle this in  typescript  we perform  <code>Narrowing</code></p>
+<p>In simple terms, dynamic checks and predicates provide the information about values at runtime, So, Type narrowing is the process of providing this information during the compile time.</p>
+<p>TypeScript follows some possible paths of execution that the programs can take to analyze the most specific possible type of a value at a given position. It searches for some special checks known as Type Guards and assignments. The process of refining types to some more specific types is known as Narrowing.</p>
+<p>lets perform Narrowing by checking type of x at runtime to make sure that we do not encounter an error due to type mismatch</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">handleSysCall</span>(<span style="color:#a6e22e">x</span> : <span style="color:#66d9ef">string</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">undefined</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">x</span> <span style="color:#f92672">!==</span> <span style="color:#66d9ef">undefined</span>) <span style="color:#66d9ef">return</span>  <span style="color:#a6e22e">x</span>.<span style="color:#a6e22e">toLowerCase</span>() <span style="color:#75715e">//Valid  -&gt; Type script checks type and value at runtime to return what is valid for both types . 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;syscall did not return value&#39;</span> 
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">syscall</span>()
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">handleSysCall</span>(<span style="color:#a6e22e">x</span>)
+</span></span></code></pre></div><h2 id="types-alias">Types Alias</h2>
+<p>Consider this exercise where we have an employee object with some properties and method. Our method Dept func takes two properties and produces a function for employee.</p>
+<p>In JavaScript, it&rsquo;s straightforward to mistakenly update a property with a value of a different type:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">employee</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">id</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;CN1&#39;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">name</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Jack&#39;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">deptCode</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">112</span>, 
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">deptFunc</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>(){
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>( <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">id</span> <span style="color:#f92672">+</span> (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">deptCode</span> <span style="color:#f92672">+</span>  <span style="color:#ae81ff">1000</span>) )
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">employee</span>.<span style="color:#a6e22e">deptFunc</span>() <span style="color:#75715e">// Outputs: CN11112
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">employee</span>[<span style="color:#e6db74">&#34;deptCode&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;112&#39;</span> <span style="color:#75715e">// Accidentally changed deptCode to a string
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">employee</span>.<span style="color:#a6e22e">deptFunc</span>()  <span style="color:#75715e">// Outputs: CN11121000 (incorrect employee function )
+</span></span></span></code></pre></div><p>When the same code is translated to TypeScript:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">employee</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">id</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;CN1&#39;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">name</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Jack&#39;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">deptCode</span> : <span style="color:#66d9ef">112</span>, 
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">deptFunc</span> : <span style="color:#66d9ef">function</span>(){
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>( <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">id</span> <span style="color:#f92672">+</span> (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">deptCode</span> <span style="color:#f92672">+</span>  <span style="color:#ae81ff">1000</span>) )
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">employee</span>.<span style="color:#a6e22e">deptFunc</span>() <span style="color:#75715e">// Outputs: CN11112
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">employee</span>[<span style="color:#e6db74">&#34;deptCode&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;112&#39;</span> <span style="color:#75715e">// Error in TypeScript: Type &#39;string&#39; is not assignable to type &#39;number&#39;.
+</span></span></span></code></pre></div><p>TypeScript <code>infers</code> the types of properties and methods within the object and enforces those inferred types during subsequent assignments. This is where TypeScript&rsquo;s <code>Type Alias</code> comes into play. You can think of a Type Alias as creating your own custom type or data structure:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Employee</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">id</span>: <span style="color:#66d9ef">string</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">deptCode</span>: <span style="color:#66d9ef">number</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">deptFunc</span>: <span style="color:#66d9ef">Function</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">employee</span>: <span style="color:#66d9ef">Employee</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">id</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;CN1&#39;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">name</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Jack&#39;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">deptCode</span> : <span style="color:#66d9ef">112</span>, 
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">deptFunc</span> : <span style="color:#66d9ef">function</span>(){
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>( <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">id</span> <span style="color:#f92672">+</span> (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">deptCode</span> <span style="color:#f92672">+</span>  <span style="color:#ae81ff">1000</span>) )
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">employee</span>.<span style="color:#a6e22e">deptFunc</span>() <span style="color:#75715e">// Outputs: CN11112
+</span></span></span></code></pre></div><p>With a Type Alias, TypeScript not only enforces the type of each property but also the overall structure of the object. This means you cannot randomly add new properties without first updating the Type Alias:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#a6e22e">employee</span>[<span style="color:#e6db74">&#34;age&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">17</span> <span style="color:#75715e">// Error in TypeScript: Element implicitly has an &#39;any&#39; type because expression of type &#39;&#34;age&#34;&#39; can&#39;t be used to index type &#39;Employee&#39;. Property &#39;age&#39; does not exist on type &#39;Employee&#39;. 
+</span></span></span></code></pre></div><p>To add a new property, we need to update the Type Alias:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Employee</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">id</span>: <span style="color:#66d9ef">string</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">deptCode</span>: <span style="color:#66d9ef">number</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">age</span>: <span style="color:#66d9ef">number</span>, <span style="color:#75715e">// added the &#39;age&#39; property with its type
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">deptFunc</span>: <span style="color:#66d9ef">Function</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">employee</span>: <span style="color:#66d9ef">Employee</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">id</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;CN1&#39;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">name</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Jack&#39;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">deptCode</span> : <span style="color:#66d9ef">112</span>, 
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">age</span> : <span style="color:#66d9ef">33</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">deptFunc</span> : <span style="color:#66d9ef">function</span>(){
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>( <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">id</span> <span style="color:#f92672">+</span> (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">deptCode</span> <span style="color:#f92672">+</span>  <span style="color:#ae81ff">1000</span>) )
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>But what if certain fields like our age field  aren&rsquo;t always required to be updated or if they need to be added later? We can make them optional by adding a <code>?</code> next to the property name:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Employee</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">id</span>: <span style="color:#66d9ef">string</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">deptCode</span>: <span style="color:#66d9ef">number</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">age?</span>: <span style="color:#66d9ef">number</span>, <span style="color:#75715e">// made &#39;age&#39; optional by appending &#39;?&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">deptFunc</span>: <span style="color:#66d9ef">Function</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">employee</span>: <span style="color:#66d9ef">Employee</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">id</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;CN1&#39;</span>,					
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">name</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Jack&#39;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">deptCode</span> : <span style="color:#66d9ef">112</span>, 
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">deptFunc</span> : <span style="color:#66d9ef">function</span>(){
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>( <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">id</span> <span style="color:#f92672">+</span> (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">deptCode</span> <span style="color:#f92672">+</span>  <span style="color:#ae81ff">1000</span>) )
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// You can now add the &#39;age&#39; property later without error
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">employee</span>[<span style="color:#e6db74">&#34;age&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">33</span>
+</span></span></code></pre></div><h2 id="intefaces">Intefaces</h2>
+<p>A second way ( and traditional ) way to defined Objects - structure and types is using Interfaces . <code>Intefaces</code> are also used as contracts in OOP but we will discuss them in <code>OOP Section</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#a6e22e">Interface</span> <span style="color:#a6e22e">Employee</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Id</span> : <span style="color:#66d9ef">number</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span> : <span style="color:#66d9ef">string</span> , 
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">employee</span> : <span style="color:#66d9ef">Employee</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">id</span>  <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;UK010&#39;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">name</span> <span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">&#34;</span><span style="color:#a6e22e">Daniel</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">secondEmp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Employee</span>()
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">secondEmp</span>.<span style="color:#a6e22e">Id</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`YT121&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">secondEmp.name = `</span><span style="color:#a6e22e">Martin</span><span style="color:#e6db74">`
+</span></span></span></code></pre></div><p>Almost all features of an interface are available in type, the key distinction is that a type cannot be re-opened to add new properties vs an interface which is always extendable</p>
+<h3 id="extending-a-type-vs-extending-an-interface">Extending a Type vs Extending an Interface</h3>
+<p>Extending is use  inherit property from another object . There is syntatical differences how you extend based on what Alias you are using</p>
+<p>To extend a type we use <code>parent &amp;</code> symbol .</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Employee</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Id</span> : <span style="color:#66d9ef">number</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span> : <span style="color:#66d9ef">string</span> , 
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">age</span> : <span style="color:#66d9ef">number</span> , 
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">deptCode</span> : <span style="color:#66d9ef">number</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Personal</span> <span style="color:#f92672">=</span>  <span style="color:#a6e22e">Employee</span> <span style="color:#f92672">&amp;</span> { <span style="color:#75715e">// using &amp; symbol to extend 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">address</span> : <span style="color:#66d9ef">string</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">pincode</span> : <span style="color:#66d9ef">number</span> 
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">personal</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Personal</span>()
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">personal</span>.<span style="color:#a6e22e">address</span> <span style="color:#75715e">//valid property 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">personal</span>.<span style="color:#a6e22e">age</span> <span style="color:#75715e">// valid property // inherited from Employee
+</span></span></span></code></pre></div><p>In Interfaces we use extends keyword</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">inteface</span> <span style="color:#a6e22e">Employee</span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Id</span> : <span style="color:#66d9ef">number</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span> : <span style="color:#66d9ef">string</span> , 
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">age</span> : <span style="color:#66d9ef">number</span> , 
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">deptCode</span> : <span style="color:#66d9ef">number</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Interface</span> <span style="color:#a6e22e">Personal</span>  <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Employee</span> { <span style="color:#75715e">// using extends keyword 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">address</span> : <span style="color:#66d9ef">string</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">pincode</span> : <span style="color:#66d9ef">number</span> 
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">personal</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Personal</span>()
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">personal</span>.<span style="color:#a6e22e">address</span> <span style="color:#75715e">//valid property 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">personal</span>.<span style="color:#a6e22e">age</span> <span style="color:#75715e">// valid property // inherited from Employee
+</span></span></span></code></pre></div><p>For our intent and purposes types and interfaces can be used interchangabily. Personally I find Type alias to be used in Type defination when writing functional style codes and Interfaces when working in OOP style but thats and preference and no added benefits are provided .</p>
+<h2 id="non-null-assertion-operator-postfix">Non-null Assertion Operator (Postfix!)</h2>
+<p>Consider a function that calculates a value for a given percentage. We have a variable <code>nums</code> as input, but the type of the variable can either be a number or null. TypeScript will throw an error because it cannot perform division on a type <code>number | null</code>, as null values cannot be divided by a number.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">nums</span>: <span style="color:#66d9ef">number</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">23</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">calculatePercentage</span>()<span style="color:#f92672">:</span> <span style="color:#66d9ef">number</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (<span style="color:#a6e22e">nums</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">100</span>) <span style="color:#f92672">*</span> <span style="color:#ae81ff">35</span>; <span style="color:#75715e">// TypeScript gives you an error that you cannot perform division on type number | null.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><p>To solve this issue, you can either run a null check:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">nums</span>: <span style="color:#66d9ef">number</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">23</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">calculatePercentage</span>()<span style="color:#f92672">:</span> <span style="color:#66d9ef">number</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">nums</span> <span style="color:#f92672">!==</span> <span style="color:#66d9ef">null</span>) <span style="color:#66d9ef">return</span> (<span style="color:#a6e22e">nums</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">100</span>) <span style="color:#f92672">*</span> <span style="color:#ae81ff">35</span>; <span style="color:#75715e">// No else condition will throw an error.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><p>This may work for simpler code, but note that the function is now returning void because we have not handled the else condition:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">nums</span>: <span style="color:#66d9ef">number</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">23</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">calculatePercentage</span>()<span style="color:#f92672">:</span> <span style="color:#66d9ef">number</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">nums</span> <span style="color:#f92672">!==</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> (<span style="color:#a6e22e">nums</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">100</span>) <span style="color:#f92672">*</span> <span style="color:#ae81ff">35</span>;
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The code has now become more verbose. To handle such conditions more concisely, TypeScript provides the <code>!</code> (bang) postfix, which is used to handle null checks without long if-else conditions. We can simply put the <code>!</code> postfix with <code>nums</code>, and TypeScript will handle null:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">nums</span>: <span style="color:#66d9ef">number</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">23</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">calculatePercentage</span>()<span style="color:#f92672">:</span> <span style="color:#66d9ef">number</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (<span style="color:#a6e22e">nums</span><span style="color:#f92672">!</span> <span style="color:#e6db74">/ 100) * 35; /</span><span style="color:#f92672">/</span> <span style="color:#a6e22e">Valid</span>, <span style="color:#a6e22e">TypeScript</span> <span style="color:#a6e22e">will</span> <span style="color:#a6e22e">not</span> <span style="color:#a6e22e">give</span> <span style="color:#a6e22e">an</span> <span style="color:#a6e22e">error</span> <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">handling</span> <span style="color:#66d9ef">null</span>.
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">calculatePercentage</span>());
+</span></span></code></pre></div><p>The <code>!</code> postfix will also handle null values:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">nums</span>: <span style="color:#66d9ef">number</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>; <span style="color:#75715e">// Changed nums to null.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">calculatePercentage</span>()<span style="color:#f92672">:</span> <span style="color:#66d9ef">number</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (<span style="color:#a6e22e">nums</span><span style="color:#f92672">!</span> <span style="color:#e6db74">/ 100) * 35; /</span><span style="color:#f92672">/</span> <span style="color:#a6e22e">Valid</span>, <span style="color:#a6e22e">TypeScript</span> <span style="color:#a6e22e">will</span> <span style="color:#a6e22e">not</span> <span style="color:#a6e22e">give</span> <span style="color:#a6e22e">an</span> <span style="color:#a6e22e">error</span> <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">handling</span> <span style="color:#66d9ef">null</span>.
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">calculatePercentage</span>()); <span style="color:#75715e">// Prints 0 as 0/100 * 35 equals zero.
+</span></span></span></code></pre></div><p>Note: Be careful when handling null and undefined using <code>!</code> as this may cause unhandled exceptions if not handled correctly.</p>
+<p>Certainly! Here&rsquo;s a section explaining how TypeScript enums work:</p>
+<h2 id="enums">Enums</h2>
+<p>Enums in TypeScript allow you to define a set of named constants. These constants represent distinct values or categories. Enums make your code more readable and self-documenting by giving meaningful names to values.</p>
+<p>To define an enum in TypeScript, you can use the <code>enum</code> keyword, followed by the name of the enum and a code block that lists its members. Here&rsquo;s an example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">DaysOfWeek</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Sunday</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Monday</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Tuesday</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Wednesday</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Thursday</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Friday</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Saturday</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>In this example, we&rsquo;ve defined an enum called <code>DaysOfWeek</code> with seven members representing the days of the week. By default, TypeScript assigns numeric values to the enum members starting from 0. So, <code>Sunday</code> has a value of 0, <code>Monday</code> has a value of 1, and so on.</p>
+<p>You can also explicitly assign values to enum members:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">DaysOfWeek</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Sunday</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Monday</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Tuesday</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Wednesday</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Thursday</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Friday</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Saturday</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Now, <code>Sunday</code> has a value of 1, <code>Monday</code> has a value of 2, and so on.</p>
+<p>You can use enums to create variables and functions that make use of these named constants:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">today</span>: <span style="color:#66d9ef">DaysOfWeek</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">DaysOfWeek</span>.<span style="color:#a6e22e">Wednesday</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">isWeekend</span>(<span style="color:#a6e22e">day</span>: <span style="color:#66d9ef">DaysOfWeek</span>)<span style="color:#f92672">:</span> <span style="color:#66d9ef">boolean</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">day</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">DaysOfWeek</span>.<span style="color:#a6e22e">Saturday</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">day</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">DaysOfWeek</span>.<span style="color:#a6e22e">Sunday</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">isWeekend</span>(<span style="color:#a6e22e">today</span>)); <span style="color:#75715e">// Prints false since it&#39;s Wednesday.
+</span></span></span></code></pre></div><p>Enums are often used to represent a set of predefined options or choices, making your code more expressive and less error-prone. Additionally, enums can be useful when working with switch statements, as you can switch on the enum values, making your code more readable and less error-prone when dealing with multiple cases.</p>
+<p>Certainly! TypeScript provides several less common primitive types in addition to the commonly used ones like <code>number</code>, <code>string</code>, and <code>boolean</code>. Let&rsquo;s explore some of these less common primitive types:</p>
+<h2 id="less-common-primitive-types-in-typescript">Less Common Primitive Types in TypeScript</h2>
+<p><strong><code>bigint</code></strong>: The <code>bigint</code> type represents arbitrary-precision integers, which are useful when dealing with very large numbers that cannot be accurately represented using the <code>number</code> type. You can create <code>bigint</code> literals by appending an <code>n</code> to the end of an integer value.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">bigIntValue</span>: <span style="color:#66d9ef">bigint</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1234567890123456789012345678901234567890</span><span style="color:#a6e22e">n</span>;
+</span></span></code></pre></div><p><strong><code>symbol</code></strong>: The <code>symbol</code> type represents a unique and immutable value. Symbols are often used as object property keys when you want to create private or hidden properties.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">uniqueSymbol</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Symbol</span>(<span style="color:#e6db74">&#39;unique&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    [<span style="color:#a6e22e">uniqueSymbol</span>]<span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;This is a unique symbol key&#39;</span>,
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>These less common primitive types provide additional flexibility and safety when working with various data types and scenarios in TypeScript.</p>
+</section>
+
+  
+  
+
+  
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    <a
+      class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="http://localhost:1313/blogs/ionodejs/"
+      ><span class="mr-1.5">←</span><span>Async IO programming with Node js</span></a
+    >
+    
+    
+  </nav>
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2024
+    <a class="link" href="http://localhost:1313/">Shashank Shekhar</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >✎ Paper</a
+  >
+</footer>
+
+  </body>
+</html>

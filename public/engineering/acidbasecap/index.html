@@ -1,0 +1,404 @@
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #faf8f1"
+  lang="en-us"
+>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>Database Paradigms - ACID, BASE and CAP in brief - Shashank Shekhar</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  
+  <meta name="description" content="When starting a project, one of the earliest design decisions you need to make is selecting a database. There are various databases available in the market.
+Initially, most databases were of SQL flavors, grouped as Relational Databases, and they used the de facto method of saving data into tables and establishing relationships between these tables. You can read more about History of SQL.
+However, with the advent of NoSQL databases, this paradigm was challenged, opting for a more relaxed and schema-less approach, saving data as objects rather than in rigid tables with relationships." />
+  <meta name="author" content="Shashank Shekhar" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="http://localhost:1313/main.min.css" />
+
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="http://localhost:1313/theme.png" />
+
+  
+  
+  
+  
+  
+
+  
+  
+  <link rel="preload" as="image" href="http://localhost:1313/github.svg" />
+  
+  <link rel="preload" as="image" href="http://localhost:1313/linkedin.svg" />
+  
+  <link rel="preload" as="image" href="http://localhost:1313/rss.svg" />
+  
+  
+
+  
+  
+  <script
+    defer
+    src="http://localhost:1313/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+
+  
+  <link rel="icon" href="http://localhost:1313/fav.png" />
+  <link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.126.1">
+
+  
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
+      href="http://localhost:1313/"
+      >Shashank Shekhar</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#faf8f1'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/blog/"
+        >Blogs</a
+      >
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/about/"
+        >About Me</a
+      >
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/notice_board/"
+        >Notice</a
+      >
+      
+    </nav>
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:ml-12 lg:mt-0 lg:items-center lg:space-x-6"
+    >
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./github.svg)"
+        href="https://github.com/https://github.com/thatShashankGuy"
+        target="_blank"
+        rel="me"
+      >
+        github
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./linkedin.svg)"
+        href="https://linkedin.com/in/https://www.linkedin.com/in/thatshashanguy/"
+        target="_blank"
+        rel="me"
+      >
+        linkedin
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./rss.svg)"
+        href="http://localhost:1313/index.xml"
+        target="_blank"
+        rel="alternate"
+      >
+        rss
+      </a>
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">Database Paradigms - ACID, BASE and CAP in brief</h1>
+
+    
+    <div class="text-sm antialiased opacity-60">
+      
+      <time>Dec 8, 2023</time>
+      
+      
+      
+      
+      <span class="mx-1">&middot;</span>
+      <span>Shashank Shekhar</span>
+      
+    </div>
+    
+  </header>
+
+  <section><p>When starting a project, one of the earliest design decisions you need to make is selecting a database. There are various databases available in the market.</p>
+<p>Initially, most databases were of SQL flavors, grouped as Relational Databases, and they used the de facto method of saving data into tables and establishing relationships between these tables. You can read more about <a href="https://learnsql.com/blog/history-of-sql/">History of SQL</a>.</p>
+<p>However, with the advent of NoSQL databases, this paradigm was challenged, opting for a more relaxed and schema-less approach, saving data as objects rather than in rigid tables with relationships.</p>
+<h2 id="transactional-models">Transactional Models</h2>
+<p>Changes to a database, such as writes, updates, or deletes, are carried out through transactions. <em>A transaction represents a unit of work performed within a database management system (DBMS) against a database</em>. Database Transaction Models are a set of rules that determine how a DBMS organizes, stores, and manipulates data. A DBMS can support multiple transaction models, and a transaction will adhere to the ruleset of the chosen transaction model.</p>
+<p><em>There are two major transaction models: <strong>ACID and BASE</strong>.</em></p>
+<h3 id="acid---atomicity-consistency-isolation-and-durability">ACID - Atomicity, Consistency, Isolation, and Durability</h3>
+<p>ACID properties define a set of guarantees that a DBMS must provide to ensure data consistency and reliability, even in the face of system failures.<em>Most of RDBMS are ACID compliant</em></p>
+<ul>
+<li>
+<p><strong>Atomicity</strong> ensures that a transaction is treated as a single, indivisible unit of work. If any part of a transaction fails (e.g., due to an error or exception), the entire transaction is rolled back, and the database remains unchanged. Atomicity ensures that the database is always in a consistent state, even in the presence of failures.</p>
+</li>
+<li>
+<p><strong>Consistency</strong> guarantees that a transaction brings the database from one consistent state to another consistent state. It enforces integrity constraints, ensuring that data remains valid and adheres to defined rules and constraints.</p>
+</li>
+<li>
+<p><strong>Isolation</strong> ensures that concurrent transactions do not interfere with each other. Each transaction appears to run in isolation, as if it were the only transaction being processed. It prevents one transaction from reading or modifying data that another transaction is currently modifying.</p>
+</li>
+<li>
+<p><strong>Durability</strong> guarantees that once a transaction is committed, its effects will persist even in the event of a system crash or failure. This involves writing data to non-volatile storage, such as hard drives.</p>
+</li>
+</ul>
+<p>Consider a banking system where customers can transfer money between accounts, make deposits, and withdraw funds. ACID properties prevent issues such as incomplete transactions due to system failures, incorrect balances, or data violations.</p>
+<h3 id="base---basically-available-soft-state-eventually-consistent">BASE - Basically Available, Soft State, Eventually Consistent</h3>
+<p>BASE is often used in distributed and NoSQL databases where strict ACID guarantees are not required, and a degree of eventual consistency is acceptable.</p>
+<ul>
+<li>
+<p>In <strong>Basically Available</strong>, the emphasis is on providing basic availability of the system. Even if failures occur, the system remains operational and responsive to user requests, although it may not provide real-time consistency.</p>
+</li>
+<li>
+<p><strong>Soft state</strong> means that the state of the system can change over time, even without input, due to factors like eventual consistency, background processes, or the expiration of temporary data.</p>
+</li>
+<li>
+<p><strong>Eventually consistency</strong> implies that, given time and no further updates, all replicas of the data in a distributed system will converge to the same state. It acknowledges that in a distributed environment, immediate consistency might not always be achievable due to network delays and the distributed nature of the system.</p>
+</li>
+</ul>
+<p>Consider a social media distributed app where fast performance takes precedence over immediate data consistency. In such cases, trading off atomicity and consistency for basic availability and eventual consistency is more sensible.</p>
+<h3 id="acid-and-base-are-not-in-direct-contrast">ACID and BASE Are Not in Direct Contrast</h3>
+<p>It&rsquo;s important to note that ACID and BASE serve drastically different use cases and often need to be used together in large systems that allow multiple types of transactions.</p>
+<h2 id="cap-theorem">CAP Theorem</h2>
+<p>While working with distributed systems, we also need to consider the CAP theorem.</p>
+<p>The CAP theorem, also known as Brewer&rsquo;s theorem, is a fundamental concept in distributed computing that describes the trade-offs that distributed systems must make between three key properties: Consistency, Availability, and Partition Tolerance.</p>
+<ul>
+<li>
+<p><strong>Consistency (C)</strong> refers to the requirement that all nodes in a distributed system have the same data at the same time.</p>
+</li>
+<li>
+<p><strong>Availability (A)</strong> means that every request made to a distributed system, whether for reading or writing data, should receive a response, without guaranteeing that the response contains the most up-to-date data.</p>
+</li>
+<li>
+<p><strong>Partition Tolerance (P)</strong> is the ability of a distributed system to continue functioning and providing responses even when there are network partitions or communication failures between nodes.</p>
+</li>
+</ul>
+<p>According to the CAP theorem, it is impossible for a distributed system to simultaneously achieve all three properties (Consistency, Availability, and Partition Tolerance) at their maximum levels. Instead, distributed systems must make trade-offs among these properties.</p>
+<ul>
+<li>
+<p><strong>CP (Consistency and Partition Tolerance):</strong> In a CP system, consistency is prioritized over availability. The system ensures that all nodes have the most recent data and can tolerate network partitions, but it may sacrifice availability when network issues occur. This approach is typical in databases that prioritize data consistency.</p>
+</li>
+<li>
+<p><strong>CA (Consistency and Availability):</strong> In a CA system, consistency and availability are prioritized, but it may not be able to tolerate network partitions. Such systems may choose to reject requests or wait for network issues to be resolved before responding. These systems are often found in traditional, non-distributed databases.</p>
+</li>
+<li>
+<p><strong>AP (Availability and Partition Tolerance):</strong> In an AP system, availability and partition tolerance are prioritized over strict consistency. The system may provide responses even if the data is not immediately consistent across all nodes. This approach is common in distributed NoSQL databases and systems that need to stay operational in the presence of network partitions.</p>
+</li>
+</ul>
+<p>In conclusion, ACID and BASE transaction models, along with the CAP theorem, play pivotal roles in the design and operation of modern database systems. Each has its own strengths and trade-offs, making them suitable for specific use cases. Understanding these paradigms is essential for making informed decisions in database design and architecture.</p>
+<h2 id="further-reading-and-references">Further Reading and References</h2>
+<ul>
+<li><a href="https://aws.amazon.com/compare/the-difference-between-acid-and-base-database/">AWS Blog on ACID and BASE</a></li>
+<li><a href="https://www.scylladb.com/glossary/cap-theorem/">CAP Theorem by ScyllaDB</a></li>
+<li><a href="https://www.cl.cam.ac.uk/research/dtg/archived/files/publications/public/mk428/cap-critique.pdf">Critique of CAP Theorem</a></li>
+<li><a href="https://en.wikipedia.org/wiki/ACID">ACID - Wikipedia</a></li>
+</ul>
+<hr>
+<h5 id="_published-by-shashank_"><em>Published by Shashank</em></h5>
+</section>
+
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2024
+    <a class="link" href="http://localhost:1313/">Shashank Shekhar</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >✎ Paper</a
+  >
+</footer>
+
+  </body>
+</html>

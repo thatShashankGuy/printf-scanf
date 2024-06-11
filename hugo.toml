@@ -1,0 +1,29 @@
+baseURL = 'https://shashankshekhar.pages.dev'
+languageCode = 'en-us'
+title = 'Shashank Shekhar'
+theme = 'paper'
+     
+[params]
+ github = 'https://github.com/thatShashankGuy'   
+ linkedin = 'https://www.linkedin.com/in/thatshashanguy/'
+ color = 'linen'
+ favicon = "fav.png"    
+ rss = true      
+[menu]
+  [[menu.main]]
+    name = "About Me"
+    url = "/about/"
+    weight = 1
+  [[menu.main]]
+    name = "Notice"
+    url = "/notice_board/"
+    weight = 3
+  [[menu.main]]
+    name = "Blogs"
+    url = "/"
+    weight = 2
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
