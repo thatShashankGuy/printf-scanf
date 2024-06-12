@@ -1,7 +1,7 @@
 ---
 title: Database Paradigms - ACID, BASE and CAP in brief
 author: Shashank Shekhar
-date: 2023-12-08
+date: 2024-01-08
 ---
 
 When starting a project, one of the earliest design decisions you need to make is selecting a database. There are various databases available in the market. 

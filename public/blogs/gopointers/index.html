@@ -50,7 +50,7 @@
   />
 
   
-  <title>Pointers in Go - Shashank Shekhar</title>
+  <title>Go Basics - Pointers - Printf/Scanf</title>
 
   
   <meta name="theme-color" />
@@ -124,28 +124,28 @@ In the example code provided, p is a pointer to the variable x. We can use the *
 
   
   
-  <meta itemprop="name" content="Pointers in Go">
+  <meta itemprop="name" content="Go Basics - Pointers">
   <meta itemprop="description" content="In Go, a pointer is a variable that stores the memory address of another variable. We use the ampersand (&amp;) operator to get the memory address of a variable, and the asterisk (*) operator to declare a pointer variable or to access the value pointed to by a pointer.
 In the example code provided, p is a pointer to the variable x. We can use the * operator to access the value stored in the memory location pointed to by p.">
-  <meta itemprop="datePublished" content="2023-11-25T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2023-11-25T00:00:00+00:00">
-  <meta itemprop="wordCount" content="2038">
+  <meta itemprop="datePublished" content="2023-07-20T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-07-20T00:00:00+00:00">
+  <meta itemprop="wordCount" content="987">
   
   <meta property="og:url" content="https://shashankshekhar.pages.dev/blogs/gopointers/">
-  <meta property="og:site_name" content="Shashank Shekhar">
-  <meta property="og:title" content="Pointers in Go">
+  <meta property="og:site_name" content="Printf/Scanf">
+  <meta property="og:title" content="Go Basics - Pointers">
   <meta property="og:description" content="In Go, a pointer is a variable that stores the memory address of another variable. We use the ampersand (&amp;) operator to get the memory address of a variable, and the asterisk (*) operator to declare a pointer variable or to access the value pointed to by a pointer.
 In the example code provided, p is a pointer to the variable x. We can use the * operator to access the value stored in the memory location pointed to by p.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blogs">
-    <meta property="article:published_time" content="2023-11-25T00:00:00+00:00">
-    <meta property="article:modified_time" content="2023-11-25T00:00:00+00:00">
+    <meta property="article:published_time" content="2023-07-20T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-07-20T00:00:00+00:00">
 
   
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Pointers in Go">
+  <meta name="twitter:title" content="Go Basics - Pointers">
   <meta name="twitter:description" content="In Go, a pointer is a variable that stores the memory address of another variable. We use the ampersand (&amp;) operator to get the memory address of a variable, and the asterisk (*) operator to declare a pointer variable or to access the value pointed to by a pointer.
 In the example code provided, p is a pointer to the variable x. We can use the * operator to access the value stored in the memory location pointed to by p.">
 
@@ -163,7 +163,7 @@ In the example code provided, p is a pointer to the variable x. We can use the *
     <a
       class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
       href="https://shashankshekhar.pages.dev/"
-      >Shashank Shekhar</a
+      >Printf/Scanf</a
     >
     <div
       class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
@@ -238,12 +238,6 @@ In the example code provided, p is a pointer to the variable x. We can use the *
       
       <a
         class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
-        href="/"
-        >Blogs</a
-      >
-      
-      <a
-        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
         href="/notice_board/"
         >Notice</a
       >
@@ -299,12 +293,12 @@ In the example code provided, p is a pointer to the variable x. We can use the *
 
 <article>
   <header class="mb-16">
-    <h1 class="!my-0 pb-2.5">Pointers in Go</h1>
+    <h1 class="!my-0 pb-2.5">Go Basics - Pointers</h1>
 
     
     <div class="text-sm antialiased opacity-60">
       
-      <time>Nov 25, 2023</time>
+      <time>Jul 20, 2023</time>
       
       
       
@@ -330,7 +324,7 @@ In the example code provided, p is a pointer to the variable x. We can use the *
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">*</span><span style="color:#a6e22e">p</span> = <span style="color:#ae81ff">20</span>         <span style="color:#75715e">// set x through the pointer 
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">x</span>)  <span style="color:#75715e">// see the new value of x// 20 
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
-</span></span></code></pre></div><p>Comparing Pointers</p>
+</span></span></code></pre></div><h3 id="comparing-pointers">Comparing Pointers</h3>
 <ol>
 <li>Pointers can be <code>nil</code>: If a pointer is not pointing to any variable, its value is <code>nil</code>. This means the pointer does not reference a valid memory address.</li>
 <li>Pointers are comparable: Pointers in Go are comparable. You can compare two pointers using the equality (<code>==</code>) or inequality (<code>!=</code>) operators.</li>
@@ -374,7 +368,7 @@ In the example code provided, p is a pointer to the variable x. We can use the *
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Using pointers in functions allows for indirect updates to variables, which can be a powerful tool in Go programming. However, it also comes with certain considerations and potential pitfalls. Here&rsquo;s a brief explanation:</p>
-<p>Using Pointers in Functions for Indirect Updates:</p>
+<h3 id="using-pointers-in-functions-for-indirect-updates">Using Pointers in Functions for Indirect Updates:</h3>
 <ol>
 <li>Pointers allow passing the memory address of a variable to a function, rather than its value. This enables the function to directly modify the original variable&rsquo;s value, even from within a different scope.</li>
 <li>By passing a pointer to a function, changes made to the pointed-to value within the function will be reflected in the original variable.</li>
@@ -384,7 +378,7 @@ In the example code provided, p is a pointer to the variable x. We can use the *
 <li>Efficient memory usage: Instead of making a copy of the entire variable, passing a pointer allows working directly with the original variable&rsquo;s memory location, which can be beneficial for large data structures.</li>
 <li>Modify multiple variables: Pointers enable a function to modify multiple variables simultaneously, as it can access and update different variables through their respective pointers.</li>
 </ol>
-<p>Considerations and Potential Pitfalls:</p>
+<h3 id="considerations-and-potential-pitfalls">Considerations and Potential Pitfalls:</h3>
 <ol>
 <li>Mutable state: Indirect updates can lead to mutable state, making it harder to reason about code behavior and introducing potential bugs.</li>
 <li>Side effects: Functions with indirect updates can have side effects, making code less predictable and harder to maintain.</li>
@@ -438,147 +432,6 @@ In the example code provided, p is a pointer to the variable x. We can use the *
 <p>Inside the <code>parseFlags</code> function, we use the <code>flag</code> package&rsquo;s <code>IntVar</code>, <code>StringVar</code>, and <code>BoolVar</code> functions to associate the respective flags with the provided pointers. These functions allow us to directly update the values of the variables through the pointers when the corresponding flags are provided in the command line.</p>
 <p>In the <code>main</code> function, we declare variables (<code>itemCount</code>, <code>itemName</code>, <code>verboseMode</code>) that will store the flag values. We then pass the memory addresses of these variables to the <code>parseFlags</code> function using the <code>&amp;</code> operator. This allows the <code>parseFlags</code> function to update the values of these variables indirectly.</p>
 <p>After parsing the flags, we simply print out the updated values of the variables to verify that they have been updated correctly based on the provided command-line flags.</p>
-<h2 id="error-as-values--and-return-types-in-go">Error as values  and Return Types in Go</h2>
-<p>Error Handling in Go is bit different than traditional way you must have seen in programming in languages like JavaScript . Instead of traditional &ldquo;Try/Catch&rdquo; Go use something called error as values.</p>
-<p>Go, like most statically-typed languages, mandates that you define the return type of your functions. In order to understand Error handling we must first understand return types .</p>
-<p>Let&rsquo;s dive in by creating a basic function, demoFunc, that accepts a string argument and returns it in all lowercase letters. Here&rsquo;s how it&rsquo;s done:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;strings&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">demo</span>(<span style="color:#a6e22e">st</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">string</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">ToLower</span>(<span style="color:#a6e22e">st</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>In Go, you must specify the function&rsquo;s return type. If a function is designed to return a string, you must declare it explicitly, as seen above. Functions without a return type are considered &ldquo;void&rdquo; by default, like your typical main function.</p>
-<p>Here’s an example of calling our function and printing the result:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">res</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">demo</span>(<span style="color:#e6db74">&#34;CAPS&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    print(<span style="color:#a6e22e">res</span>) <span style="color:#75715e">// The result will be &#34;caps&#34;.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>But what happens when there&rsquo;s a possibility of an error occurring during our function&rsquo;s operation? That&rsquo;s where Go&rsquo;s unique approach to error handling comes into play.</p>
-<p>In Go, there are no &ldquo;try/catch&rdquo; blocks. Instead, it treats errors as values that the functions return when something goes awry. This concept means you&rsquo;ll often see functions designed to return an &ldquo;error&rdquo; type alongside the expected result.</p>
-<p>Let&rsquo;s modify our demoFunc to handle a scenario where the input string doesn’t contain any uppercase letters. We&rsquo;ll use a helper function containsUpperCase to check for uppercase letters:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;unicode&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">containsUpperCase</span>(<span style="color:#a6e22e">str</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">bool</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">ch</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">str</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">unicode</span>.<span style="color:#a6e22e">IsUpper</span>(<span style="color:#a6e22e">ch</span>) {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Now, let&rsquo;s adjust our demo function to return an error if there&rsquo;s no uppercase character:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">import</span> (
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;errors&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;strings&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">demo</span>(<span style="color:#a6e22e">st</span> <span style="color:#66d9ef">string</span>) (<span style="color:#66d9ef">string</span>, <span style="color:#66d9ef">error</span>) {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> !<span style="color:#a6e22e">containsUpperCase</span>(<span style="color:#a6e22e">st</span>) {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#a6e22e">errors</span>.<span style="color:#a6e22e">New</span>(<span style="color:#e6db74">&#34;string contains no upper case characters&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">ToLower</span>(<span style="color:#a6e22e">st</span>), <span style="color:#66d9ef">nil</span> <span style="color:#75715e">// nil here indicates that there was no error.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>In the updated demo function, we introduced a new return type: &ldquo;error&rdquo;. If the function encounters an issue (like no uppercase letters), it returns an error instead of a regular string. The nil accompanying a successful execution represents the absence of an error.</p>
-<p>Here’s how you would handle errors when calling demo:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">demo</span>(<span style="color:#e6db74">&#34;caps&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Error:&#34;</span>, <span style="color:#a6e22e">err</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Result:&#34;</span>, <span style="color:#a6e22e">res</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>In the revised main function, we check if err is not nil. If so, it indicates an error occurred, and we handle it (for example, by logging it). This pattern replaces the traditional &ldquo;try/catch&rdquo; block found in many other programming languages.</p>
-<p>In summary, Go adopts a straightforward approach to error handling that&rsquo;s baked into the language&rsquo;s design, promoting the handling of errors as regular return values.</p>
-<p>Thank you for reading, and I hope this helps you in understanding error handling in Go. Your feedback is invaluable and helps enhance the quality and clarity of this content. Stay tuned for more insights into Go and other programming paradigms!</p>
-<h2 id="structs-in-go">Structs in Go</h2>
-<p>In Go, there are no classes in the traditional sense. Instead, Go offers a unique and powerful construct known as a <code>struct</code> that serves a similar purpose but with a different approach.If you are only familiar with languages like Java C# or JavaScript chances are you have not used structs so lets discuss about them</p>
-<h3 id="what-is-a-struct-">What is a Struct ?</h3>
-<p>In Go, a <code>struct</code> is a composite data type that groups together variables (also known as fields or properties) under a single name. This grouping allows you to create custom data structures that can hold different types of data. While it may seem different from classes in C# or objects in JavaScript at first glance, <code>structs</code> in Go can be used to achieve similar programming outputs/patterns.</p>
-<p>Here&rsquo;s a basic example of a <code>struct</code> in Go:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Define a struct named &#34;Person&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Person</span> <span style="color:#66d9ef">struct</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">FirstName</span> <span style="color:#66d9ef">string</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">LastName</span>  <span style="color:#66d9ef">string</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Age</span>       <span style="color:#66d9ef">int</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Create a new instance of the &#34;Person&#34; struct
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">person</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Person</span>{
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">FirstName</span>: <span style="color:#e6db74">&#34;John&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">LastName</span>:  <span style="color:#e6db74">&#34;Doe&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">Age</span>:       <span style="color:#ae81ff">30</span>,
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Access and print the fields of the struct
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;First Name:&#34;</span>, <span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">FirstName</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Last Name:&#34;</span>, <span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">LastName</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Age:&#34;</span>, <span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">Age</span>)
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>In this example, we define a <code>Person</code> struct with three fields: <code>FirstName</code>, <code>LastName</code>, and <code>Age</code>. We then create an instance of this <code>struct</code> and access its fields using dot notation, similar to how you would access properties of an <code>object</code> in JavaScript or members of a <code>class</code> in C#.</p>
-<h2 id="understanding-structs-vs-classes-or-objects">Understanding Structs vs Classes or Objects</h2>
-<p>To draw parallels between Go&rsquo;s <code>structs</code> and the concept of classes in C# or objects in JavaScript, let&rsquo;s highlight some key points:</p>
-<ol>
-<li>
-<p><strong>Grouping Data</strong>: Just like classes or objects, <code>structs</code> allow you to group related data together. Each field within a <code>struct</code> corresponds to a property or member variable.</p>
-</li>
-<li>
-<p><strong>Custom Data Types</strong>: You can create custom data types by defining your own <code>structs</code>. This is similar to defining classes with properties in C# or creating objects with properties in JavaScript.</p>
-</li>
-<li>
-<p><strong>Access Control</strong>: Go does not have access modifiers like <code>public</code>, <code>private</code>, or <code>protected</code> as in C# or TypeScript. By convention, fields starting with an uppercase letter are exported (public), while lowercase fields are unexported (private).</p>
-</li>
-<li>
-<p><strong>Methods</strong>: While Go doesn&rsquo;t have traditional methods associated with classes, you can define functions that operate on <code>structs</code>. These functions, called methods, can be associated with a <code>struct</code>, allowing you to perform operations on instances of that <code>struct</code>.</p>
-</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">p</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Person</span>) <span style="color:#a6e22e">PrintName</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Full Name:&#34;</span>, <span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">FirstName</span>, <span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">LastName</span>)
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">PrintName</span>() <span style="color:#75715e">// Calling a method on a struct
-</span></span></span></code></pre></div><ol start="5">
-<li><strong>Composition</strong>: Go supports composition through embedding other <code>structs</code>. This is similar ( but not same as) to <code>inheritance</code> in some object-oriented languages.</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Employee</span> <span style="color:#66d9ef">struct</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Person</span>    <span style="color:#75715e">// Embedding the Person struct
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">EmployeeID</span> <span style="color:#66d9ef">int</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Go strives for simplicity and the language design shows , it ditched the traditional approach of OOP and went with classic C style struct , given that most languages are now supporting a functional/ procedural style of programming , Go really shines with it  firsthand procedural programming style. Although not designed but you can employee OOP and mimick the design patterns in Go using flexiblity of <code>structs</code> and <code>interfaces</code>. More on that later.</p>
 </section>
 
   
@@ -592,16 +445,10 @@ In the example code provided, p is a pointer to the variable x. We can use the *
     
     <a
       class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
-      href="https://shashankshekhar.pages.dev/blogs/acidbasecap/"
-      ><span class="mr-1.5">←</span><span>Database Paradigms - ACID, BASE and CAP in brief</span></a
+      href="https://shashankshekhar.pages.dev/blogs/gobasicarrayslices/"
+      ><span class="mr-1.5">←</span><span>Go Basics - Arrays vs Slices</span></a
     >
     
-    
-    <a
-      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
-      href="https://shashankshekhar.pages.dev/blogs/ionodejs/"
-      ><span>Async IO programming with Node js</span><span class="ml-1.5">→</span></a
-    >
     
   </nav>
   
@@ -627,7 +474,7 @@ In the example code provided, p is a pointer to the variable x. We can use the *
 >
   <div class="mr-auto">
     &copy; 2024
-    <a class="link" href="https://shashankshekhar.pages.dev/">Shashank Shekhar</a>
+    <a class="link" href="https://shashankshekhar.pages.dev/">Printf/Scanf</a>
   </div>
   <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
     >Powered by Hugo️️</a

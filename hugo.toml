@@ -1,9 +1,10 @@
 baseURL = 'https://shashankshekhar.pages.dev'
 languageCode = 'en-us'
-title = 'Shashank Shekhar'
+title = 'Printf/Scanf'
 theme = 'paper'
-     
+paginate = 5
 [params]
+ description = "Welcome to my blog! Dive into my world of thoughts and stories."
  github = 'https://github.com/thatShashankGuy'   
  linkedin = 'https://www.linkedin.com/in/thatshashanguy/'
  color = 'linen'
@@ -11,19 +12,19 @@ theme = 'paper'
  rss = true      
 [menu]
   [[menu.main]]
+    identifier = "about"
     name = "About Me"
     url = "/about/"
-    weight = 1
+    weight = 2
   [[menu.main]]
+    identifier = "notice_board"
     name = "Notice"
     url = "/notice_board/"
     weight = 3
-  [[menu.main]]
-    name = "Blogs"
-    url = "/"
-    weight = 2
-
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+
+
+  

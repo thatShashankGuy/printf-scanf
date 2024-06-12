@@ -1,7 +1,7 @@
 ---
 title: The Typescript Programming Guide
 author: Shashank Shekhar
-date: 2023-10-12
+date: 2023-11-15
 ---
 ## Introduction
 

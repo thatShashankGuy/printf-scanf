@@ -1,16 +1,30 @@
-Thank you for visiting my little site! 
----
+### Introduction 
 
+Hi, my name is Shashank! With over 6 years of experience in software development, database pipelines, DevOps, and production support, I've encountered a wide range of technologies. I have provided a link to my resume if you want to know more.
 
-My name is Shashank, and I am a software engineer with 6 years of experience in IT and technology.
+One of my hobbies is reading, learning, and implementing various tech-related topics. I experiment with tech paradigms, cloud infrastructure, programming languages, design patterns, and architecture, often spending a lot of time digging into technical documentation, articles, and books.
 
-I have worked in various roles—from server management to full-stack development to RPA automation engineering. In my current role, I work with various cloud services, from AWS to Azure, building, deploying, and maintaining cloud-native applications and pipelines.
+Apart from tech, I love reading fiction, history, and comedy. I am also a single-player video game fan who refuses to go to online lobbies to be told how much I suck.
 
-To know more about my work history and experience, please download my resume.
+### About **_printf/scanf_**
 
-I am based in India. I love video games and reading, and I prefer hardcopies over digital copies. Between gaming and writing software programs, I spend most of my time in front of various screens.
+I started writing about my learnings and findings as an effort to get better at note-taking. I failed, but developed an interest in research and documenting my findings.
 
-I have also developed a liking for writing technical blogs. I am working on a few currently and will be uploading them here in the blog section; feel free to check them out.
+I used to publish my articles exclusively on LinkedIn, and it turns out many people have found them helpful.
+
+I also have random topics I want to talk about, but asking a friend to sit through my venting may not be the best idea.
+
+So I decided to start **printf/scanf**—a place to consolidate my writings, research, notes, and general thought processes for you, the readers, to check out, and for me to document my own growth.
+
+### Disclaimer
+
+I am no SME on any of these subjects, and while I will try to provide links to all the references, please make sure to check out proper documentation and other resources once you go through my simplified blog.
+
+### Now that's out of the way
+
+Feel free to access my writings on the homepage and reach out via the social links provided above. 
+
+Thank you, and happy reading!
 
 
 <a href="/files/resume.pdf" download style="display: inline-block;
