@@ -1,4 +1,4 @@
-Static Site for Blogs ### Introduction 
+### Introduction 
 
 Hi, my name is Shashank! With over 6 years of experience in software development, database pipelines, DevOps, and production support, I've encountered a wide range of technologies. I have provided a link to my resume if you want to know more.
 
