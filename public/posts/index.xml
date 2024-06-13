@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Printf/Scanf</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content on Printf/Scanf</description>
+    <title>Posts on Printf/Scanf</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content in Posts on Printf/Scanf</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 11 Jun 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Learn to Love Boring</title>
       <link>http://localhost:1313/posts/learntoloveboring/</link>
@@ -70,20 +70,6 @@
       <pubDate>Thu, 20 Jul 2023 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/gopointers/</guid>
       <description>In Go, a pointer is a variable that stores the memory address of another variable. We use the ampersand (&amp;amp;) operator to get the memory address of a variable, and the asterisk (*) operator to declare a pointer variable or to access the value pointed to by a pointer.&#xA;In the example code provided, p is a pointer to the variable x. We can use the * operator to access the value stored in the memory location pointed to by p.</description>
-    </item>
-    <item>
-      <title></title>
-      <link>http://localhost:1313/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/about/</guid>
-      <description>Introduction Hi, my name is Shashank! With over 6 years of experience in software development, database pipelines, DevOps, and production support, I&amp;rsquo;ve encountered a wide range of technologies. I have provided a link to my resume if you want to know more.&#xA;One of my hobbies is reading, learning, and implementing various tech-related topics. I experiment with tech paradigms, cloud infrastructure, programming languages, design patterns, and architecture, often spending a lot of time digging into technical documentation, articles, and books.</description>
-    </item>
-    <item>
-      <title></title>
-      <link>http://localhost:1313/notice_board/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notice_board/</guid>
-      <description>Notice Board 13-06-2014 Recently read this very interesting article about how &amp;ldquo;clipboard&amp;rdquo; works in you wayland machines with ctrl+c and ctrl+p. Sharing the it here.&#xA;10-06-2014 Hi guys I am starting a new series called staight from the docs where I will try to breakdown individual features and topics a programming language/framework/technology&amp;rsquo;s into a simpler blog for your understading. Please provide your valuable feedback to improve my content.</description>
     </item>
   </channel>
 </rss>

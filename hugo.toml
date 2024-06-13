@@ -4,7 +4,6 @@ title = 'Printf/Scanf'
 theme = 'paper'
 paginate = 5
 [params]
- description = "Welcome to my blog! Dive into my world of thoughts and stories."
  github = 'https://github.com/thatShashankGuy'   
  linkedin = 'https://www.linkedin.com/in/thatshashanguy/'
  color = 'linen'

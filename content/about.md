@@ -1,4 +1,10 @@
+
+
+<img src="/files/profile.png" alt="profile pic" width="200"/>
+
+
 ### Introduction 
+
 
 Hi, my name is Shashank! With over 6 years of experience in software development, database pipelines, DevOps, and production support, I've encountered a wide range of technologies. I have provided a link to my resume if you want to know more.
 
@@ -22,7 +28,7 @@ I am no SME on any of these subjects, and while I will try to provide links to a
 
 ### Now that's out of the way
 
-Feel free to access my writings on the homepage and reach out via the social links provided above. 
+Feel free to access my posts on the homepage and reach out via the social links provided above. 
 
 Thank you, and happy reading!
 
