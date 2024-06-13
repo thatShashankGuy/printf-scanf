@@ -1,11 +1,7 @@
----
----
-
-
 ### Introduction 
 
 
-Hi, my name is Shashank! With over 6 years of experience in software development, database pipelines, DevOps, and production support, I've encountered a wide range of technologies. I have provided a link to my resume if you want to know more.
+Hi, my name is Shashank! With over 6 years of experience in software development, database pipelines, DevOps, and production support, I've encountered a wide range of technologies.
 
 One of my hobbies is reading, learning, and implementing various tech-related topics. I experiment with tech paradigms, cloud infrastructure, programming languages, design patterns, and architecture, often spending a lot of time digging into technical documentation, articles, and books.
 
@@ -32,8 +28,3 @@ Feel free to access my posts on the homepage and reach out via the social links 
 Thank you, and happy reading!
 
 
-<a href="/files/resume.pdf" download style="display: inline-block;
-text-decoration: underline; 
-border-radius: 7px;">
-    Download Resume
-</a>
