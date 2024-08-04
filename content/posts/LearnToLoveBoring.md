@@ -26,6 +26,3 @@ The thing is, my body knows that I will do it once I get to the gym, and for tho
 
 We need to be okay with working/working out/reading without motivation, an external push, a deadline, or a prize. We need to sit, embrace the boredom, and do the boring stuff.
 
-I am working on a series of posts I call **Straight from the Docs**. These posts won’t be opinions or guides but extracts simplified from technical documentation and books on Go, Node, .NET, and Databases, among other topics. This means I am going to start doing the most boring thing in the world: digging into technical documents and books as much as I can. These are not quirky blogs but official docs and well-published mammoth books to identify topics and distill them for this site.
-
-Wish me luck, and I will see you soon with the next article.
