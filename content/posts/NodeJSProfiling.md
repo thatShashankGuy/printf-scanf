@@ -4,6 +4,8 @@ author: Shashank Shekhar
 date: 2024-08-04
 ---
 
+![Alt text](/nodeJS.svg "Node")
+
 ### Introduction
 
 When building and running code on a production server, it's crucial to be aware of memory usage, CPU cycles, and other key performance indicators (KPIs) like the time complexity and duration of function calls. Software engineers often obtain and analyze these KPIs to optimize running programs and debug issues, such as memory leaks and CPU utilization, which are difficult to catch in a development environment. This activity is called **profiling**.
