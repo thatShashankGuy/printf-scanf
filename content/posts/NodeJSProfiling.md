@@ -1,7 +1,7 @@
 ---
-title: Node Dive \#1 - Profiling Your Node.js Production Code
+title: Profiling Your Node.js Production Code
 author: Shashank Shekhar
-date: 2024-01-08
+date: 2024-08-04
 ---
 
 ### Introduction
@@ -145,5 +145,5 @@ The program itself is very small and fast, and I did not find many concerns with
 
 I hope this gives you an idea of the use of profilers, the advantages of profiling your program in production, and an introduction to Node.js's built-in profiler.
 
-Thank you for reading, and I will see you in the next Node Dive. Happy coding! Cheers!
+Thank you for reading, and I will see you in the next write up soon. Happy coding! Cheers!
 

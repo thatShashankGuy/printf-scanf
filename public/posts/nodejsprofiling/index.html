@@ -1,0 +1,453 @@
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #faf8f1"
+  lang="en-us"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>Profiling Your Node.js Production Code - Printf/Scanf</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  
+  <meta name="description" content="Introduction When building and running code on a production server, it&rsquo;s crucial to be aware of memory usage, CPU cycles, and other key performance indicators (KPIs) like the time complexity and duration of function calls. Software engineers often obtain and analyze these KPIs to optimize running programs and debug issues, such as memory leaks and CPU utilization, which are difficult to catch in a development environment. This activity is called profiling." />
+  <meta name="author" content="Shashank Shekhar" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://printf-scanf.pages.dev/main.min.css" />
+
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="https://printf-scanf.pages.dev/theme.png" />
+
+  
+  
+  
+  
+  
+
+  
+  
+  <link rel="preload" as="image" href="https://printf-scanf.pages.dev/github.svg" />
+  
+  <link rel="preload" as="image" href="https://printf-scanf.pages.dev/linkedin.svg" />
+  
+  <link rel="preload" as="image" href="https://printf-scanf.pages.dev/rss.svg" />
+  
+  
+
+  
+  
+  <script
+    defer
+    src="https://printf-scanf.pages.dev/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+
+  
+  <link rel="icon" href="https://printf-scanf.pages.dev/fav.png" />
+  <link rel="apple-touch-icon" href="https://printf-scanf.pages.dev/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.126.1">
+
+  
+  
+  
+  
+  
+
+
+  
+  
+  <meta itemprop="name" content="Profiling Your Node.js Production Code">
+  <meta itemprop="description" content="Introduction When building and running code on a production server, it’s crucial to be aware of memory usage, CPU cycles, and other key performance indicators (KPIs) like the time complexity and duration of function calls. Software engineers often obtain and analyze these KPIs to optimize running programs and debug issues, such as memory leaks and CPU utilization, which are difficult to catch in a development environment. This activity is called profiling.">
+  <meta itemprop="datePublished" content="2024-08-04T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-08-04T00:00:00+00:00">
+  <meta itemprop="wordCount" content="913">
+  
+  <meta property="og:url" content="https://printf-scanf.pages.dev/posts/nodejsprofiling/">
+  <meta property="og:site_name" content="Printf/Scanf">
+  <meta property="og:title" content="Profiling Your Node.js Production Code">
+  <meta property="og:description" content="Introduction When building and running code on a production server, it’s crucial to be aware of memory usage, CPU cycles, and other key performance indicators (KPIs) like the time complexity and duration of function calls. Software engineers often obtain and analyze these KPIs to optimize running programs and debug issues, such as memory leaks and CPU utilization, which are difficult to catch in a development environment. This activity is called profiling.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-08-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-08-04T00:00:00+00:00">
+
+  
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Profiling Your Node.js Production Code">
+  <meta name="twitter:description" content="Introduction When building and running code on a production server, it’s crucial to be aware of memory usage, CPU cycles, and other key performance indicators (KPIs) like the time complexity and duration of function calls. Software engineers often obtain and analyze these KPIs to optimize running programs and debug issues, such as memory leaks and CPU utilization, which are difficult to catch in a development environment. This activity is called profiling.">
+
+  
+  
+  
+  <link rel="canonical" href="https://printf-scanf.pages.dev/posts/nodejsprofiling/" />
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
+      href="https://printf-scanf.pages.dev/"
+      >Printf/Scanf</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#faf8f1'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/about/"
+        >About Me</a
+      >
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/notice_board/"
+        >Notice</a
+      >
+      
+    </nav>
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:ml-12 lg:mt-0 lg:items-center lg:space-x-6"
+    >
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./github.svg)"
+        href="https://github.com/https://github.com/thatShashankGuy"
+        target="_blank"
+        rel="me"
+      >
+        github
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./linkedin.svg)"
+        href="https://linkedin.com/in/https://www.linkedin.com/in/thatshashanguy/"
+        target="_blank"
+        rel="me"
+      >
+        linkedin
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./rss.svg)"
+        href="https://printf-scanf.pages.dev/index.xml"
+        target="_blank"
+        rel="alternate"
+      >
+        rss
+      </a>
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">Profiling Your Node.js Production Code</h1>
+
+    
+    <div class="text-sm antialiased opacity-60">
+      
+      <time>Aug 4, 2024</time>
+      
+      
+      
+      
+      <span class="mx-1">&middot;</span>
+      <span>Shashank Shekhar</span>
+      
+    </div>
+    
+  </header>
+
+  <section><h3 id="introduction">Introduction</h3>
+<p>When building and running code on a production server, it&rsquo;s crucial to be aware of memory usage, CPU cycles, and other key performance indicators (KPIs) like the time complexity and duration of function calls. Software engineers often obtain and analyze these KPIs to optimize running programs and debug issues, such as memory leaks and CPU utilization, which are difficult to catch in a development environment. This activity is called <strong>profiling</strong>.</p>
+<p>Profiling is achieved by instrumenting either the program&rsquo;s source code or its binary executable form using a tool called a <strong>profiler</strong>. Profilers may use various techniques, such as <strong>event-based, statistical, instrumented, and simulation methods</strong>.</p>
+<h3 id="statistical-profiling">Statistical Profiling</h3>
+<p>In this article, we will focus on statistical profiling in Node.js programs.</p>
+<p>In statistical profiling, the profiler interrupts the execution of a program at random intervals and checks where the instruction pointer is. The number of times the pointer stops in each function’s block is roughly proportional to the total time spent executing these functions. You can also gather other useful information, such as finding out which functions are called by which functions by inspecting the call stack.</p>
+<p>With definitions out of the way, let&rsquo;s demonstrate a simple profiling exercise using a small Node.js program.</p>
+<h3 id="program-to-profile">Program to Profile</h3>
+<p>Our program is a simple function that takes an image, compresses it, and outputs a zip file of the compressed image.</p>
+<p>We use two libraries, <code>sharp</code> and <code>archiver</code>, to streamline our code. You can install these via the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install sharp archiver 
+</span></span></code></pre></div><p>Below is the code. I am using a single <code>app.mjs</code> file to execute the function:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">fs</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;fs&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">sharp</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;sharp&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">archiver</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;archiver&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">compAndZip</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">sharp</span>(<span style="color:#e6db74">&#39;image.jpg&#39;</span>).<span style="color:#a6e22e">resize</span>(<span style="color:#ae81ff">800</span>, <span style="color:#ae81ff">600</span>, { <span style="color:#a6e22e">fit</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;inside&#39;</span> }).<span style="color:#a6e22e">toFile</span>(<span style="color:#e6db74">&#39;compressed_image.jpg&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">output</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">createWriteStream</span>(<span style="color:#e6db74">&#39;zipped_image.zip&#39;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">archive</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">archiver</span>(<span style="color:#e6db74">&#39;zip&#39;</span>, { <span style="color:#a6e22e">zlib</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">level</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">9</span> } });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">output</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;close&#39;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">archive</span>.<span style="color:#a6e22e">pointer</span>() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; total bytes&#39;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Zip successful&#39;</span>);
+</span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">archive</span>.<span style="color:#a6e22e">pipe</span>(<span style="color:#a6e22e">output</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">archive</span>.<span style="color:#a6e22e">file</span>(<span style="color:#e6db74">&#39;compressed_image.jpg&#39;</span>, { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;compressed_image.jpg&#39;</span> });
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">archive</span>.<span style="color:#a6e22e">finalize</span>();
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">error</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`Error while archiving and compressing: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">message</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">compAndZip</span>();
+</span></span></code></pre></div><p><em>Note: To keep things simple, my function does not take any arguments. Instead, it expects the input file to be in the same directory and generates the two output files in the same directory as well. You can update the code to pass input and output paths as arguments.</em></p>
+<h3 id="explanation">Explanation</h3>
+<p>The <code>compAndZip</code> function uses <code>sharp</code> to compress and resize the image, and <code>archiver</code> to archive the file in <code>zip</code> format. It uses Node&rsquo;s <code>zlib</code> utility library for compression.</p>
+<h3 id="profiling-the-program">Profiling the Program</h3>
+<p>While there are many third-party options, the goal of this article is to explore the built-in tools and utilities provided by the Node.js runtime.</p>
+<p>Node.js provides a built-in profiler that uses the profiler inside V8, which samples the stack at regular intervals during program execution (statistical profiling). It records the results of these samples, along with important optimization events such as JIT compiles, as a series of ticks (see tick file example below).</p>
+<p>We can illustrate the tick profiler using our program.</p>
+<p>By default, the environment for all Node.js programs is set to development. To run your program in a production environment, you need to explicitly set the <code>NODE_ENV</code> value to <code>production</code>.</p>
+<p>Let&rsquo;s run our profiler in a production environment using a bash terminal:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>NODE_ENV<span style="color:#f92672">=</span>production node --prof app.mjs
+</span></span></code></pre></div><p>This generates a tick file as described above.</p>
+<pre tabindex="0"><code class="language-log" data-lang="log">code-creation,Builtin,2,4958,0x1013e0fe0,724,Construct_Baseline
+code-creation,Builtin,2,4958,0x1013e12c0,728,Construct_WithFeedback
+code-creation,Builtin,2,4958,0x1013e15a0,540,JSConstructStubGeneric
+code-creation,Builtin,2,4958,0x1013e17c0,448,JSBuiltinsConstructStub
+</code></pre><p>Since we ran our application using the <code>--prof</code> option, a tick file was generated in the same directory as your local run of the application. It should have the form <code>isolate-0xnnnnnnnnnnnn-v8.log</code> (where <code>n</code> is a digit).</p>
+<p>Going through the file, you will see a lot of unreadable data. <strong>To make sense of this file, we need to use the tick processor bundled with the Node.js binary</strong>. To run the processor, use the <code>--prof-process</code> flag:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>node --prof-process isolate-0xnnnnnnnnnnnn-v8.log &gt; processed_profile.txt
+</span></span></code></pre></div><p>I am saving the processed profile in <code>processed_profile.txt</code>, but you can name it whatever you want.</p>
+<p>For the file I generated, the command looked like this (though the file name will be different for each profile):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>node --prof-process isolate-0x148008000-10352-v8.log &gt; processed_profile.txt  
+</span></span></code></pre></div><p>Below is the profile:</p>
+<pre tabindex="0"><code class="language-log" data-lang="log">Statistical profiling result from isolate-0x148008000-10352-v8.log, (268 ticks, 251 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+     17    6.3%          /Users/shashankshekhar/.nvm/versions/node/v20.10.0/bin/node
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+
+ [C++]:
+   ticks  total  nonlib   name
+
+ [Summary]:
+   ticks  total  nonlib   name
+      0    0.0%    0.0%  JavaScript
+      0    0.0%    0.0%  C++
+      3    1.1%    1.2%  GC
+     17    6.3%          Shared libraries
+    251   93.7%          Unaccounted
+</code></pre><h3 id="analyzing-the-profile">Analyzing the Profile</h3>
+<p><strong>High Unaccounted Ticks (93.7%)</strong>: The majority of the ticks (93.7%) are unaccounted for, suggesting that the profiler was unable to attribute these ticks to specific functions or libraries.</p>
+<p><strong>Shared Libraries (6.3%)</strong>: A small portion of the ticks is attributed to shared libraries. This includes the Node.js runtime itself.</p>
+<p><strong>Garbage Collection (1.1%)</strong>: A minor portion of ticks is spent on garbage collection, indicating that memory management is not a significant performance concern in this run.</p>
+<p><strong>JavaScript and C++ Execution (0.0%)</strong>: No ticks were attributed directly to JavaScript or C++ code execution.</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>The program itself is very small and fast, and I did not find many concerns with the profile. However, as demonstrated here, we can optimize our code based on the data provided, such as GC and unaccounted ticks.</p>
+<p>I hope this gives you an idea of the use of profilers, the advantages of profiling your program in production, and an introduction to Node.js&rsquo;s built-in profiler.</p>
+<p>Thank you for reading, and I will see you in the next write up soon. Happy coding! Cheers!</p>
+</section>
+
+  
+  
+
+  
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://printf-scanf.pages.dev/posts/learntoloveboring/"
+      ><span>Learn to Love Boring</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2024
+    <a class="link" href="https://printf-scanf.pages.dev/">Printf/Scanf</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >✎ Paper</a
+  >
+</footer>
+
+  </body>
+</html>
