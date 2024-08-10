@@ -4,7 +4,7 @@ author: Shashank Shekhar
 date: 2024-08-04
 ---
 
-![Alt text](/nodeJS.svg "Node")
+![Nodejs](/nodeJS.svg "Node")
 
 ### Introduction
 
