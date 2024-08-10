@@ -50,7 +50,7 @@
   />
 
   
-  <title>Memory Management in JavaScript - Printf/Scanf</title>
+  <title>Garbage Collection in JavaScript - Printf/Scanf</title>
 
   
   <meta name="theme-color" />
@@ -59,8 +59,9 @@
   
   
   
-  <meta name="description" content="Memory Management in JavaScript: Garbage Collection What is Garbage Collection? Unlike low-level languages like C, where memory management (allocation and freeing of memory) is handled by developers, high-level languages like JavaScript manage memory automatically. JavaScript abstracts the key concepts of allocating and freeing memory by implementing various algorithms.
-The process of identifying memory that has been allocated but is no longer required by the program, referred to as garbage, is known as garbage collection." />
+  <meta name="description" content="What is Garbage Collection? Unlike low-level languages like C, where memory management (allocation and freeing of memory) is handled by developers, high-level languages like JavaScript manage memory automatically. JavaScript abstracts the key concepts of allocating and freeing memory by implementing various algorithms.
+The process of identifying memory that has been allocated but is no longer required by the program, referred to as garbage, is known as garbage collection.
+Garbage Collection Algorithms There are many garbage collection algorithms, such as Mark and Sweep, Reference Counting, Generational Garbage Collection, and Mark-Compact, among others." />
   <meta name="author" content="Shashank Shekhar" />
   
 
@@ -124,18 +125,20 @@ The process of identifying memory that has been allocated but is no longer requi
 
   
   
-  <meta itemprop="name" content="Memory Management in JavaScript">
-  <meta itemprop="description" content="Memory Management in JavaScript: Garbage Collection What is Garbage Collection? Unlike low-level languages like C, where memory management (allocation and freeing of memory) is handled by developers, high-level languages like JavaScript manage memory automatically. JavaScript abstracts the key concepts of allocating and freeing memory by implementing various algorithms.
-The process of identifying memory that has been allocated but is no longer required by the program, referred to as garbage, is known as garbage collection.">
+  <meta itemprop="name" content="Garbage Collection in JavaScript">
+  <meta itemprop="description" content="What is Garbage Collection? Unlike low-level languages like C, where memory management (allocation and freeing of memory) is handled by developers, high-level languages like JavaScript manage memory automatically. JavaScript abstracts the key concepts of allocating and freeing memory by implementing various algorithms.
+The process of identifying memory that has been allocated but is no longer required by the program, referred to as garbage, is known as garbage collection.
+Garbage Collection Algorithms There are many garbage collection algorithms, such as Mark and Sweep, Reference Counting, Generational Garbage Collection, and Mark-Compact, among others.">
   <meta itemprop="datePublished" content="2024-08-10T00:00:00+00:00">
   <meta itemprop="dateModified" content="2024-08-10T00:00:00+00:00">
-  <meta itemprop="wordCount" content="952">
+  <meta itemprop="wordCount" content="946">
   
   <meta property="og:url" content="https://printf-scanf.pages.dev/posts/markandsweep/">
   <meta property="og:site_name" content="Printf/Scanf">
-  <meta property="og:title" content="Memory Management in JavaScript">
-  <meta property="og:description" content="Memory Management in JavaScript: Garbage Collection What is Garbage Collection? Unlike low-level languages like C, where memory management (allocation and freeing of memory) is handled by developers, high-level languages like JavaScript manage memory automatically. JavaScript abstracts the key concepts of allocating and freeing memory by implementing various algorithms.
-The process of identifying memory that has been allocated but is no longer required by the program, referred to as garbage, is known as garbage collection.">
+  <meta property="og:title" content="Garbage Collection in JavaScript">
+  <meta property="og:description" content="What is Garbage Collection? Unlike low-level languages like C, where memory management (allocation and freeing of memory) is handled by developers, high-level languages like JavaScript manage memory automatically. JavaScript abstracts the key concepts of allocating and freeing memory by implementing various algorithms.
+The process of identifying memory that has been allocated but is no longer required by the program, referred to as garbage, is known as garbage collection.
+Garbage Collection Algorithms There are many garbage collection algorithms, such as Mark and Sweep, Reference Counting, Generational Garbage Collection, and Mark-Compact, among others.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -145,9 +148,10 @@ The process of identifying memory that has been allocated but is no longer requi
   
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Memory Management in JavaScript">
-  <meta name="twitter:description" content="Memory Management in JavaScript: Garbage Collection What is Garbage Collection? Unlike low-level languages like C, where memory management (allocation and freeing of memory) is handled by developers, high-level languages like JavaScript manage memory automatically. JavaScript abstracts the key concepts of allocating and freeing memory by implementing various algorithms.
-The process of identifying memory that has been allocated but is no longer required by the program, referred to as garbage, is known as garbage collection.">
+  <meta name="twitter:title" content="Garbage Collection in JavaScript">
+  <meta name="twitter:description" content="What is Garbage Collection? Unlike low-level languages like C, where memory management (allocation and freeing of memory) is handled by developers, high-level languages like JavaScript manage memory automatically. JavaScript abstracts the key concepts of allocating and freeing memory by implementing various algorithms.
+The process of identifying memory that has been allocated but is no longer required by the program, referred to as garbage, is known as garbage collection.
+Garbage Collection Algorithms There are many garbage collection algorithms, such as Mark and Sweep, Reference Counting, Generational Garbage Collection, and Mark-Compact, among others.">
 
   
   
@@ -293,7 +297,7 @@ The process of identifying memory that has been allocated but is no longer requi
 
 <article>
   <header class="mb-16">
-    <h1 class="!my-0 pb-2.5">Memory Management in JavaScript</h1>
+    <h1 class="!my-0 pb-2.5">Garbage Collection in JavaScript</h1>
 
     
     <div class="text-sm antialiased opacity-60">
@@ -310,8 +314,7 @@ The process of identifying memory that has been allocated but is no longer requi
     
   </header>
 
-  <section><h3 id="memory-management-in-javascript-garbage-collection">Memory Management in JavaScript: Garbage Collection</h3>
-<p><img src="/javascript.png" alt="JS Image" title="js"></p>
+  <section><p><img src="/javascript.png" alt="JS Image" title="js"></p>
 <h4 id="what-is-garbage-collection">What is Garbage Collection?</h4>
 <p>Unlike low-level languages like C, where memory management (allocation and freeing of memory) is handled by developers, high-level languages like JavaScript manage memory automatically. JavaScript abstracts the key concepts of allocating and freeing memory by implementing various algorithms.</p>
 <p>The process of identifying memory that has been allocated but is no longer required by the program, referred to as <em>garbage</em>, is known as <em>garbage collection</em>.</p>

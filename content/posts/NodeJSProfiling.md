@@ -147,5 +147,6 @@ The program itself is very small and fast, and I did not find many concerns with
 
 I hope this gives you an idea of the use of profilers, the advantages of profiling your program in production, and an introduction to Node.js's built-in profiler.
 
-Thank you for reading, and I will see you in the next write up soon. Happy coding! Cheers!
+Thank you for reading, and I will see you in the next post soon. Happy coding! Cheers!!!
 
+***FootNotes** : Code example provided here can be accessed at my [Github Repo - Node Profiler](https://github.com/thatShashankGuy/applet_vega/tree/master)*

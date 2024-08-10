@@ -1,10 +1,8 @@
 ---
-Title: Memory Management in JavaScript  
+Title: Garbage Collection in JavaScript  
 Author: Shashank Shekhar  
 Date: 2024-08-10
 ---
-
-### Memory Management in JavaScript: Garbage Collection
 
 ![JS Image](/javascript.png "js")
 
