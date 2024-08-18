@@ -4,7 +4,7 @@ Author: Shashank Shekhar
 Date: 2024-08-10
 ---
 
-![JS Image](/javascript2.png "js")
+![JS Image](/js.svg "js")
 
 #### What is Garbage Collection?
 
