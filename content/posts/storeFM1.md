@@ -65,6 +65,7 @@ This creates the following structure:
 |--server/
 |---template/
 |----index.html
+|----audio-player.html
 |---main.go
 |--store/
 |---audiofile1.mp3
@@ -117,44 +118,42 @@ func listFileHandler(w http.ResponseWriter, r *http.Request) {
 	list, err := listFiles()
 
 	if err != nil {
-		http.Error(w, "Error Occurred While Parsing the list", http.StatusInternalServerError)
-		fmt.Printf("Error listing files: %v", err)
+		http.Error(w, "Error Occured While Parsing the list", http.StatusInternalServerError)
+		fmt.Printf("Error listing files:%v", err)
 		return
 	}
 
 	tmpl, err := template.ParseFiles("templates/index.html")
 
 	if err != nil {
-		http.Error(w, "Error Occurred While Parsing the HTML template with list", http.StatusInternalServerError)
+		http.Error(w, "Error Occured While Parsing the html template with list", http.StatusInternalServerError)
 		fmt.Printf("Error Parsing files: %v", err)
 		return
 	}
 
 	err = tmpl.Execute(w, list)
 	if err != nil {
-		http.Error(w, "Error Occurred While Embedding the list in template", http.StatusInternalServerError)
+		http.Error(w, "Error Occured While Embedding the list in template", http.StatusInternalServerError)
 		fmt.Printf("Error Executing template: %v", err)
 		return
 	}
 
 }
-
 func playFileHandler(w http.ResponseWriter, r *http.Request) {
 	item := r.URL.Query().Get("item")
 	cwd, err := os.Getwd()
 
 	if err != nil {
-		http.Error(w, "Error Occurred While Playing the audio file", http.StatusInternalServerError)
+		http.Error(w, "Error Occured While Playing the audio file", http.StatusInternalServerError)
 		fmt.Printf("Error Playing File: %v", err)
 		return
 	}
 	filePath := filepath.Join(cwd, storePath, item)
-	fmt.Println(filePath)
 
 	file, err := os.Open(filePath)
 
 	if err != nil {
-		http.Error(w, "Error Occurred While Playing the audio file", http.StatusInternalServerError)
+		http.Error(w, "Error Occured While Playing the audio file", http.StatusInternalServerError)
 		fmt.Printf("Error Playing File: %v", err)
 		return
 	}
@@ -166,17 +165,21 @@ func playFileHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "File stat error.", 500)
 		return
 	}
+	fmt.Printf("Playing file: %s, Size: %d bytes\n", fileInfo.Name(), fileInfo.Size())
+	tmpl := template.Must(template.ParseFiles("templates/audio-player.html"))
+	tmpl.Execute(w, struct {
+		File string
+	}{
+		File: "/store/" + item,
+	})
 
-	w.Header().Set("Content-Type", "audio/mpeg")
-	w.Header().Set("Content-Disposition", "inline")
-	http.ServeContent(w, r, item, fileInfo.ModTime(), file)
 }
 
 func main() {
 	const PORT = ":8080"
 	http.HandleFunc("/", listFileHandler)
 	http.HandleFunc("/play", playFileHandler)
-
+	http.Handle("/store/", http.StripPrefix("/store/", http.FileServer(http.Dir("../store"))))
 	fmt.Printf("Server is running at %v ", PORT)
 	err := http.ListenAndServe(PORT, nil)
 
@@ -186,158 +189,72 @@ func main() {
 }
 ```
 
-The template along with Go's HTML/Template engine will act as our client. The code is provided here:
+For client side UI we will be using HTMX and Go's templating engine to reduce the amount of javascript in code. HTMX is not scope of this article but we will touch on that later.Code is provided below 
 
+index.html
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Audio Vega</title>
-    <style>
-        body {
-            background-color: black;
-            color: white;
-            font-family: monospace;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            cursor: pointer;
-            padding: 5px;
-            border: 1px solid white;
-            margin-bottom: 5px;
-        }
-        li:hover {
-            background-color: grey;
-        }
-        .audio-container {
-            margin-top: 20px;
-            text-align: center;
-        }
-        #waveform {
-            width: 100%;
-            height: 128px;
-        }
-        .controls {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 10px;
-        }
-        .play-button, .volume-icon {
-            background: none;
-            border: none;
-            cursor: pointer;
-            margin: 0 10px;
-        }
-        .play-button-icon, .volume-icon {
-            width: 30px;
-            height: 30px;
-        }
-        .volume-slider {
-            width: 100px;
-        }
-    </style>
-    <script src="https://unpkg.com/wavesurfer.js@4.6.0/dist/wavesurfer.js"></script>
-    <script>
-        let wavesurfer;
-
-        document.addEventListener('DOMContentLoaded', function() {
-            wavesurfer = WaveSurfer.create({
-                container: '#waveform',
-                waveColor: 'orange',
-                progressColor: 'white',
-                height: 128,
-            });
-
-            wavesurfer.on('ready', function() {
-                document.getElementById('totalDuration').textContent = formatTime(wavesurfer.getDuration());
-            });
-
-            wavesurfer.on('audioprocess', function() {
-                document.getElementById('currentTime').textContent = formatTime(wavesurfer.getCurrentTime());
-            });
-
-            wavesurfer.on('finish', function() {
-                document.getElementById('playButtonIcon').src = 'assets/icons/play.svg';
-            });
-
-            document.getElementById('volumeSlider').addEventListener('input', function() {
-                wavesurfer.setVolume(this.value / 100);
-            });
-        });
-
-        function playAudio(item) {
-            fetch('/play?item=' + encodeURIComponent
-
-(item))
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.blob();
-                })
-                .then(blob => {
-                    const audioUrl = URL.createObjectURL(blob);
-                    wavesurfer.load(audioUrl);
-                    wavesurfer.on('ready', function() {
-                        wavesurfer.play();
-                        document.getElementById('playButtonIcon').src = 'assets/icons/pause.svg';
-                    });
-                })
-                .catch(error => console.error('Error while playing audio:', error));
-        }
-
-        function togglePlayPause() {
-            if (wavesurfer.isPlaying()) {
-                wavesurfer.pause();
-                document.getElementById('playButtonIcon').src = 'assets/icons/play.svg';
-            } else {
-                wavesurfer.play();
-                document.getElementById('playButtonIcon').src = 'assets/icons/pause.svg';
-            }
-        }
-
-        function formatTime(seconds) {
-            const minutes = Math.floor(seconds / 60);
-            const secs = Math.floor(seconds % 60);
-            return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
-        }
-    </script>
+    <script src="https://unpkg.com/htmx.org@2.0.2"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>StoreFM</title>
 </head>
-<body>
-    <h1>Audio Vega Store</h1>
-    <ul>
-        {{range .}}
-        <li onclick="playAudio('{{.}}')">{{.}}</li>
-        {{end}}
-    </ul>
-    <div class="audio-container">
-        <div id="waveform"></div>
-        <div class="controls">
-            <button id="playButton" class="play-button" onclick="togglePlayPause()">
-                <span style="color: white;">Play/Pause</span> 
-            </button>
-            <input
-                id="volumeSlider"
-                class="volume-slider"
-                type="range"
-                name="volume-slider"
-                min="0"
-                max="100"
-                value="50"
-            />
+<body class="bg-gray-100 text-gray-900 font-sans">
+    <div class="container mx-auto p-6">
+        <h1 class="text-4xl font-extrabold text-center text-pink-600 mb-8">StoreFM</h1>
+        <ul class="space-y-4">
+            {{range .}}
+            <li class="p-4 bg-white rounded-lg shadow hover:bg-pink-100 cursor-pointer flex items-center space-x-4" hx-get="/play?item={{.}}" hx-target="#audio-player" hx-swap="innerHTML">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-4.586-2.768A1 1 0 009 9.234v5.532a1 1 0 001.166.98l4.586-2.768a1 1 0 000-1.732z" />
+                </svg>
+                <span>{{.}}</span>
+            </li>
+            {{end}}
+        </ul>
+        <!-- This is the target where the audio player will be injected -->
+        <div id="audio-player" class="mt-8"></div>
+    </div>
+</body>
+</html>
+```
+
+audio-player.html
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/htmx.org@2.0.2"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>StoreFM - Audio Player</title>
+</head>
+<body class="bg-gray-100 text-gray-900 font-sans">
+    <div class="container mx-auto p-6">
+        <h1 class="text-2xl font-bold text-center text-pink-600 mb-4">Now Playing</h1>
+        <div class="p-4 bg-white rounded-lg shadow flex items-center justify-center">
+            <div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-md">
+                <audio controls class="w-full max-w-lg rounded-lg overflow-hidden shadow-lg">
+                    <source src="{{.File}}" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <div class="mt-4 text-center">
+                    <p class="text-gray-700 text-sm">Now playing: {{.File}}</p>
+                </div>
+            </div>
+            
         </div>
-        <div>
-            <span id="currentTime">0:00</span> / <span id="totalDuration">0:00</span>
+        <div class="mt-4 text-center">
+            <a href="/" class="text-pink-500 hover:text-pink-700">Back to list</a>
         </div>
     </div>
 </body>
 </html>
+
 ```
 
 #### Creating a Web Service in Go
