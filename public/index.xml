@@ -10,9 +10,9 @@
     <atom:link href="https://printf-scanf.pages.dev/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Working with Go&#39;s Standard Library - StoreFM#1</title>
-      <link>https://printf-scanf.pages.dev/posts/webappingo/</link>
+      <link>https://printf-scanf.pages.dev/posts/storefm1/</link>
       <pubDate>Sun, 18 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>https://printf-scanf.pages.dev/posts/webappingo/</guid>
+      <guid>https://printf-scanf.pages.dev/posts/storefm1/</guid>
       <description>Introduction In my previous posts, we discussed Go&amp;rsquo;s syntax and how it allows developers to write C-like code for modern development. While we will continue to explore the language specifications in detail, another aspect of Go that stands out is its modern standard library.&#xA;The Go standard library is simply one of the best—if not the best—I have ever used. Many quality-of-life libraries and tools that might require third-party dependencies in other languages are available out of the box in Go&amp;rsquo;s standard library.</description>
     </item>
     <item>
