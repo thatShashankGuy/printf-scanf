@@ -3,6 +3,8 @@ title: Learn to Love Boring
 author: Shashank Shekhar
 date:  2024-06-11
 ---
+![Boring](/boring.png "Boring")
+
 This is not my usual technical/CSE adjacent post. My articles are mostly tech-related, but I wanted to discuss something different today.
 
 For the past few months, precisely six, I have not been writing anything. I re-did my `Svelte` SPA site and turned it into this `Hugo` based SSG, removing the clutter to focus on writing.

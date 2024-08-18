@@ -3,6 +3,7 @@ title: Go Basics - Map and Structs
 author: Shashank Shekhar
 date: 2023-10-09
 ---
+![Go](/Go.png "Go")
 
 While arrays and slices form the core of sequential data structures, maps, interfaces, and structs offer unique capabilities, especially when transitioning from a language like TypeScript. Lets talk about them today.
 

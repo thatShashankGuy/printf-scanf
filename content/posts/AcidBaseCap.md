@@ -4,6 +4,8 @@ author: Shashank Shekhar
 date: 2024-01-08
 ---
 
+![Database](/db.svg "Database")
+
 When starting a project, one of the earliest design decisions you need to make is selecting a database. There are various databases available in the market. 
 
 Initially, most databases were of SQL flavors, grouped as Relational Databases, and they used the de facto method of saving data into tables and establishing relationships between these tables. You can read more about [History of SQL](https://learnsql.com/blog/history-of-sql/). 

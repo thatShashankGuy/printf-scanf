@@ -3,6 +3,9 @@ title: The Typescript Programming Guide
 author: Shashank Shekhar
 date: 2023-11-15
 ---
+
+![TS Image](/typescript.png "js")
+
 ## Introduction
 
 By now, TypeScript has emerged as a fully-fledged de facto standard for writing secure, enterprise-grade Node apps. I am building this guide from  my experience and the TypeScript handbook to offer a brief introduction for those transitioning from JavaScript but please beware I am no SME on typescript. Readers should have some familiarity with JavaScript and Object-Oriented Programming (OOP). As we all are busy people I have kept the guide as concise as possible while being as clear as  I can. For a deeper dive into any topic, resources are provided at the end.

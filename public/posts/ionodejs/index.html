@@ -310,7 +310,8 @@ Consider Node/ Browser Architecture , When program starts it start a main thread
     
   </header>
 
-  <section><h2 id="introduction">Introduction</h2>
+  <section><p><img src="/nodeJS.svg" alt="Nodejs" title="Node"></p>
+<h2 id="introduction">Introduction</h2>
 <p>Asynchronous programming is a technique that enables your program to start a potentially long-running task and still be able to be responsive to other events while that task runs, rather than having to wait until that task has finished.</p>
 <p>Consider Node/ Browser Architecture , When program starts it start a main thread on which wil run your javascript program . While one set of instructions ( code ) is running on this thread the thread is <code>busy</code></p>
 <p>Now say a set of instructions called  <strong>Program1</strong> reading a large file  from a disk .Another set of instruction called <strong>Program2</strong> need to execute another function . <strong>Program2</strong> cannot start till <strong>Program1</strong> is finished. Our code also need to run another <strong>Program3</strong> with the result set of first program .</p>

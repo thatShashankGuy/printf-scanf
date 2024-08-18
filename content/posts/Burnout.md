@@ -4,6 +4,8 @@ author: Shashank Shekhar
 date: 2023-12-25
 ---
 
+![burnout](/burnout2.png "burnout")
+
 About three months ago, I felt intense pressure in my career. I did not feel like learning anything, and doing my job was a struggle. At that point in time, I didn't understand what was going on, but now I know I was going through a phase of burnout.
 
 Burnouts are quite common in the workforce, and you will find hundreds of people sharing their stories of burnout.

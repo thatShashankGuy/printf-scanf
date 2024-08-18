@@ -3,6 +3,7 @@ title: Go Basics - Pointers
 author: Shashank Shekhar
 date: 2023-07-20
 ---
+![Go](/Go.png "Go")
 
 In Go, a pointer is a variable that stores the memory address of another variable. We use the ampersand (`&`) operator to get the memory address of a variable, and the asterisk (`*`) operator to declare a pointer variable or to access the value pointed to by a pointer.
 

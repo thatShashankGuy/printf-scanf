@@ -3,6 +3,8 @@ title: Async IO programming with Node js
 author: Shashank Shekhar
 date:  2023-12-15
 ---
+![Nodejs](/nodeJS.svg "Node")
+
 ## Introduction 
 Asynchronous programming is a technique that enables your program to start a potentially long-running task and still be able to be responsive to other events while that task runs, rather than having to wait until that task has finished.
 

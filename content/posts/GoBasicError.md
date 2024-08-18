@@ -3,6 +3,7 @@ title: Go Basics - Error as values
 author: Shashank Shekhar
 date: 2023-10-29
 ---
+![Go](/Go.png "Go")
 
 Error Handling in Go is bit different than traditional way you must have seen in programming in languages like JavaScript . Instead of traditional "Try/Catch" Go use something called error as values. 
 

@@ -3,6 +3,8 @@ title: Go Basics - Arrays vs Slices
 author: Shashank Shekhar
 date: 2023-08-11
 ---
+![Go](/Go.png "Go")
+
 With this article I have tried giving a brief overview of two fundamental data structures in the Go programming language: arrays and slices. This may help anyone coming from a dynamic language to Go and understand the basics of couple of most used data structures in all programs . 
 
 Arrays

@@ -149,4 +149,4 @@ I hope this gives you an idea of the use of profilers, the advantages of profili
 
 Thank you for reading, and I will see you in the next post soon. Happy coding! Cheers!!!
 
-***FootNotes** : Code example provided here can be accessed at my [Github Repo - Node Profiler](https://github.com/thatShashankGuy/applet_vega/tree/master)*
+***FootNotes** : Code example provided here can be accessed at my [Github Repo - Node Profiler](https://github.com/thatShashankGuy/code-examples/tree/master)*
