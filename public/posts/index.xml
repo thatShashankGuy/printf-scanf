@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Printf/Scanf</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 25 Aug 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://printf-scanf.pages.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building Web APIs in Go - StoreFM#2</title>
+      <link>https://printf-scanf.pages.dev/posts/storefm2/</link>
+      <pubDate>Sun, 25 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://printf-scanf.pages.dev/posts/storefm2/</guid>
+      <description>This is a continuation of the Store FM series, where we discuss web application development with Go and analyze the Go standard library. In the previous article, we set up our project with a Go backend and an HTML+HTMX frontend.&#xA;Today, we will be analyzing how to work with various API endpoints through which our frontend interacts with the server.&#xA;We will focus on three packages from the standard library in this article:</description>
+    </item>
     <item>
       <title>Working with Go&#39;s Standard Library - StoreFM#1</title>
       <link>https://printf-scanf.pages.dev/posts/storefm1/</link>
