@@ -4,9 +4,9 @@ title = 'Printf/Scanf'
 theme = 'paper'
 paginate = 5
 [params]
- github = 'https://github.com/thatShashankGuy'   
- linkedin = 'https://www.linkedin.com/in/thatshashanguy/'
- color = 'linen'
+ github = 'thatShashankGuy/'   
+ linkedin = 'thatshashanguy/'
+ color = 'weight'
  favicon = "fav.png"    
  rss = true      
 [menu]

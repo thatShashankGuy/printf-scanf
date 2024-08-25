@@ -38,7 +38,7 @@
 
 <html
   class="not-ready lg:text-base"
-  style="--bg: #faf8f1"
+  style="--bg: "
   lang="en-us"
 >
   <head>
@@ -195,7 +195,7 @@ In the example code provided, p is a pointer to the variable x. We can use the *
 
     
     const metaTheme = document.querySelector('meta[name="theme-color"]');
-    const lightBg = '#faf8f1'.replace(/"/g, '');
+    const lightBg = ''.replace(/"/g, '');
     const setDark = (isDark) => {
       metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
       htmlClass[isDark ? 'add' : 'remove']('dark');
@@ -253,7 +253,7 @@ In the example code provided, p is a pointer to the variable x. We can use the *
       <a
         class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
         style="--url: url(./github.svg)"
-        href="https://github.com/https://github.com/thatShashankGuy"
+        href="https://github.com/thatShashankGuy/"
         target="_blank"
         rel="me"
       >
@@ -263,7 +263,7 @@ In the example code provided, p is a pointer to the variable x. We can use the *
       <a
         class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
         style="--url: url(./linkedin.svg)"
-        href="https://linkedin.com/in/https://www.linkedin.com/in/thatshashanguy/"
+        href="https://linkedin.com/in/thatshashanguy/"
         target="_blank"
         rel="me"
       >
