@@ -128,3 +128,10 @@ Once installed, go to YouTube, open any video, and navigate to the comments sect
 
 I hope this helps you understand how browser extensions work and how you can create your own. Stay tuned for more posts in the coming weeks. Happy coding!
 !
+
+### Futher Readings and References. 
+- [Web Extensions - MDN](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions)
+
+- [Web Extension API and Browser Support](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Browser_support_for_JavaScript_APIs)
+
+- [Web Extension Security](https://security.berkeley.edu/education-awareness/browser-extensions-how-vet-and-install-safely)
