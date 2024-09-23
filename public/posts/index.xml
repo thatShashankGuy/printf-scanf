@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Printf/Scanf</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 25 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 23 Sep 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://printf-scanf.pages.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Build Custom Browser Extensions with Javascript</title>
+      <link>https://printf-scanf.pages.dev/posts/buildbrowserextensions/</link>
+      <pubDate>Mon, 23 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://printf-scanf.pages.dev/posts/buildbrowserextensions/</guid>
+      <description>In this quick article, we will learn how to build a browser extension to manipulate some website behavior for your personal use.&#xA;What is a Browser Extension? A browser extension is essentially a small software program that adds custom functionality to your web browser. Extensions can help you take notes, manage passwords, block ads, and more.&#xA;They can be installed in most modern browsers like Chrome, Firefox, Edge, etc. Often, an extension can be downloaded and installed from a web store, like the Chrome Web Store.</description>
+    </item>
     <item>
       <title>Building Web APIs in Go - StoreFM#2</title>
       <link>https://printf-scanf.pages.dev/posts/storefm2/</link>
