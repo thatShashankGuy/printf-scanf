@@ -35,7 +35,7 @@
     <loc>https://printf-scanf.pages.dev/posts/async-io-programming-with-node-js/</loc>
     <lastmod>2023-12-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://printf-scanf.pages.dev/tags/</loc>
+    <loc>https://printf-scanf.pages.dev/externals/</loc>
     <lastmod>2023-11-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://printf-scanf.pages.dev/posts/the-typescript-programming-guide/</loc>
@@ -57,5 +57,7 @@
     <lastmod>2023-07-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://printf-scanf.pages.dev/categories/</loc>
+  </url><url>
+    <loc>https://printf-scanf.pages.dev/tags/</loc>
   </url>
 </urlset>
