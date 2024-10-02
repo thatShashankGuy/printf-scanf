@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>Database Paradigms - ACID, BASE and CAP in brief | Printf/Scanf</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="When starting a project, one of the earliest design decisions you need to make is selecting a database. There are various databases available in the market.
+Initially, most databases were of SQL flavors, grouped as Relational Databases, and they used the de facto method of saving data into tables and establishing relationships between these tables. You can read more about History of SQL.
+However, with the advent of NoSQL databases, this paradigm was challenged, opting for a more relaxed and schema-less approach, saving data as objects rather than in rigid tables with relationships.">
+<meta name="generator" content="Hugo 0.126.1">
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+
+	
+
+	
+	<a class="button" href="">Subscribe</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">Database Paradigms - ACID, BASE and CAP in brief</h1>
+
+    <div class="tip">
+        <time datetime="2024-01-08 00:00:00 &#43;0000 UTC">Jan 8, 2024</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1015 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          5 minute read
+        </span>
+    </div>
+
+    
+    
+
+
+    <div class="content">
+      <p><p class="markdown-image">
+  <img src="/db.svg" alt="Database"  title="Database" />
+</p></p>
+<p>When starting a project, one of the earliest design decisions you need to make is selecting a database. There are various databases available in the market.</p>
+<p>Initially, most databases were of SQL flavors, grouped as Relational Databases, and they used the de facto method of saving data into tables and establishing relationships between these tables. You can read more about <a href="https://learnsql.com/blog/history-of-sql/" target="_blank" rel="noopener">History of SQL</a>.</p>
+<p>However, with the advent of NoSQL databases, this paradigm was challenged, opting for a more relaxed and schema-less approach, saving data as objects rather than in rigid tables with relationships.</p>
+<h2 id="transactional-models">Transactional Models <a href="#transactional-models" class="anchor">🔗</a></h2><p>Changes to a database, such as writes, updates, or deletes, are carried out through transactions. <em>A transaction represents a unit of work performed within a database management system (DBMS) against a database</em>. Database Transaction Models are a set of rules that determine how a DBMS organizes, stores, and manipulates data. A DBMS can support multiple transaction models, and a transaction will adhere to the ruleset of the chosen transaction model.</p>
+<p><em>There are two major transaction models: <strong>ACID and BASE</strong>.</em></p>
+<h3 id="acid---atomicity-consistency-isolation-and-durability">ACID - Atomicity, Consistency, Isolation, and Durability <a href="#acid---atomicity-consistency-isolation-and-durability" class="anchor">🔗</a></h3><p>ACID properties define a set of guarantees that a DBMS must provide to ensure data consistency and reliability, even in the face of system failures.<em>Most of RDBMS are ACID compliant</em></p>
+<ul>
+<li>
+<p><strong>Atomicity</strong> ensures that a transaction is treated as a single, indivisible unit of work. If any part of a transaction fails (e.g., due to an error or exception), the entire transaction is rolled back, and the database remains unchanged. Atomicity ensures that the database is always in a consistent state, even in the presence of failures.</p>
+</li>
+<li>
+<p><strong>Consistency</strong> guarantees that a transaction brings the database from one consistent state to another consistent state. It enforces integrity constraints, ensuring that data remains valid and adheres to defined rules and constraints.</p>
+</li>
+<li>
+<p><strong>Isolation</strong> ensures that concurrent transactions do not interfere with each other. Each transaction appears to run in isolation, as if it were the only transaction being processed. It prevents one transaction from reading or modifying data that another transaction is currently modifying.</p>
+</li>
+<li>
+<p><strong>Durability</strong> guarantees that once a transaction is committed, its effects will persist even in the event of a system crash or failure. This involves writing data to non-volatile storage, such as hard drives.</p>
+</li>
+</ul>
+<p>Consider a banking system where customers can transfer money between accounts, make deposits, and withdraw funds. ACID properties prevent issues such as incomplete transactions due to system failures, incorrect balances, or data violations.</p>
+<h3 id="base---basically-available-soft-state-eventually-consistent">BASE - Basically Available, Soft State, Eventually Consistent <a href="#base---basically-available-soft-state-eventually-consistent" class="anchor">🔗</a></h3><p>BASE is often used in distributed and NoSQL databases where strict ACID guarantees are not required, and a degree of eventual consistency is acceptable.</p>
+<ul>
+<li>
+<p>In <strong>Basically Available</strong>, the emphasis is on providing basic availability of the system. Even if failures occur, the system remains operational and responsive to user requests, although it may not provide real-time consistency.</p>
+</li>
+<li>
+<p><strong>Soft state</strong> means that the state of the system can change over time, even without input, due to factors like eventual consistency, background processes, or the expiration of temporary data.</p>
+</li>
+<li>
+<p><strong>Eventually consistency</strong> implies that, given time and no further updates, all replicas of the data in a distributed system will converge to the same state. It acknowledges that in a distributed environment, immediate consistency might not always be achievable due to network delays and the distributed nature of the system.</p>
+</li>
+</ul>
+<p>Consider a social media distributed app where fast performance takes precedence over immediate data consistency. In such cases, trading off atomicity and consistency for basic availability and eventual consistency is more sensible.</p>
+<h3 id="acid-and-base-are-not-in-direct-contrast">ACID and BASE Are Not in Direct Contrast <a href="#acid-and-base-are-not-in-direct-contrast" class="anchor">🔗</a></h3><p>It&rsquo;s important to note that ACID and BASE serve drastically different use cases and often need to be used together in large systems that allow multiple types of transactions.</p>
+<h2 id="cap-theorem">CAP Theorem <a href="#cap-theorem" class="anchor">🔗</a></h2><p>While working with distributed systems, we also need to consider the CAP theorem.</p>
+<p>The CAP theorem, also known as Brewer&rsquo;s theorem, is a fundamental concept in distributed computing that describes the trade-offs that distributed systems must make between three key properties: Consistency, Availability, and Partition Tolerance.</p>
+<ul>
+<li>
+<p><strong>Consistency (C)</strong> refers to the requirement that all nodes in a distributed system have the same data at the same time.</p>
+</li>
+<li>
+<p><strong>Availability (A)</strong> means that every request made to a distributed system, whether for reading or writing data, should receive a response, without guaranteeing that the response contains the most up-to-date data.</p>
+</li>
+<li>
+<p><strong>Partition Tolerance (P)</strong> is the ability of a distributed system to continue functioning and providing responses even when there are network partitions or communication failures between nodes.</p>
+</li>
+</ul>
+<p>According to the CAP theorem, it is impossible for a distributed system to simultaneously achieve all three properties (Consistency, Availability, and Partition Tolerance) at their maximum levels. Instead, distributed systems must make trade-offs among these properties.</p>
+<ul>
+<li>
+<p><strong>CP (Consistency and Partition Tolerance):</strong> In a CP system, consistency is prioritized over availability. The system ensures that all nodes have the most recent data and can tolerate network partitions, but it may sacrifice availability when network issues occur. This approach is typical in databases that prioritize data consistency.</p>
+</li>
+<li>
+<p><strong>CA (Consistency and Availability):</strong> In a CA system, consistency and availability are prioritized, but it may not be able to tolerate network partitions. Such systems may choose to reject requests or wait for network issues to be resolved before responding. These systems are often found in traditional, non-distributed databases.</p>
+</li>
+<li>
+<p><strong>AP (Availability and Partition Tolerance):</strong> In an AP system, availability and partition tolerance are prioritized over strict consistency. The system may provide responses even if the data is not immediately consistent across all nodes. This approach is common in distributed NoSQL databases and systems that need to stay operational in the presence of network partitions.</p>
+</li>
+</ul>
+<p>In conclusion, ACID and BASE transaction models, along with the CAP theorem, play pivotal roles in the design and operation of modern database systems. Each has its own strengths and trade-offs, making them suitable for specific use cases. Understanding these paradigms is essential for making informed decisions in database design and architecture.</p>
+<h2 id="further-reading-and-references">Further Reading and References <a href="#further-reading-and-references" class="anchor">🔗</a></h2><ul>
+<li><a href="https://aws.amazon.com/compare/the-difference-between-acid-and-base-database/" target="_blank" rel="noopener">AWS Blog on ACID and BASE</a></li>
+<li><a href="https://www.scylladb.com/glossary/cap-theorem/" target="_blank" rel="noopener">CAP Theorem by ScyllaDB</a></li>
+<li><a href="https://www.cl.cam.ac.uk/research/dtg/archived/files/publications/public/mk428/cap-critique.pdf" target="_blank" rel="noopener">Critique of CAP Theorem</a></li>
+<li><a href="https://en.wikipedia.org/wiki/ACID" target="_blank" rel="noopener">ACID - Wikipedia</a></li>
+</ul>
+<hr>
+<h5 id="_published-by-shashank_"><em>Published by Shashank</em> <a href="#_published-by-shashank_" class="anchor">🔗</a></h5>
+    </div>
+
+    
+    
+    
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+        <div id="social">
+
+
+    <a class="symbol" href="https://github.com/thatShashankGuy/" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>Github</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
+            <g id="Github" transform="translate(264.000000, 939.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="https://www.linkedin.com/in/thatshashanguy/" rel="me" target="_blank">
+        
+        <svg width="28" height="28" fill="#bbbbbb" viewBox="0 0 500 500">
+  <g fill="none" fill-rule="evenodd">
+    <rect width="500" height="500" fill="#bbbbbb" rx="50"/>
+    <path fill="#FFF" d="M154.703 100.183c-19.121 0-34.689 15.565-34.703 34.701 0 19.136 15.568 34.704 34.703 34.704 19.128 0 34.688-15.568 34.688-34.704 0-19.134-15.561-34.701-34.688-34.701zm26.045 83.348h-52.094a4.488 4.488 0 0 0-4.488 4.489v167.675a4.488 4.488 0 0 0 4.488 4.488h52.093a4.49 4.49 0 0 0 4.489-4.488V188.02a4.486 4.486 0 0 0-4.488-4.489zm133.176-1.974c-19.064 0-35.817 5.805-46.04 15.271v-8.808c0-2.48-2.01-4.489-4.489-4.489h-49.971a4.489 4.489 0 0 0-4.489 4.489v167.675a4.488 4.488 0 0 0 4.489 4.488h52.044a4.49 4.49 0 0 0 4.489-4.488v-82.957c0-23.802 4.378-38.555 26.227-38.555 21.526.026 23.137 15.846 23.137 39.977v81.535a4.489 4.489 0 0 0 4.49 4.488h52.068a4.489 4.489 0 0 0 4.488-4.488v-91.977c-.001-38.253-7.553-82.161-66.443-82.161z"/>
+  </g>
+</svg>
+
+    </a>
+
+
+</div>
+
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2024 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       Shashank Shekhar
+    
+    </div>
+
+    
+      <div class="powerby">
+        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
+      </div>
+    
+</footer>
+
+
+
+  </body>
+</html>

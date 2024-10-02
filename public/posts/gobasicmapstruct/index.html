@@ -1,12 +1,24 @@
-<!doctype html>
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>Go Basics - Map and Structs | Printf/Scanf</title>
 
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="While arrays and slices form the core of sequential data structures, maps, interfaces, and structs offer unique capabilities, especially when transitioning from a language like TypeScript. Lets talk about them today.
+Maps: Go&rsquo;s Key-Value Store: 🔗A map in Go is a composite type that represents a hash table or a dictionary or object/map in typescript&rsquo;s case. It associates keys and values where each key maps to a unique value. The key can be of any type for which the equality operation is defined, such as integers, floats, strings, etc.">
+<meta name="generator" content="Hugo 0.126.1">
 
 
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 
 
+<link rel="stylesheet" href="/css/style.css">
 
 
 
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
 
 
 
@@ -15,310 +27,91 @@
 
 
 
+  </head>
 
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
 
+	
 
+	
+</nav>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<html
-  class="not-ready lg:text-base"
-  style="--bg: "
-  lang="en-us"
->
-  <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, shrink-to-fit=no"
-  />
-
-  
-  <title>Go Basics - Map and Structs - Printf/Scanf</title>
-
-  
-  <meta name="theme-color" />
-
-  
-  
-  
-  
-  <meta name="description" content="While arrays and slices form the core of sequential data structures, maps, interfaces, and structs offer unique capabilities, especially when transitioning from a language like TypeScript. Lets talk about them today.
-Maps: Go&rsquo;s Key-Value Store: A map in Go is a composite type that represents a hash table or a dictionary or object/map in typescript&rsquo;s case. It associates keys and values where each key maps to a unique value. The key can be of any type for which the equality operation is defined, such as integers, floats, strings, etc." />
-  <meta name="author" content="Shashank Shekhar" />
-  
-
-  
-  
-  
-  
-  
-  
-  <link rel="preload stylesheet" as="style" href="https://printf-scanf.pages.dev/main.min.css" />
-
-  
-  
-  
-  
-  
-  <link rel="preload" as="image" href="https://printf-scanf.pages.dev/theme.png" />
-
-  
-  
-  
-  
-  
-
-  
-  
-  <link rel="preload" as="image" href="https://printf-scanf.pages.dev/github.svg" />
-  
-  <link rel="preload" as="image" href="https://printf-scanf.pages.dev/linkedin.svg" />
-  
-  <link rel="preload" as="image" href="https://printf-scanf.pages.dev/rss.svg" />
-  
-  
-
-  
-  
-  <script
-    defer
-    src="https://printf-scanf.pages.dev/highlight.min.js"
-    onload="hljs.initHighlightingOnLoad();"
-  ></script>
-  
-
-  
-  
-  
-
-  
-  <link rel="icon" href="https://printf-scanf.pages.dev/fav.png" />
-  <link rel="apple-touch-icon" href="https://printf-scanf.pages.dev/apple-touch-icon.png" />
-
-  
-  <meta name="generator" content="Hugo 0.126.1">
-
-  
-  
-  
-  
-  
-
-
-  
-  
-  <meta itemprop="name" content="Go Basics - Map and Structs">
-  <meta itemprop="description" content="While arrays and slices form the core of sequential data structures, maps, interfaces, and structs offer unique capabilities, especially when transitioning from a language like TypeScript. Lets talk about them today.
-Maps: Go’s Key-Value Store: A map in Go is a composite type that represents a hash table or a dictionary or object/map in typescript’s case. It associates keys and values where each key maps to a unique value. The key can be of any type for which the equality operation is defined, such as integers, floats, strings, etc.">
-  <meta itemprop="datePublished" content="2023-10-09T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2023-10-09T00:00:00+00:00">
-  <meta itemprop="wordCount" content="565">
-  
-  <meta property="og:url" content="https://printf-scanf.pages.dev/posts/gobasicmapstruct/">
-  <meta property="og:site_name" content="Printf/Scanf">
-  <meta property="og:title" content="Go Basics - Map and Structs">
-  <meta property="og:description" content="While arrays and slices form the core of sequential data structures, maps, interfaces, and structs offer unique capabilities, especially when transitioning from a language like TypeScript. Lets talk about them today.
-Maps: Go’s Key-Value Store: A map in Go is a composite type that represents a hash table or a dictionary or object/map in typescript’s case. It associates keys and values where each key maps to a unique value. The key can be of any type for which the equality operation is defined, such as integers, floats, strings, etc.">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2023-10-09T00:00:00+00:00">
-    <meta property="article:modified_time" content="2023-10-09T00:00:00+00:00">
-
-  
-  
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Go Basics - Map and Structs">
-  <meta name="twitter:description" content="While arrays and slices form the core of sequential data structures, maps, interfaces, and structs offer unique capabilities, especially when transitioning from a language like TypeScript. Lets talk about them today.
-Maps: Go’s Key-Value Store: A map in Go is a composite type that represents a hash table or a dictionary or object/map in typescript’s case. It associates keys and values where each key maps to a unique value. The key can be of any type for which the equality operation is defined, such as integers, floats, strings, etc.">
-
-  
-  
-  
-  <link rel="canonical" href="https://printf-scanf.pages.dev/posts/gobasicmapstruct/" />
-  
-  
-</head>
-
-  <body class="text-black duration-200 ease-out dark:text-white">
-    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
-  <div class="relative z-50 mr-auto flex items-center">
-    <a
-      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
-      href="https://printf-scanf.pages.dev/"
-      >Printf/Scanf</a
-    >
-    <div
-      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
-      role="button"
-      aria-label="Dark"
-    ></div>
-  </div>
-
-  <div
-    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
-    role="button"
-    aria-label="Menu"
-  ></div>
-
-  
-
-  <script>
-    
-    const htmlClass = document.documentElement.classList;
-    setTimeout(() => {
-      htmlClass.remove('not-ready');
-    }, 10);
-
-    
-    const btnMenu = document.querySelector('.btn-menu');
-    btnMenu.addEventListener('click', () => {
-      htmlClass.toggle('open');
-    });
-
-    
-    const metaTheme = document.querySelector('meta[name="theme-color"]');
-    const lightBg = ''.replace(/"/g, '');
-    const setDark = (isDark) => {
-      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
-      htmlClass[isDark ? 'add' : 'remove']('dark');
-      localStorage.setItem('dark', isDark);
-    };
-
-    
-    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-    if (htmlClass.contains('dark')) {
-      setDark(true);
-    } else {
-      const darkVal = localStorage.getItem('dark');
-      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
-    }
-
-    
-    darkScheme.addEventListener('change', (event) => {
-      setDark(event.matches);
-    });
-
-    
-    const btnDark = document.querySelector('.btn-dark');
-    btnDark.addEventListener('click', () => {
-      setDark(localStorage.getItem('dark') !== 'true');
-    });
-  </script>
-
-  <div
-    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
-  >
-    
-    
-    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
-      
-      <a
-        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
-        href="/about/"
-        >About Me</a
-      >
-      
-      <a
-        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
-        href="/notice_board/"
-        >Notice</a
-      >
-      
-    </nav>
-    
-
-    
-    <nav
-      class="mt-12 flex justify-center space-x-10 dark:invert lg:ml-12 lg:mt-0 lg:items-center lg:space-x-6"
-    >
-      
-      <a
-        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
-        style="--url: url(./github.svg)"
-        href="https://github.com/thatShashankGuy/"
-        target="_blank"
-        rel="me"
-      >
-        github
-      </a>
-      
-      <a
-        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
-        style="--url: url(./linkedin.svg)"
-        href="https://linkedin.com/in/thatshashanguy/"
-        target="_blank"
-        rel="me"
-      >
-        linkedin
-      </a>
-      
-      <a
-        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
-        style="--url: url(./rss.svg)"
-        href="https://printf-scanf.pages.dev/index.xml"
-        target="_blank"
-        rel="alternate"
-      >
-        rss
-      </a>
-      
-    </nav>
-    
-  </div>
-</header>
-
-
-    <main
-      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
-    >
+    <main class="main">
       
 
-<article>
-  <header class="mb-16">
-    <h1 class="!my-0 pb-2.5">Go Basics - Map and Structs</h1>
+<section id="single">
+    <h1 class="title">Go Basics - Map and Structs</h1>
 
-    
-    <div class="text-sm antialiased opacity-60">
-      
-      <time>Oct 9, 2023</time>
-      
-      
-      
-      
-      <span class="mx-1">&middot;</span>
-      <span>Shashank Shekhar</span>
-      
+    <div class="tip">
+        <time datetime="2023-10-09 00:00:00 &#43;0000 UTC">Oct 9, 2023</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          565 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          3 minute read
+        </span>
     </div>
-    
-  </header>
 
-  <section><p><img src="/Go.png" alt="Go" title="Go"></p>
+    
+    
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#maps-gos-key-value-store">Maps: Go&rsquo;s Key-Value Store:</a></li>
+        <li><a href="#maps-and-json--marshaling-and-unmarshaling-of-data">Maps and JSON : Marshaling and Unmarshaling of Data</a></li>
+        <li><a href="#structs-grouping-data-together">Structs: Grouping Data Together</a></li>
+        <li><a href="#structs-and-json">Structs and JSON</a></li>
+        <li><a href="#structs-as-classes">Structs as &ldquo;Classes&rdquo;</a></li>
+      </ul>
+    </li>
+    <li><a href="#understanding-structs-vs-classes-or-objects">Understanding Structs vs Classes or Objects</a>
+      <ul>
+        <li><a href="#conclusion">Conclusion</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
+    
+
+
+    <div class="content">
+      <p><p class="markdown-image">
+  <img src="/Go.png" alt="Go"  title="Go" />
+</p></p>
 <p>While arrays and slices form the core of sequential data structures, maps, interfaces, and structs offer unique capabilities, especially when transitioning from a language like TypeScript. Lets talk about them today.</p>
-<h3 id="maps-gos-key-value-store">Maps: Go&rsquo;s Key-Value Store:</h3>
-<p>A map in Go is a composite type that represents a hash table or a dictionary or object/map in typescript&rsquo;s case. It associates keys and values where each key maps to a unique value. The key can be of any type for which the equality operation is defined, such as integers, floats, strings, etc.</p>
+<h3 id="maps-gos-key-value-store">Maps: Go&rsquo;s Key-Value Store: <a href="#maps-gos-key-value-store" class="anchor">🔗</a></h3><p>A map in Go is a composite type that represents a hash table or a dictionary or object/map in typescript&rsquo;s case. It associates keys and values where each key maps to a unique value. The key can be of any type for which the equality operation is defined, such as integers, floats, strings, etc.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">m</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">int</span>) 
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">m</span>[<span style="color:#e6db74">&#34;apple&#34;</span>] = <span style="color:#ae81ff">1</span> 
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">m</span>[<span style="color:#e6db74">&#34;banana&#34;</span>] = <span style="color:#ae81ff">2</span>
-</span></span></code></pre></div><h3 id="maps-and-json--marshaling-and-unmarshaling-of-data">Maps and JSON : Marshaling and Unmarshaling of Data</h3>
-<p>Given the nature of maps, they easily translate to JSON objects. The Go standard library provides easy-to-use encoding and decoding capabilities for this.</p>
+</span></span></code></pre></div><h3 id="maps-and-json--marshaling-and-unmarshaling-of-data">Maps and JSON : Marshaling and Unmarshaling of Data <a href="#maps-and-json--marshaling-and-unmarshaling-of-data" class="anchor">🔗</a></h3><p>Given the nature of maps, they easily translate to JSON objects. The Go standard library provides easy-to-use encoding and decoding capabilities for this.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;encoding/json&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">person</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">string</span>{
@@ -336,8 +129,7 @@ Maps: Go’s Key-Value Store: A map in Go is a composite type that represents a 
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">}
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">fmt.Println(string(jsonData)) // Outputs: {&#34;</span><span style="color:#a6e22e">city</span><span style="color:#e6db74">&#34;:&#34;</span><span style="color:#a6e22e">Delhi</span>,<span style="color:#e6db74">&#34;name&#34;</span>:<span style="color:#e6db74">&#34;Shashank&#34;</span>}
-</span></span></code></pre></div><h3 id="structs-grouping-data-together">Structs: Grouping Data Together</h3>
-<p>A struct in Go is another composite type that groups together zero or more values with named fields. They&rsquo;re useful for defining and grouping data.</p>
+</span></span></code></pre></div><h3 id="structs-grouping-data-together">Structs: Grouping Data Together <a href="#structs-grouping-data-together" class="anchor">🔗</a></h3><p>A struct in Go is another composite type that groups together zero or more values with named fields. They&rsquo;re useful for defining and grouping data.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Person</span> <span style="color:#66d9ef">struct</span> {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Name</span> <span style="color:#66d9ef">string</span>
@@ -345,8 +137,7 @@ Maps: Go’s Key-Value Store: A map in Go is a composite type that represents a 
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Age</span>  <span style="color:#66d9ef">int</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="structs-and-json">Structs and JSON</h3>
-<p>Marshaling a struct to JSON is straightforward, with field names being used as default keys</p>
+</span></span></code></pre></div><h3 id="structs-and-json">Structs and JSON <a href="#structs-and-json" class="anchor">🔗</a></h3><p>Marshaling a struct to JSON is straightforward, with field names being used as default keys</p>
 <p>p := Person{Name: &ldquo;may&rdquo;, Age: 30}</p>
 <p>jsonData, err := json.Marshal(p)</p>
 <p>if err != nil {</p>
@@ -354,8 +145,7 @@ Maps: Go’s Key-Value Store: A map in Go is a composite type that represents a 
 </code></pre>
 <p>}</p>
 <p>fmt.Println(string(jsonData)) // Outputs: {&ldquo;Name&rdquo;:&ldquo;may&rdquo;,&ldquo;Age&rdquo;:30}</p>
-<h3 id="structs-as-classes">Structs as &ldquo;Classes&rdquo;</h3>
-<p>Itis well known design choice of go to not support class based OOP but If you&rsquo;re coming from a TypeScript /C#/Java background, you may miss the class-based approach. In Go, structs combined with methods can be used to simulate classes.</p>
+<h3 id="structs-as-classes">Structs as &ldquo;Classes&rdquo; <a href="#structs-as-classes" class="anchor">🔗</a></h3><p>Itis well known design choice of go to not support class based OOP but If you&rsquo;re coming from a TypeScript /C#/Java background, you may miss the class-based approach. In Go, structs combined with methods can be used to simulate classes.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">p</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Person</span>) <span style="color:#a6e22e">SayHello</span>() {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Hello, my name is&#34;</span>, <span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">Name</span>)
@@ -365,8 +155,7 @@ Maps: Go’s Key-Value Store: A map in Go is a composite type that represents a 
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">may</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Person</span>{<span style="color:#a6e22e">Name</span>: <span style="color:#e6db74">&#34;may&#34;</span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">may</span>.<span style="color:#a6e22e">SayHello</span>() 
-</span></span></code></pre></div><h2 id="understanding-structs-vs-classes-or-objects">Understanding Structs vs Classes or Objects</h2>
-<p>To draw parallels between Go&rsquo;s <code>structs</code> and the concept of classes in C# or objects in JavaScript, let&rsquo;s highlight some key points:</p>
+</span></span></code></pre></div><h2 id="understanding-structs-vs-classes-or-objects">Understanding Structs vs Classes or Objects <a href="#understanding-structs-vs-classes-or-objects" class="anchor">🔗</a></h2><p>To draw parallels between Go&rsquo;s <code>structs</code> and the concept of classes in C# or objects in JavaScript, let&rsquo;s highlight some key points:</p>
 <ol>
 <li>
 <p><strong>Grouping Data</strong>: Just like classes or objects, <code>structs</code> allow you to group related data together. Each field within a <code>struct</code> corresponds to a property or member variable.</p>
@@ -393,69 +182,84 @@ Maps: Go’s Key-Value Store: A map in Go is a composite type that represents a 
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Person</span>    <span style="color:#75715e">// Embedding the Person struct
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">EmployeeID</span> <span style="color:#66d9ef">int</span>
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="conclusion">Conclusion</h3>
-<p>The Go programming language, with its robust yet straightforward approach to data structures and types, offers developers the tools to build efficient, maintainable applications. Whether it&rsquo;s the key-value pairing of maps, the behavioral contracts of interfaces, or the data grouping capabilities of structs, understanding these concepts is crucial when working with Go, especially if transitioning from TypeScript or another object-oriented language.</p>
+</span></span></code></pre></div><h3 id="conclusion">Conclusion <a href="#conclusion" class="anchor">🔗</a></h3><p>The Go programming language, with its robust yet straightforward approach to data structures and types, offers developers the tools to build efficient, maintainable applications. Whether it&rsquo;s the key-value pairing of maps, the behavioral contracts of interfaces, or the data grouping capabilities of structs, understanding these concepts is crucial when working with Go, especially if transitioning from TypeScript or another object-oriented language.</p>
+
+    </div>
+
+    
+    
+    
+  <div id="comment">
+    
+    
+  </div>
+
+
 </section>
-
-  
-  
-
-  
-  
-  
-  
-  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
-    
-    <a
-      class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
-      href="https://printf-scanf.pages.dev/posts/gobasicerror/"
-      ><span class="mr-1.5">←</span><span>Go Basics - Error as values</span></a
-    >
-    
-    
-    <a
-      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
-      href="https://printf-scanf.pages.dev/posts/gobasicarrayslices/"
-      ><span>Go Basics - Arrays vs Slices</span><span class="ml-1.5">→</span></a
-    >
-    
-  </nav>
-  
-  
-
-  
-  
-
-  
-  
-
-  
-
-
-  
-</article>
 
 
     </main>
+    
+    <footer id="footer">
+    
+        <div id="social">
 
-    <footer
-  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
->
-  <div class="mr-auto">
-    &copy; 2024
-    <a class="link" href="https://printf-scanf.pages.dev/">Printf/Scanf</a>
-  </div>
-  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
-    >Powered by Hugo️️</a
-  >️
-  <a
-    class="link"
-    href="https://github.com/nanxiaobei/hugo-paper"
-    rel="noopener"
-    target="_blank"
-    >✎ Paper</a
-  >
+
+    <a class="symbol" href="https://github.com/thatShashankGuy/" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>Github</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
+            <g id="Github" transform="translate(264.000000, 939.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="https://www.linkedin.com/in/thatshashanguy/" rel="me" target="_blank">
+        
+        <svg width="28" height="28" fill="#bbbbbb" viewBox="0 0 500 500">
+  <g fill="none" fill-rule="evenodd">
+    <rect width="500" height="500" fill="#bbbbbb" rx="50"/>
+    <path fill="#FFF" d="M154.703 100.183c-19.121 0-34.689 15.565-34.703 34.701 0 19.136 15.568 34.704 34.703 34.704 19.128 0 34.688-15.568 34.688-34.704 0-19.134-15.561-34.701-34.688-34.701zm26.045 83.348h-52.094a4.488 4.488 0 0 0-4.488 4.489v167.675a4.488 4.488 0 0 0 4.488 4.488h52.093a4.49 4.49 0 0 0 4.489-4.488V188.02a4.486 4.486 0 0 0-4.488-4.489zm133.176-1.974c-19.064 0-35.817 5.805-46.04 15.271v-8.808c0-2.48-2.01-4.489-4.489-4.489h-49.971a4.489 4.489 0 0 0-4.489 4.489v167.675a4.488 4.488 0 0 0 4.489 4.488h52.044a4.49 4.49 0 0 0 4.489-4.488v-82.957c0-23.802 4.378-38.555 26.227-38.555 21.526.026 23.137 15.846 23.137 39.977v81.535a4.489 4.489 0 0 0 4.49 4.488h52.068a4.489 4.489 0 0 0 4.488-4.488v-91.977c-.001-38.253-7.553-82.161-66.443-82.161z"/>
+  </g>
+</svg>
+
+    </a>
+
+
+</div>
+
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2024 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       Shashank Shekhar
+    
+    </div>
+
+    
+      <div class="powerby">
+        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
+      </div>
+    
 </footer>
+
+
 
   </body>
 </html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>Profiling Your Node.js Production Code | Printf/Scanf</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="Introduction 🔗When building and running code on a production server, it&rsquo;s crucial to be aware of memory usage, CPU cycles, and other key performance indicators (KPIs) like the time complexity and duration of function calls. Software engineers often obtain and analyze these KPIs to optimize running programs and debug issues, such as memory leaks and CPU utilization, which are difficult to catch in a development environment. This activity is called profiling.">
+<meta name="generator" content="Hugo 0.126.1">
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+
+	
+
+	
+	<a class="button" href="">Subscribe</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">Profiling Your Node.js Production Code</h1>
+
+    <div class="tip">
+        <time datetime="2024-08-04 00:00:00 &#43;0000 UTC">Aug 4, 2024</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          928 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          5 minute read
+        </span>
+    </div>
+
+    
+    
+
+
+    <div class="content">
+      <p><p class="markdown-image">
+  <img src="/nodeJS.svg" alt="Nodejs"  title="Node" />
+</p></p>
+<h3 id="introduction">Introduction <a href="#introduction" class="anchor">🔗</a></h3><p>When building and running code on a production server, it&rsquo;s crucial to be aware of memory usage, CPU cycles, and other key performance indicators (KPIs) like the time complexity and duration of function calls. Software engineers often obtain and analyze these KPIs to optimize running programs and debug issues, such as memory leaks and CPU utilization, which are difficult to catch in a development environment. This activity is called <strong>profiling</strong>.</p>
+<p>Profiling is achieved by instrumenting either the program&rsquo;s source code or its binary executable form using a tool called a <strong>profiler</strong>. Profilers may use various techniques, such as <strong>event-based, statistical, instrumented, and simulation methods</strong>.</p>
+<h3 id="statistical-profiling">Statistical Profiling <a href="#statistical-profiling" class="anchor">🔗</a></h3><p>In this article, we will focus on statistical profiling in Node.js programs.</p>
+<p>In statistical profiling, the profiler interrupts the execution of a program at random intervals and checks where the instruction pointer is. The number of times the pointer stops in each function’s block is roughly proportional to the total time spent executing these functions. You can also gather other useful information, such as finding out which functions are called by which functions by inspecting the call stack.</p>
+<p>With definitions out of the way, let&rsquo;s demonstrate a simple profiling exercise using a small Node.js program.</p>
+<h3 id="program-to-profile">Program to Profile <a href="#program-to-profile" class="anchor">🔗</a></h3><p>Our program is a simple function that takes an image, compresses it, and outputs a zip file of the compressed image.</p>
+<p>We use two libraries, <code>sharp</code> and <code>archiver</code>, to streamline our code. You can install these via the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install sharp archiver 
+</span></span></code></pre></div><p>Below is the code. I am using a single <code>app.mjs</code> file to execute the function:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">fs</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;fs&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">sharp</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;sharp&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">archiver</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;archiver&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">compAndZip</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">sharp</span>(<span style="color:#e6db74">&#39;image.jpg&#39;</span>).<span style="color:#a6e22e">resize</span>(<span style="color:#ae81ff">800</span>, <span style="color:#ae81ff">600</span>, { <span style="color:#a6e22e">fit</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;inside&#39;</span> }).<span style="color:#a6e22e">toFile</span>(<span style="color:#e6db74">&#39;compressed_image.jpg&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">output</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">createWriteStream</span>(<span style="color:#e6db74">&#39;zipped_image.zip&#39;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">archive</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">archiver</span>(<span style="color:#e6db74">&#39;zip&#39;</span>, { <span style="color:#a6e22e">zlib</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">level</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">9</span> } });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">output</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;close&#39;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">archive</span>.<span style="color:#a6e22e">pointer</span>() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; total bytes&#39;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Zip successful&#39;</span>);
+</span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">archive</span>.<span style="color:#a6e22e">pipe</span>(<span style="color:#a6e22e">output</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">archive</span>.<span style="color:#a6e22e">file</span>(<span style="color:#e6db74">&#39;compressed_image.jpg&#39;</span>, { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;compressed_image.jpg&#39;</span> });
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">archive</span>.<span style="color:#a6e22e">finalize</span>();
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">error</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`Error while archiving and compressing: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">message</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">compAndZip</span>();
+</span></span></code></pre></div><p><em>Note: To keep things simple, my function does not take any arguments. Instead, it expects the input file to be in the same directory and generates the two output files in the same directory as well. You can update the code to pass input and output paths as arguments.</em></p>
+<h3 id="explanation">Explanation <a href="#explanation" class="anchor">🔗</a></h3><p>The <code>compAndZip</code> function uses <code>sharp</code> to compress and resize the image, and <code>archiver</code> to archive the file in <code>zip</code> format. It uses Node&rsquo;s <code>zlib</code> utility library for compression.</p>
+<h3 id="profiling-the-program">Profiling the Program <a href="#profiling-the-program" class="anchor">🔗</a></h3><p>While there are many third-party options, the goal of this article is to explore the built-in tools and utilities provided by the Node.js runtime.</p>
+<p>Node.js provides a built-in profiler that uses the profiler inside V8, which samples the stack at regular intervals during program execution (statistical profiling). It records the results of these samples, along with important optimization events such as JIT compiles, as a series of ticks (see tick file example below).</p>
+<p>We can illustrate the tick profiler using our program.</p>
+<p>By default, the environment for all Node.js programs is set to development. To run your program in a production environment, you need to explicitly set the <code>NODE_ENV</code> value to <code>production</code>.</p>
+<p>Let&rsquo;s run our profiler in a production environment using a bash terminal:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>NODE_ENV<span style="color:#f92672">=</span>production node --prof app.mjs
+</span></span></code></pre></div><p>This generates a tick file as described above.</p>
+<pre tabindex="0"><code class="language-log" data-lang="log">code-creation,Builtin,2,4958,0x1013e0fe0,724,Construct_Baseline
+code-creation,Builtin,2,4958,0x1013e12c0,728,Construct_WithFeedback
+code-creation,Builtin,2,4958,0x1013e15a0,540,JSConstructStubGeneric
+code-creation,Builtin,2,4958,0x1013e17c0,448,JSBuiltinsConstructStub
+</code></pre><p>Since we ran our application using the <code>--prof</code> option, a tick file was generated in the same directory as your local run of the application. It should have the form <code>isolate-0xnnnnnnnnnnnn-v8.log</code> (where <code>n</code> is a digit).</p>
+<p>Going through the file, you will see a lot of unreadable data. <strong>To make sense of this file, we need to use the tick processor bundled with the Node.js binary</strong>. To run the processor, use the <code>--prof-process</code> flag:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>node --prof-process isolate-0xnnnnnnnnnnnn-v8.log &gt; processed_profile.txt
+</span></span></code></pre></div><p>I am saving the processed profile in <code>processed_profile.txt</code>, but you can name it whatever you want.</p>
+<p>For the file I generated, the command looked like this (though the file name will be different for each profile):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>node --prof-process isolate-0x148008000-10352-v8.log &gt; processed_profile.txt  
+</span></span></code></pre></div><p>Below is the profile:</p>
+<pre tabindex="0"><code class="language-log" data-lang="log">Statistical profiling result from isolate-0x148008000-10352-v8.log, (268 ticks, 251 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+     17    6.3%          /Users/shashankshekhar/.nvm/versions/node/v20.10.0/bin/node
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+
+ [C++]:
+   ticks  total  nonlib   name
+
+ [Summary]:
+   ticks  total  nonlib   name
+      0    0.0%    0.0%  JavaScript
+      0    0.0%    0.0%  C++
+      3    1.1%    1.2%  GC
+     17    6.3%          Shared libraries
+    251   93.7%          Unaccounted
+</code></pre><h3 id="analyzing-the-profile">Analyzing the Profile <a href="#analyzing-the-profile" class="anchor">🔗</a></h3><p><strong>High Unaccounted Ticks (93.7%)</strong>: The majority of the ticks (93.7%) are unaccounted for, suggesting that the profiler was unable to attribute these ticks to specific functions or libraries.</p>
+<p><strong>Shared Libraries (6.3%)</strong>: A small portion of the ticks is attributed to shared libraries. This includes the Node.js runtime itself.</p>
+<p><strong>Garbage Collection (1.1%)</strong>: A minor portion of ticks is spent on garbage collection, indicating that memory management is not a significant performance concern in this run.</p>
+<p><strong>JavaScript and C++ Execution (0.0%)</strong>: No ticks were attributed directly to JavaScript or C++ code execution.</p>
+<h3 id="conclusion">Conclusion <a href="#conclusion" class="anchor">🔗</a></h3><p>The program itself is very small and fast, and I did not find many concerns with the profile. However, as demonstrated here, we can optimize our code based on the data provided, such as GC and unaccounted ticks.</p>
+<p>I hope this gives you an idea of the use of profilers, the advantages of profiling your program in production, and an introduction to Node.js&rsquo;s built-in profiler.</p>
+<p>Thank you for reading, and I will see you in the next post soon. Happy coding! Cheers!!!</p>
+<p><em><strong>FootNotes</strong> : Code example provided here can be accessed at my <a href="https://github.com/thatShashankGuy/code-examples/tree/master" target="_blank" rel="noopener">Github Repo - Node Profiler</a></em></p>
+
+    </div>
+
+    
+    
+    
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+        <div id="social">
+
+
+    <a class="symbol" href="https://github.com/thatShashankGuy/" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>Github</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
+            <g id="Github" transform="translate(264.000000, 939.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="https://www.linkedin.com/in/thatshashanguy/" rel="me" target="_blank">
+        
+        <svg width="28" height="28" fill="#bbbbbb" viewBox="0 0 500 500">
+  <g fill="none" fill-rule="evenodd">
+    <rect width="500" height="500" fill="#bbbbbb" rx="50"/>
+    <path fill="#FFF" d="M154.703 100.183c-19.121 0-34.689 15.565-34.703 34.701 0 19.136 15.568 34.704 34.703 34.704 19.128 0 34.688-15.568 34.688-34.704 0-19.134-15.561-34.701-34.688-34.701zm26.045 83.348h-52.094a4.488 4.488 0 0 0-4.488 4.489v167.675a4.488 4.488 0 0 0 4.488 4.488h52.093a4.49 4.49 0 0 0 4.489-4.488V188.02a4.486 4.486 0 0 0-4.488-4.489zm133.176-1.974c-19.064 0-35.817 5.805-46.04 15.271v-8.808c0-2.48-2.01-4.489-4.489-4.489h-49.971a4.489 4.489 0 0 0-4.489 4.489v167.675a4.488 4.488 0 0 0 4.489 4.488h52.044a4.49 4.49 0 0 0 4.489-4.488v-82.957c0-23.802 4.378-38.555 26.227-38.555 21.526.026 23.137 15.846 23.137 39.977v81.535a4.489 4.489 0 0 0 4.49 4.488h52.068a4.489 4.489 0 0 0 4.488-4.488v-91.977c-.001-38.253-7.553-82.161-66.443-82.161z"/>
+  </g>
+</svg>
+
+    </a>
+
+
+</div>
+
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2024 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       Shashank Shekhar
+    
+    </div>
+
+    
+      <div class="powerby">
+        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
+      </div>
+    
+</footer>
+
+
+
+  </body>
+</html>

@@ -1,29 +1,24 @@
 baseURL = 'https://printf-scanf.pages.dev/'
 languageCode = 'en-us'
 title = 'Printf/Scanf'
-theme = 'paper'
-paginate = 5
+theme = "mini"
+
+paginate = 2
+[permalinks]
+  posts = "/posts/:title/"
 [params]
- github = 'thatShashankGuy/'   
- linkedin = 'thatshashanguy/'
- color = 'weight'
+ colortheme = "dark"
  favicon = "fav.png"    
- rss = true      
-[menu]
-  [[menu.main]]
-    identifier = "about"
-    name = "About Me"
-    url = "/about/"
-    weight = 2
-  [[menu.main]]
-    identifier = "notice_board"
-    name = "Notice"
-    url = "/notice_board/"
-    weight = 3
+ enablerss = true
+ author = "Shashank Shekhar"
+ bio = "Techincal blogs and life stories by Shashank Shekhar"
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
-
+[social]
+  github = 'https://github.com/thatShashankGuy/'   
+  linkedin = 'https://www.linkedin.com/in/thatshashanguy/'
 
   

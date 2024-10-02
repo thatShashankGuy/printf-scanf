@@ -1,328 +1,117 @@
-<!doctype html>
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>Database Paradigms - ACID, BASE and CAP in brief | Printf/Scanf</title>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<html
-  class="not-ready lg:text-base"
-  style="--bg: "
-  lang="en-us"
->
-  <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, shrink-to-fit=no"
-  />
-
-  
-  <title>Database Paradigms - ACID, BASE and CAP in brief - Printf/Scanf</title>
-
-  
-  <meta name="theme-color" />
-
-  
-  
-  
-  
-  <meta name="description" content="When starting a project, one of the earliest design decisions you need to make is selecting a database. There are various databases available in the market.
-Initially, most databases were of SQL flavors, grouped as Relational Databases, and they used the de facto method of saving data into tables and establishing relationships between these tables. You can read more about History of SQL.
-However, with the advent of NoSQL databases, this paradigm was challenged, opting for a more relaxed and schema-less approach, saving data as objects rather than in rigid tables with relationships." />
-  <meta name="author" content="Shashank Shekhar" />
-  
-
-  
-  
-  
-  
-  
-  
-  <link rel="preload stylesheet" as="style" href="https://printf-scanf.pages.dev/main.min.css" />
-
-  
-  
-  
-  
-  
-  <link rel="preload" as="image" href="https://printf-scanf.pages.dev/theme.png" />
-
-  
-  
-  
-  
-  
-
-  
-  
-  <link rel="preload" as="image" href="https://printf-scanf.pages.dev/github.svg" />
-  
-  <link rel="preload" as="image" href="https://printf-scanf.pages.dev/linkedin.svg" />
-  
-  <link rel="preload" as="image" href="https://printf-scanf.pages.dev/rss.svg" />
-  
-  
-
-  
-  
-  <script
-    defer
-    src="https://printf-scanf.pages.dev/highlight.min.js"
-    onload="hljs.initHighlightingOnLoad();"
-  ></script>
-  
-
-  
-  
-  
-
-  
-  <link rel="icon" href="https://printf-scanf.pages.dev/fav.png" />
-  <link rel="apple-touch-icon" href="https://printf-scanf.pages.dev/apple-touch-icon.png" />
-
-  
-  <meta name="generator" content="Hugo 0.126.1">
-
-  
-  
-  
-  
-  
-
-
-  
-  
-  <meta itemprop="name" content="Database Paradigms - ACID, BASE and CAP in brief">
-  <meta itemprop="description" content="When starting a project, one of the earliest design decisions you need to make is selecting a database. There are various databases available in the market.
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="When starting a project, one of the earliest design decisions you need to make is selecting a database. There are various databases available in the market.
 Initially, most databases were of SQL flavors, grouped as Relational Databases, and they used the de facto method of saving data into tables and establishing relationships between these tables. You can read more about History of SQL.
 However, with the advent of NoSQL databases, this paradigm was challenged, opting for a more relaxed and schema-less approach, saving data as objects rather than in rigid tables with relationships.">
-  <meta itemprop="datePublished" content="2024-01-08T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2024-01-08T00:00:00+00:00">
-  <meta itemprop="wordCount" content="1013">
-  
-  <meta property="og:url" content="https://printf-scanf.pages.dev/posts/acidbasecap/">
-  <meta property="og:site_name" content="Printf/Scanf">
-  <meta property="og:title" content="Database Paradigms - ACID, BASE and CAP in brief">
-  <meta property="og:description" content="When starting a project, one of the earliest design decisions you need to make is selecting a database. There are various databases available in the market.
-Initially, most databases were of SQL flavors, grouped as Relational Databases, and they used the de facto method of saving data into tables and establishing relationships between these tables. You can read more about History of SQL.
-However, with the advent of NoSQL databases, this paradigm was challenged, opting for a more relaxed and schema-less approach, saving data as objects rather than in rigid tables with relationships.">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2024-01-08T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-01-08T00:00:00+00:00">
-
-  
-  
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Database Paradigms - ACID, BASE and CAP in brief">
-  <meta name="twitter:description" content="When starting a project, one of the earliest design decisions you need to make is selecting a database. There are various databases available in the market.
-Initially, most databases were of SQL flavors, grouped as Relational Databases, and they used the de facto method of saving data into tables and establishing relationships between these tables. You can read more about History of SQL.
-However, with the advent of NoSQL databases, this paradigm was challenged, opting for a more relaxed and schema-less approach, saving data as objects rather than in rigid tables with relationships.">
-
-  
-  
-  
-  <link rel="canonical" href="https://printf-scanf.pages.dev/posts/acidbasecap/" />
-  
-  
-</head>
-
-  <body class="text-black duration-200 ease-out dark:text-white">
-    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
-  <div class="relative z-50 mr-auto flex items-center">
-    <a
-      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
-      href="https://printf-scanf.pages.dev/"
-      >Printf/Scanf</a
-    >
-    <div
-      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
-      role="button"
-      aria-label="Dark"
-    ></div>
-  </div>
-
-  <div
-    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
-    role="button"
-    aria-label="Menu"
-  ></div>
-
-  
-
-  <script>
-    
-    const htmlClass = document.documentElement.classList;
-    setTimeout(() => {
-      htmlClass.remove('not-ready');
-    }, 10);
-
-    
-    const btnMenu = document.querySelector('.btn-menu');
-    btnMenu.addEventListener('click', () => {
-      htmlClass.toggle('open');
-    });
-
-    
-    const metaTheme = document.querySelector('meta[name="theme-color"]');
-    const lightBg = ''.replace(/"/g, '');
-    const setDark = (isDark) => {
-      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
-      htmlClass[isDark ? 'add' : 'remove']('dark');
-      localStorage.setItem('dark', isDark);
-    };
-
-    
-    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-    if (htmlClass.contains('dark')) {
-      setDark(true);
-    } else {
-      const darkVal = localStorage.getItem('dark');
-      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
-    }
-
-    
-    darkScheme.addEventListener('change', (event) => {
-      setDark(event.matches);
-    });
-
-    
-    const btnDark = document.querySelector('.btn-dark');
-    btnDark.addEventListener('click', () => {
-      setDark(localStorage.getItem('dark') !== 'true');
-    });
-  </script>
-
-  <div
-    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
-  >
-    
-    
-    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
-      
-      <a
-        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
-        href="/about/"
-        >About Me</a
-      >
-      
-      <a
-        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
-        href="/notice_board/"
-        >Notice</a
-      >
-      
-    </nav>
-    
-
-    
-    <nav
-      class="mt-12 flex justify-center space-x-10 dark:invert lg:ml-12 lg:mt-0 lg:items-center lg:space-x-6"
-    >
-      
-      <a
-        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
-        style="--url: url(./github.svg)"
-        href="https://github.com/thatShashankGuy/"
-        target="_blank"
-        rel="me"
-      >
-        github
-      </a>
-      
-      <a
-        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
-        style="--url: url(./linkedin.svg)"
-        href="https://linkedin.com/in/thatshashanguy/"
-        target="_blank"
-        rel="me"
-      >
-        linkedin
-      </a>
-      
-      <a
-        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
-        style="--url: url(./rss.svg)"
-        href="https://printf-scanf.pages.dev/index.xml"
-        target="_blank"
-        rel="alternate"
-      >
-        rss
-      </a>
-      
-    </nav>
-    
-  </div>
-</header>
+<meta name="generator" content="Hugo 0.126.1">
 
 
-    <main
-      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
-    >
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+
+	
+
+	
+</nav>
+
+
+    <main class="main">
       
 
-<article>
-  <header class="mb-16">
-    <h1 class="!my-0 pb-2.5">Database Paradigms - ACID, BASE and CAP in brief</h1>
+<section id="single">
+    <h1 class="title">Database Paradigms - ACID, BASE and CAP in brief</h1>
 
-    
-    <div class="text-sm antialiased opacity-60">
-      
-      <time>Jan 8, 2024</time>
-      
-      
-      
-      
-      <span class="mx-1">&middot;</span>
-      <span>Shashank Shekhar</span>
-      
+    <div class="tip">
+        <time datetime="2024-01-08 00:00:00 &#43;0000 UTC">Jan 8, 2024</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1015 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          5 minute read
+        </span>
     </div>
-    
-  </header>
 
-  <section><p><img src="/db.svg" alt="Database" title="Database"></p>
+    
+    
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li><a href="#transactional-models">Transactional Models</a>
+      <ul>
+        <li><a href="#acid---atomicity-consistency-isolation-and-durability">ACID - Atomicity, Consistency, Isolation, and Durability</a></li>
+        <li><a href="#base---basically-available-soft-state-eventually-consistent">BASE - Basically Available, Soft State, Eventually Consistent</a></li>
+        <li><a href="#acid-and-base-are-not-in-direct-contrast">ACID and BASE Are Not in Direct Contrast</a></li>
+      </ul>
+    </li>
+    <li><a href="#cap-theorem">CAP Theorem</a></li>
+    <li><a href="#further-reading-and-references">Further Reading and References</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
+    
+
+
+    <div class="content">
+      <p><p class="markdown-image">
+  <img src="/db.svg" alt="Database"  title="Database" />
+</p></p>
 <p>When starting a project, one of the earliest design decisions you need to make is selecting a database. There are various databases available in the market.</p>
-<p>Initially, most databases were of SQL flavors, grouped as Relational Databases, and they used the de facto method of saving data into tables and establishing relationships between these tables. You can read more about <a href="https://learnsql.com/blog/history-of-sql/">History of SQL</a>.</p>
+<p>Initially, most databases were of SQL flavors, grouped as Relational Databases, and they used the de facto method of saving data into tables and establishing relationships between these tables. You can read more about <a href="https://learnsql.com/blog/history-of-sql/" target="_blank" rel="noopener">History of SQL</a>.</p>
 <p>However, with the advent of NoSQL databases, this paradigm was challenged, opting for a more relaxed and schema-less approach, saving data as objects rather than in rigid tables with relationships.</p>
-<h2 id="transactional-models">Transactional Models</h2>
-<p>Changes to a database, such as writes, updates, or deletes, are carried out through transactions. <em>A transaction represents a unit of work performed within a database management system (DBMS) against a database</em>. Database Transaction Models are a set of rules that determine how a DBMS organizes, stores, and manipulates data. A DBMS can support multiple transaction models, and a transaction will adhere to the ruleset of the chosen transaction model.</p>
+<h2 id="transactional-models">Transactional Models <a href="#transactional-models" class="anchor">🔗</a></h2><p>Changes to a database, such as writes, updates, or deletes, are carried out through transactions. <em>A transaction represents a unit of work performed within a database management system (DBMS) against a database</em>. Database Transaction Models are a set of rules that determine how a DBMS organizes, stores, and manipulates data. A DBMS can support multiple transaction models, and a transaction will adhere to the ruleset of the chosen transaction model.</p>
 <p><em>There are two major transaction models: <strong>ACID and BASE</strong>.</em></p>
-<h3 id="acid---atomicity-consistency-isolation-and-durability">ACID - Atomicity, Consistency, Isolation, and Durability</h3>
-<p>ACID properties define a set of guarantees that a DBMS must provide to ensure data consistency and reliability, even in the face of system failures.<em>Most of RDBMS are ACID compliant</em></p>
+<h3 id="acid---atomicity-consistency-isolation-and-durability">ACID - Atomicity, Consistency, Isolation, and Durability <a href="#acid---atomicity-consistency-isolation-and-durability" class="anchor">🔗</a></h3><p>ACID properties define a set of guarantees that a DBMS must provide to ensure data consistency and reliability, even in the face of system failures.<em>Most of RDBMS are ACID compliant</em></p>
 <ul>
 <li>
 <p><strong>Atomicity</strong> ensures that a transaction is treated as a single, indivisible unit of work. If any part of a transaction fails (e.g., due to an error or exception), the entire transaction is rolled back, and the database remains unchanged. Atomicity ensures that the database is always in a consistent state, even in the presence of failures.</p>
@@ -338,8 +127,7 @@ However, with the advent of NoSQL databases, this paradigm was challenged, optin
 </li>
 </ul>
 <p>Consider a banking system where customers can transfer money between accounts, make deposits, and withdraw funds. ACID properties prevent issues such as incomplete transactions due to system failures, incorrect balances, or data violations.</p>
-<h3 id="base---basically-available-soft-state-eventually-consistent">BASE - Basically Available, Soft State, Eventually Consistent</h3>
-<p>BASE is often used in distributed and NoSQL databases where strict ACID guarantees are not required, and a degree of eventual consistency is acceptable.</p>
+<h3 id="base---basically-available-soft-state-eventually-consistent">BASE - Basically Available, Soft State, Eventually Consistent <a href="#base---basically-available-soft-state-eventually-consistent" class="anchor">🔗</a></h3><p>BASE is often used in distributed and NoSQL databases where strict ACID guarantees are not required, and a degree of eventual consistency is acceptable.</p>
 <ul>
 <li>
 <p>In <strong>Basically Available</strong>, the emphasis is on providing basic availability of the system. Even if failures occur, the system remains operational and responsive to user requests, although it may not provide real-time consistency.</p>
@@ -352,10 +140,8 @@ However, with the advent of NoSQL databases, this paradigm was challenged, optin
 </li>
 </ul>
 <p>Consider a social media distributed app where fast performance takes precedence over immediate data consistency. In such cases, trading off atomicity and consistency for basic availability and eventual consistency is more sensible.</p>
-<h3 id="acid-and-base-are-not-in-direct-contrast">ACID and BASE Are Not in Direct Contrast</h3>
-<p>It&rsquo;s important to note that ACID and BASE serve drastically different use cases and often need to be used together in large systems that allow multiple types of transactions.</p>
-<h2 id="cap-theorem">CAP Theorem</h2>
-<p>While working with distributed systems, we also need to consider the CAP theorem.</p>
+<h3 id="acid-and-base-are-not-in-direct-contrast">ACID and BASE Are Not in Direct Contrast <a href="#acid-and-base-are-not-in-direct-contrast" class="anchor">🔗</a></h3><p>It&rsquo;s important to note that ACID and BASE serve drastically different use cases and often need to be used together in large systems that allow multiple types of transactions.</p>
+<h2 id="cap-theorem">CAP Theorem <a href="#cap-theorem" class="anchor">🔗</a></h2><p>While working with distributed systems, we also need to consider the CAP theorem.</p>
 <p>The CAP theorem, also known as Brewer&rsquo;s theorem, is a fundamental concept in distributed computing that describes the trade-offs that distributed systems must make between three key properties: Consistency, Availability, and Partition Tolerance.</p>
 <ul>
 <li>
@@ -381,76 +167,90 @@ However, with the advent of NoSQL databases, this paradigm was challenged, optin
 </li>
 </ul>
 <p>In conclusion, ACID and BASE transaction models, along with the CAP theorem, play pivotal roles in the design and operation of modern database systems. Each has its own strengths and trade-offs, making them suitable for specific use cases. Understanding these paradigms is essential for making informed decisions in database design and architecture.</p>
-<h2 id="further-reading-and-references">Further Reading and References</h2>
-<ul>
-<li><a href="https://aws.amazon.com/compare/the-difference-between-acid-and-base-database/">AWS Blog on ACID and BASE</a></li>
-<li><a href="https://www.scylladb.com/glossary/cap-theorem/">CAP Theorem by ScyllaDB</a></li>
-<li><a href="https://www.cl.cam.ac.uk/research/dtg/archived/files/publications/public/mk428/cap-critique.pdf">Critique of CAP Theorem</a></li>
-<li><a href="https://en.wikipedia.org/wiki/ACID">ACID - Wikipedia</a></li>
+<h2 id="further-reading-and-references">Further Reading and References <a href="#further-reading-and-references" class="anchor">🔗</a></h2><ul>
+<li><a href="https://aws.amazon.com/compare/the-difference-between-acid-and-base-database/" target="_blank" rel="noopener">AWS Blog on ACID and BASE</a></li>
+<li><a href="https://www.scylladb.com/glossary/cap-theorem/" target="_blank" rel="noopener">CAP Theorem by ScyllaDB</a></li>
+<li><a href="https://www.cl.cam.ac.uk/research/dtg/archived/files/publications/public/mk428/cap-critique.pdf" target="_blank" rel="noopener">Critique of CAP Theorem</a></li>
+<li><a href="https://en.wikipedia.org/wiki/ACID" target="_blank" rel="noopener">ACID - Wikipedia</a></li>
 </ul>
 <hr>
-<h5 id="_published-by-shashank_"><em>Published by Shashank</em></h5>
+<h5 id="_published-by-shashank_"><em>Published by Shashank</em> <a href="#_published-by-shashank_" class="anchor">🔗</a></h5>
+    </div>
+
+    
+    
+    
+  <div id="comment">
+    
+    
+  </div>
+
+
 </section>
-
-  
-  
-
-  
-  
-  
-  
-  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
-    
-    <a
-      class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
-      href="https://printf-scanf.pages.dev/posts/learntoloveboring/"
-      ><span class="mr-1.5">←</span><span>Learn to Love Boring</span></a
-    >
-    
-    
-    <a
-      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
-      href="https://printf-scanf.pages.dev/posts/burnout/"
-      ><span>Coding My Way Out of Burnout</span><span class="ml-1.5">→</span></a
-    >
-    
-  </nav>
-  
-  
-
-  
-  
-
-  
-  
-
-  
-
-
-  
-</article>
 
 
     </main>
+    
+    <footer id="footer">
+    
+        <div id="social">
 
-    <footer
-  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
->
-  <div class="mr-auto">
-    &copy; 2024
-    <a class="link" href="https://printf-scanf.pages.dev/">Printf/Scanf</a>
-  </div>
-  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
-    >Powered by Hugo️️</a
-  >️
-  <a
-    class="link"
-    href="https://github.com/nanxiaobei/hugo-paper"
-    rel="noopener"
-    target="_blank"
-    >✎ Paper</a
-  >
+
+    <a class="symbol" href="https://github.com/thatShashankGuy/" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>Github</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
+            <g id="Github" transform="translate(264.000000, 939.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="https://www.linkedin.com/in/thatshashanguy/" rel="me" target="_blank">
+        
+        <svg width="28" height="28" fill="#bbbbbb" viewBox="0 0 500 500">
+  <g fill="none" fill-rule="evenodd">
+    <rect width="500" height="500" fill="#bbbbbb" rx="50"/>
+    <path fill="#FFF" d="M154.703 100.183c-19.121 0-34.689 15.565-34.703 34.701 0 19.136 15.568 34.704 34.703 34.704 19.128 0 34.688-15.568 34.688-34.704 0-19.134-15.561-34.701-34.688-34.701zm26.045 83.348h-52.094a4.488 4.488 0 0 0-4.488 4.489v167.675a4.488 4.488 0 0 0 4.488 4.488h52.093a4.49 4.49 0 0 0 4.489-4.488V188.02a4.486 4.486 0 0 0-4.488-4.489zm133.176-1.974c-19.064 0-35.817 5.805-46.04 15.271v-8.808c0-2.48-2.01-4.489-4.489-4.489h-49.971a4.489 4.489 0 0 0-4.489 4.489v167.675a4.488 4.488 0 0 0 4.489 4.488h52.044a4.49 4.49 0 0 0 4.489-4.488v-82.957c0-23.802 4.378-38.555 26.227-38.555 21.526.026 23.137 15.846 23.137 39.977v81.535a4.489 4.489 0 0 0 4.49 4.488h52.068a4.489 4.489 0 0 0 4.488-4.488v-91.977c-.001-38.253-7.553-82.161-66.443-82.161z"/>
+  </g>
+</svg>
+
+    </a>
+
+
+</div>
+
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2024 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       Shashank Shekhar
+    
+    </div>
+
+    
+      <div class="powerby">
+        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
+      </div>
+    
 </footer>
+
+
 
   </body>
 </html>
