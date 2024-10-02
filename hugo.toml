@@ -6,6 +6,8 @@ theme = "mini"
 paginate = 2
 [permalinks]
   posts = "/posts/:title/"
+
+  externals = "/externals/"
 [params]
  colortheme = "dark"
  favicon = "fav.png"    
