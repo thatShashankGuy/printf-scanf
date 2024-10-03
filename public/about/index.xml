@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Abouts on Shashank Shekhar</title>
-    <link>http://localhost:1313/about/</link>
-    <description>Recent content in Abouts on Shashank Shekhar</description>
+    <title>Welcome! on Printf/Scanf</title>
+    <link>https://printf-scanf.pages.dev/about/</link>
+    <description>Recent content in Welcome! on Printf/Scanf</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="http://localhost:1313/about/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>About Me</title>
-      <link>http://localhost:1313/about/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/about/about/</guid>
-      <description>Thank you for visiting my little site! My name is Shashank, and I am a software engineer with 6 years of experience in IT and technology.&#xA;I have worked in various roles—from server management to full-stack development to RPA automation engineering. In my current role, I work with various cloud services, from AWS to Azure, building, deploying, and maintaining cloud-native applications and pipelines.&#xA;To know more about my work history and experience, please download my resume.</description>
-    </item>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="https://printf-scanf.pages.dev/about/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

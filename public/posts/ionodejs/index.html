@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head>
     <title>Async IO programming with Node js | Printf/Scanf</title>
 
     <meta charset="utf-8">
@@ -34,12 +34,16 @@ Consider Node/ Browser Architecture , When program starts it start a main thread
 	
 		<a href="/"> <span class="arrow">←</span>Home</a>
 	
-	<a href="/posts">Archive</a>
-	<a href="/tags">Tags</a>
 	<a href="/about">About</a>
+	<a href="/externals">References</a>
+	<a href="/posts">Archive</a>
+	<a href="/tags" style="display: none;">Tags</a>	
+	
 
 	
 
+	
+	
 	
 </nav>
 
@@ -67,46 +71,6 @@ Consider Node/ Browser Architecture , When program starts it start a main thread
     </div>
 
     
-    
-        
-  
-    <aside class="toc">
-      <details>
-          <summary>Table of Contents
-          </summary>
-          <div>
-              <nav id="TableOfContents">
-  <ul>
-    <li><a href="#introduction">Introduction</a></li>
-    <li><a href="#callbacks">Callbacks</a>
-      <ul>
-        <li><a href="#error-handling-in-callback">Error handling in callback</a></li>
-      </ul>
-    </li>
-    <li><a href="#promises">Promises</a>
-      <ul>
-        <li></li>
-        <li><a href="#fundamentals-of-promise">Fundamentals of Promise</a></li>
-        <li><a href="#promise-chaining">Promise Chaining</a></li>
-      </ul>
-    </li>
-    <li><a href="#asyncawait">Async/Await</a>
-      <ul>
-        <li><a href="#promises-in-asyncawait">Promises in Async/Await</a></li>
-        <li><a href="#parallel-execution-patterns-and-the-need-for-promises">Parallel Execution Patterns and the Need for Promises</a></li>
-        <li><a href="#anti-pattern-foreach">Anti-Pattern: <code>forEach</code></a></li>
-        <li><a href="#resolving-parallel-execution-issues-with-promiseall">Resolving Parallel Execution Issues with <code>Promise.all</code></a></li>
-      </ul>
-    </li>
-    <li><a href="#conclusion">Conclusion</a></li>
-  </ul>
-</nav>
-          </div>
-      </details>
-    </aside>
-  
-
-
     
 
 
@@ -535,11 +499,6 @@ If your next operation do not depend on output of last operation , to avoid deep
     
     
     
-  <div id="comment">
-    
-    
-  </div>
-
 
 </section>
 

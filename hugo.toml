@@ -4,8 +4,7 @@ title = 'Printf/Scanf'
 theme = "mini"
 
 paginate = 2
-[permalinks]
-  posts = "/posts/:title/"
+
 [params]
  externals = 'References'
  colortheme = "dark"
