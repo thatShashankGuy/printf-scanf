@@ -60,7 +60,7 @@ In this blog post, we&rsquo;ll walk through creating a WebSocket server in Node.
           ·
         </span>
         <span>
-          820 words
+          831 words
         </span>
         <span class="split">
           ·
@@ -75,7 +75,10 @@ In this blog post, we&rsquo;ll walk through creating a WebSocket server in Node.
 
 
     <div class="content">
-      <p>WebSockets are powerful tools for real-time communication, allowing clients and servers to maintain an open connection and exchange data freely. This makes them ideal for building interactive applications like chat systems, real-time collaboration tools, and multiplayer games.</p>
+      <p><p class="markdown-image">
+  <img src="/websocketBanner.png" alt="alt text"  />
+</p>
+WebSockets are powerful tools for real-time communication, allowing clients and servers to maintain an open connection and exchange data freely. This makes them ideal for building interactive applications like chat systems, real-time collaboration tools, and multiplayer games.</p>
 <p>In this blog post, we&rsquo;ll walk through creating a WebSocket server in Node.js using the <code>ws</code> library. We&rsquo;ll maintain a queue of connected clients, notify users when new clients join or leave, and ensure every client stays up-to-date with the current lobby status.</p>
 <p>All the code is available in my <a href="https://github.com/thatShashankGuy/code-examples/tree/master/web-socket-chat-app" target="_blank" rel="noopener">Git Repo</a></p>
 <p>You&rsquo;ll also need the <code>ws</code> library, which we will use to manage WebSocket connections.</p>
@@ -202,6 +205,11 @@ In this blog post, we&rsquo;ll walk through creating a WebSocket server in Node.
 <li>Maintain a queue of connected clients.</li>
 <li>Broadcast messages when clients join or leave the chat lobby.</li>
 <li>Implement two-way real-time communication between the server and clients.</li>
+</ul>
+<h4 id="further-reading">Further Reading <a href="#further-reading" class="anchor">🔗</a></h4><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSocket" target="_blank" rel="noopener">WebSocket</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API" target="_blank" rel="noopener">The WebSocket API (WebSockets)</a></li>
+<li><a href="https://websocket.org/" target="_blank" rel="noopener">The WebSocket Handbook</a></li>
 </ul>
 
     </div>

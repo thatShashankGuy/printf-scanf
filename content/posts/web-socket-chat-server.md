@@ -3,6 +3,8 @@ title: Chat server with Websocket in Node JS
 author: Shashank Shekhar
 date: 2024-10-06
 ---
+
+![alt text](/websocketBanner.png)
 WebSockets are powerful tools for real-time communication, allowing clients and servers to maintain an open connection and exchange data freely. This makes them ideal for building interactive applications like chat systems, real-time collaboration tools, and multiplayer games.
 
 In this blog post, we'll walk through creating a WebSocket server in Node.js using the `ws` library. We'll maintain a queue of connected clients, notify users when new clients join or leave, and ensure every client stays up-to-date with the current lobby status.
@@ -187,3 +189,7 @@ In this blog post, we created a WebSocket server in Node.js using the `ws` libra
 - Broadcast messages when clients join or leave the chat lobby.
 - Implement two-way real-time communication between the server and clients.
 
+#### Further Reading 
+- [WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)
+- [The WebSocket API (WebSockets)](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
+- [The WebSocket Handbook](https://websocket.org/)
