@@ -1,7 +1,7 @@
 baseURL = 'https://printf-scanf.pages.dev/'
 languageCode = 'en-us'
-title = 'Printf/Scanf'
-theme = "mini"
+title = 'PrintF/ScanF'
+
 
 paginate = 2
 
@@ -11,7 +11,8 @@ paginate = 2
  favicon = "fav.png"    
  enablerss = true
  author = "Shashank Shekhar"
- bio = "Techincal blogs and life stories by Shashank Shekhar"
+
+
 
 [markup]
   [markup.goldmark]
@@ -20,5 +21,6 @@ paginate = 2
 [social]
   github = 'https://github.com/thatShashankGuy/'   
   linkedin = 'https://www.linkedin.com/in/thatshashanguy/'
+  email = 'mailto:shashankforworkshekhar@gmail.com' 
 
   
