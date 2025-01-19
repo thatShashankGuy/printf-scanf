@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head>
     <title>Using Typescript with  NodeJS Natively | PrintF/ScanF</title>
 
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
-<meta name="description" content="Introduction 🔗Since v22.6.0, Node.js has experimental support for some TypeScript syntax via &ldquo;type stripping.&rdquo; You can write code that&rsquo;s valid TypeScript directly in Node.js without needing to transpile it first.
+<meta name="description" content="Since v22.6.0, Node.js has experimental support for some TypeScript syntax via &ldquo;type stripping.&rdquo; You can write code that&rsquo;s valid TypeScript directly in Node.js without needing to transpile it first.
 Today, we will do a small demo and explain how &ldquo;type stripping&rdquo; works, allowing users to run .ts files directly with the Node.js command, without requiring a tsconfig file or build step. Scripts for demos are available at my Github Repo">
 <meta name="generator" content="Hugo 0.126.1">
 
@@ -60,7 +60,7 @@ Today, we will do a small demo and explain how &ldquo;type stripping&rdquo; work
           ·
         </span>
         <span>
-          1066 words
+          1069 words
         </span>
         <span class="split">
           ·
@@ -78,7 +78,7 @@ Today, we will do a small demo and explain how &ldquo;type stripping&rdquo; work
       <p><p class="markdown-image">
   <img src="/typescript.png" alt="TS Image"  title="js" />
 </p></p>
-<h2 id="introduction">Introduction <a href="#introduction" class="anchor">🔗</a></h2><p>Since v22.6.0, Node.js has experimental support for some TypeScript syntax via &ldquo;type stripping.&rdquo; You can write code that&rsquo;s valid TypeScript directly in Node.js without needing to transpile it first.</p>
+<p>Since v22.6.0, Node.js has experimental support for some TypeScript syntax via &ldquo;type stripping.&rdquo; You can write code that&rsquo;s valid TypeScript directly in Node.js without needing to transpile it first.</p>
 <p>Today, we will do a small demo and explain how &ldquo;type stripping&rdquo; works, allowing users to run .ts files directly with the Node.js command, without requiring a tsconfig file or  build step. Scripts for demos are available at my <a href="https://github.com/thatShashankGuy/code-examples/tree/master/node-typescript-native" target="_blank" rel="noopener">Github Repo</a></p>
 <h2 id="transpilation">Transpilation <a href="#transpilation" class="anchor">🔗</a></h2><p>Most developers are familiar with transpiling TypeScript code to JavaScript. Transpilation typically relies on generating and parsing source maps to reverse-engineer code locations during debugging.</p>
 <p>Source maps add additional overhead and are not cheap, but they are essential for debugging, as there can be mismatches between the transpiled JavaScript and the original TypeScript code.</p>
@@ -98,6 +98,7 @@ Today, we will do a small demo and explain how &ldquo;type stripping&rdquo; work
 <p class="markdown-image">
   <img src="/nvm-node-v23.png" alt="nvm ss"  title="node" />
 </p></p>
+<hr>
 <h2 id="demo">Demo <a href="#demo" class="anchor">🔗</a></h2><p>First demo we are writing a small search and replace function , with types and result functions. Scripts for demos are available at my <a href="https://github.com/thatShashankGuy/code-examples/tree/master/node-typescript-native" target="_blank" rel="noopener">Github Repo</a>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">SearchReplaceOperation</span> {
@@ -228,7 +229,9 @@ Today, we will do a small demo and explain how &ldquo;type stripping&rdquo; work
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">text</span>, <span style="color:#a6e22e">searchValue</span>, <span style="color:#a6e22e">replaceValue</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">operation</span>;
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">text</span>.<span style="color:#a6e22e">replace</span>(<span style="color:#a6e22e">searchValue</span>, <span style="color:#a6e22e">replaceValue</span>);
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>I hope this article helps you understand how to run lightweight TypeScript files without complex setups or build steps. While setting up TypeScript projects is still necessary for larger applications, this is a welcome step toward Node.js providing out-of-the-box TypeScript support, similar to other runtimes.</p>
+</span></span></code></pre></div><hr>
+<p>I hope this article helps you understand how to run lightweight TypeScript files without complex setups or build steps. While setting up TypeScript projects is still necessary for larger applications, this is a welcome step toward Node.js providing out-of-the-box TypeScript support, similar to other runtimes. As Always Happy Coding!</p>
+<hr>
 <h4 id="further-reading">Further Reading <a href="#further-reading" class="anchor">🔗</a></h4><ul>
 <li><a href="https://nodejs.org/docs/latest/api/typescript.html#typescript-features" target="_blank" rel="noopener">Node.js v23.6.0 documentation</a></li>
 <li><a href="https://nodejs.org/en/learn/typescript/run-natively" target="_blank" rel="noopener">Running TypeScript Natively</a></li>

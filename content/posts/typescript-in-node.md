@@ -6,7 +6,6 @@ date: 2025-01-19
 
 ![TS Image](/typescript.png "js")
 
-## Introduction
 
 Since v22.6.0, Node.js has experimental support for some TypeScript syntax via "type stripping." You can write code that's valid TypeScript directly in Node.js without needing to transpile it first.
 
@@ -46,6 +45,8 @@ Check node version by using command
 
 We can install node v23 using `node version manger - nvm`
 ![nvm ss](/nvm-node-v23.png "node")
+
+---
 
 ## Demo 
 First demo we are writing a small search and replace function , with types and result functions. Scripts for demos are available at my [Github Repo](https://github.com/thatShashankGuy/code-examples/tree/master/node-typescript-native). 
@@ -189,6 +190,7 @@ Replaced Text (Animals): 🦍 see 🦍 do 🦍 say
 ```
 
 ## Importing modules 
+
 Another important consideration when using multi-file scripts is that the file extension must be explicitly declared when importing modules, as you can now import both .js and .ts files.
 
 Lets move the interface from searchAndReplace.ts to its own file and import the interface back to searchAndReplace.ts. While Importin with we must declare file extension explicitly 
@@ -209,8 +211,12 @@ function searchAndReplace(operation: SearchReplaceOperation): string {
     return text.replace(searchValue, replaceValue);
 }
 ```
+---
 
-I hope this article helps you understand how to run lightweight TypeScript files without complex setups or build steps. While setting up TypeScript projects is still necessary for larger applications, this is a welcome step toward Node.js providing out-of-the-box TypeScript support, similar to other runtimes.
+I hope this article helps you understand how to run lightweight TypeScript files without complex setups or build steps. While setting up TypeScript projects is still necessary for larger applications, this is a welcome step toward Node.js providing out-of-the-box TypeScript support, similar to other runtimes. As Always Happy Coding!
+
+
+---
 
 #### Further Reading
 - [Node.js v23.6.0 documentation](https://nodejs.org/docs/latest/api/typescript.html#typescript-features)
