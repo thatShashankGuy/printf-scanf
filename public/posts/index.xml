@@ -2,122 +2,129 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on PrintF/ScanF</title>
-    <link>https://printf-scanf.pages.dev/posts/</link>
+    <link>http://localhost:1313/posts/</link>
     <description>Recent content in Posts on PrintF/ScanF</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 13 Oct 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://printf-scanf.pages.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 19 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using Typescript with  NodeJS Natively</title>
+      <link>http://localhost:1313/posts/typescript-in-node/</link>
+      <pubDate>Sun, 19 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/typescript-in-node/</guid>
+      <description>Introduction 🔗Since v22.6.0, Node.js has experimental support for some TypeScript syntax via &amp;ldquo;type stripping.&amp;rdquo; You can write code that&amp;rsquo;s valid TypeScript directly in Node.js without needing to transpile it first.&#xA;Today, we will do a small demo and explain how &amp;ldquo;type stripping&amp;rdquo; works, allowing users to run .ts files directly with the Node.js command, without requiring a tsconfig file or build step. Scripts for demos are available at my Github Repo</description>
+    </item>
     <item>
       <title>Load Balancing and Static File Serving with NGINX</title>
-      <link>https://printf-scanf.pages.dev/posts/nginx-load-balancing/</link>
+      <link>http://localhost:1313/posts/nginx-load-balancing/</link>
       <pubDate>Sun, 13 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>https://printf-scanf.pages.dev/posts/nginx-load-balancing/</guid>
+      <guid>http://localhost:1313/posts/nginx-load-balancing/</guid>
       <description>NGINX is a popular web server often used to host Node.js applications in production. It provides features like load balancing, proxying, reverse proxy, and static file serving out of the box.&#xA;Serving Web Apps with NGINX 🔗Today, we will perform a simple exercise using a basic JavaScript backend to demonstrate the load balancing capabilities of the NGINX web server. Alongside the backend server script, we’ll also host a single webpage on NGINX to showcase static file serving.</description>
     </item>
     <item>
       <title>Chat server with Websocket in Node JS</title>
-      <link>https://printf-scanf.pages.dev/posts/web-socket-chat-server/</link>
+      <link>http://localhost:1313/posts/web-socket-chat-server/</link>
       <pubDate>Sun, 06 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>https://printf-scanf.pages.dev/posts/web-socket-chat-server/</guid>
+      <guid>http://localhost:1313/posts/web-socket-chat-server/</guid>
       <description>WebSockets are powerful tools for real-time communication, allowing clients and servers to maintain an open connection and exchange data freely. This makes them ideal for building interactive applications like chat systems, real-time collaboration tools, and multiplayer games.&#xA;In this blog post, we&amp;rsquo;ll walk through creating a WebSocket server in Node.js using the ws library. We&amp;rsquo;ll maintain a queue of connected clients, notify users when new clients join or leave, and ensure every client stays up-to-date with the current lobby status.</description>
     </item>
     <item>
       <title>Build Custom Browser Extensions with Javascript</title>
-      <link>https://printf-scanf.pages.dev/posts/browser-extension/</link>
+      <link>http://localhost:1313/posts/browser-extension/</link>
       <pubDate>Mon, 23 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>https://printf-scanf.pages.dev/posts/browser-extension/</guid>
+      <guid>http://localhost:1313/posts/browser-extension/</guid>
       <description>In this quick article, we will learn how to build a browser extension to manipulate some website behavior for your personal use.&#xA;What is a Browser Extension? 🔗A browser extension is essentially a small software program that adds custom functionality to your web browser. Extensions can help you take notes, manage passwords, block ads, and more.&#xA;They can be installed in most modern browsers like Chrome, Firefox, Edge, etc. Often, an extension can be downloaded and installed from a web store, like the Chrome Web Store.</description>
     </item>
     <item>
       <title>Building Web APIs in Go - StoreFM#2</title>
-      <link>https://printf-scanf.pages.dev/posts/store-fm-1/</link>
+      <link>http://localhost:1313/posts/store-fm-1/</link>
       <pubDate>Sun, 25 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>https://printf-scanf.pages.dev/posts/store-fm-1/</guid>
+      <guid>http://localhost:1313/posts/store-fm-1/</guid>
       <description>This is a continuation of the Store FM series, where we discuss web application development with Go and analyze the Go standard library. In the previous article, we set up our project with a Go backend and an HTML+HTMX frontend.&#xA;Today, we will be analyzing how to work with various API endpoints through which our frontend interacts with the server.&#xA;We will focus on three packages from the standard library in this article:</description>
     </item>
     <item>
       <title>Working with Go&#39;s Standard Library - StoreFM#1</title>
-      <link>https://printf-scanf.pages.dev/posts/store-fm-2/</link>
+      <link>http://localhost:1313/posts/store-fm-2/</link>
       <pubDate>Sun, 18 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>https://printf-scanf.pages.dev/posts/store-fm-2/</guid>
+      <guid>http://localhost:1313/posts/store-fm-2/</guid>
       <description>Introduction 🔗In my previous posts, we discussed Go&amp;rsquo;s syntax and how it allows developers to write C-like code for modern development. While we will continue to explore the language specifications in detail, another aspect of Go that stands out is its modern standard library.&#xA;The Go standard library is simply one of the best—if not the best—I have ever used. Many quality-of-life libraries and tools that might require third-party dependencies in other languages are available out of the box in Go&amp;rsquo;s standard library.</description>
     </item>
     <item>
       <title>Garbage Collection in JavaScript</title>
-      <link>https://printf-scanf.pages.dev/posts/javascript-garbage-collection/</link>
+      <link>http://localhost:1313/posts/javascript-garbage-collection/</link>
       <pubDate>Sat, 10 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>https://printf-scanf.pages.dev/posts/javascript-garbage-collection/</guid>
+      <guid>http://localhost:1313/posts/javascript-garbage-collection/</guid>
       <description>What is Garbage Collection? 🔗Unlike low-level languages like C, where memory management (allocation and freeing of memory) is handled by developers, high-level languages like JavaScript manage memory automatically. JavaScript abstracts the key concepts of allocating and freeing memory by implementing various algorithms.&#xA;The process of identifying memory that has been allocated but is no longer required by the program, referred to as garbage, is known as garbage collection.&#xA;Garbage Collection Algorithms 🔗There are many garbage collection algorithms, such as Mark and Sweep, Reference Counting, Generational Garbage Collection, and Mark-Compact, among others.</description>
     </item>
     <item>
       <title>Profiling Your Node.js Production Code</title>
-      <link>https://printf-scanf.pages.dev/posts/node-js-profiling/</link>
+      <link>http://localhost:1313/posts/node-js-profiling/</link>
       <pubDate>Sun, 04 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>https://printf-scanf.pages.dev/posts/node-js-profiling/</guid>
+      <guid>http://localhost:1313/posts/node-js-profiling/</guid>
       <description>Introduction 🔗When building and running code on a production server, it&amp;rsquo;s crucial to be aware of memory usage, CPU cycles, and other key performance indicators (KPIs) like the time complexity and duration of function calls. Software engineers often obtain and analyze these KPIs to optimize running programs and debug issues, such as memory leaks and CPU utilization, which are difficult to catch in a development environment. This activity is called profiling.</description>
     </item>
     <item>
       <title>Learn to Love Boring</title>
-      <link>https://printf-scanf.pages.dev/posts/love-being-boring/</link>
+      <link>http://localhost:1313/posts/love-being-boring/</link>
       <pubDate>Tue, 11 Jun 2024 00:00:00 +0000</pubDate>
-      <guid>https://printf-scanf.pages.dev/posts/love-being-boring/</guid>
+      <guid>http://localhost:1313/posts/love-being-boring/</guid>
       <description>This is not my usual technical/CSE adjacent post. My articles are mostly tech-related, but I wanted to discuss something different today.&#xA;For the past few months, precisely six, I have not been writing anything. I re-did my Svelte SPA site and turned it into this Hugo based SSG, removing the clutter to focus on writing.&#xA;But as you see, I have not written anything since last year. Why?&#xA;Firstly, in the past quarter, I switched jobs, and the transitional period comes with a lot of uncertainty in routine.</description>
     </item>
     <item>
       <title>Database Paradigms - ACID, BASE and CAP in brief</title>
-      <link>https://printf-scanf.pages.dev/posts/acid-base-cap/</link>
+      <link>http://localhost:1313/posts/acid-base-cap/</link>
       <pubDate>Mon, 08 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>https://printf-scanf.pages.dev/posts/acid-base-cap/</guid>
+      <guid>http://localhost:1313/posts/acid-base-cap/</guid>
       <description>When starting a project, one of the earliest design decisions you need to make is selecting a database. There are various databases available in the market.&#xA;Initially, most databases were of SQL flavors, grouped as Relational Databases, and they used the de facto method of saving data into tables and establishing relationships between these tables. You can read more about History of SQL.&#xA;However, with the advent of NoSQL databases, this paradigm was challenged, opting for a more relaxed and schema-less approach, saving data as objects rather than in rigid tables with relationships.</description>
     </item>
     <item>
       <title>Coding My Way Out of Burnout</title>
-      <link>https://printf-scanf.pages.dev/posts/burnout/</link>
+      <link>http://localhost:1313/posts/burnout/</link>
       <pubDate>Mon, 25 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>https://printf-scanf.pages.dev/posts/burnout/</guid>
+      <guid>http://localhost:1313/posts/burnout/</guid>
       <description>About three months ago, I felt intense pressure in my career. I did not feel like learning anything, and doing my job was a struggle. At that point in time, I didn&amp;rsquo;t understand what was going on, but now I know I was going through a phase of burnout.&#xA;Burnouts are quite common in the workforce, and you will find hundreds of people sharing their stories of burnout.&#xA;One thing you will come across quite often when you search for &amp;lsquo;how to deal with burnouts in tech&amp;rsquo; is to just take a break.</description>
     </item>
     <item>
       <title>Async IO programming with Node js</title>
-      <link>https://printf-scanf.pages.dev/posts/io-in-node/</link>
+      <link>http://localhost:1313/posts/io-in-node/</link>
       <pubDate>Fri, 15 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>https://printf-scanf.pages.dev/posts/io-in-node/</guid>
+      <guid>http://localhost:1313/posts/io-in-node/</guid>
       <description>Introduction 🔗Asynchronous programming is a technique that enables your program to start a potentially long-running task and still be able to be responsive to other events while that task runs, rather than having to wait until that task has finished.&#xA;Consider Node/ Browser Architecture , When program starts it start a main thread on which wil run your javascript program . While one set of instructions ( code ) is running on this thread the thread is busy</description>
     </item>
     <item>
       <title>The Typescript Programming Guide</title>
-      <link>https://printf-scanf.pages.dev/posts/typescript-guide/</link>
+      <link>http://localhost:1313/posts/typescript-guide/</link>
       <pubDate>Wed, 15 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>https://printf-scanf.pages.dev/posts/typescript-guide/</guid>
+      <guid>http://localhost:1313/posts/typescript-guide/</guid>
       <description>Introduction 🔗By now, TypeScript has emerged as a fully-fledged de facto standard for writing secure, enterprise-grade Node apps. I am building this guide from my experience and the TypeScript handbook to offer a brief introduction for those transitioning from JavaScript but please beware I am no SME on typescript. Readers should have some familiarity with JavaScript and Object-Oriented Programming (OOP). As we all are busy people I have kept the guide as concise as possible while being as clear as I can.</description>
     </item>
     <item>
       <title>Go Basics - Error as values</title>
-      <link>https://printf-scanf.pages.dev/posts/errors-as-values/</link>
+      <link>http://localhost:1313/posts/errors-as-values/</link>
       <pubDate>Sun, 29 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>https://printf-scanf.pages.dev/posts/errors-as-values/</guid>
+      <guid>http://localhost:1313/posts/errors-as-values/</guid>
       <description>Error Handling in Go is bit different than traditional way you must have seen in programming in languages like JavaScript . Instead of traditional &amp;ldquo;Try/Catch&amp;rdquo; Go use something called error as values.&#xA;Go, like most statically-typed languages, mandates that you define the return type of your functions. In order to understand Error handling we must first understand return types .&#xA;Let&amp;rsquo;s dive in by creating a basic function, demoFunc, that accepts a string argument and returns it in all lowercase letters.</description>
     </item>
     <item>
       <title>Go Basics - Map and Structs</title>
-      <link>https://printf-scanf.pages.dev/posts/structs/</link>
+      <link>http://localhost:1313/posts/structs/</link>
       <pubDate>Mon, 09 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>https://printf-scanf.pages.dev/posts/structs/</guid>
+      <guid>http://localhost:1313/posts/structs/</guid>
       <description>While arrays and slices form the core of sequential data structures, maps, interfaces, and structs offer unique capabilities, especially when transitioning from a language like TypeScript. Lets talk about them today.&#xA;Maps: Go&amp;rsquo;s Key-Value Store: 🔗A map in Go is a composite type that represents a hash table or a dictionary or object/map in typescript&amp;rsquo;s case. It associates keys and values where each key maps to a unique value. The key can be of any type for which the equality operation is defined, such as integers, floats, strings, etc.</description>
     </item>
     <item>
       <title>Go Basics - Arrays vs Slices</title>
-      <link>https://printf-scanf.pages.dev/posts/array-slices/</link>
+      <link>http://localhost:1313/posts/array-slices/</link>
       <pubDate>Fri, 11 Aug 2023 00:00:00 +0000</pubDate>
-      <guid>https://printf-scanf.pages.dev/posts/array-slices/</guid>
+      <guid>http://localhost:1313/posts/array-slices/</guid>
       <description>With this article I have tried giving a brief overview of two fundamental data structures in the Go programming language: arrays and slices. This may help anyone coming from a dynamic language to Go and understand the basics of couple of most used data structures in all programs .&#xA;Arrays&#xA;Arrays are fundamental data structures in the Go programming language that allow you to store and manage collections of elements of the same type.</description>
     </item>
     <item>
       <title>Go Basics - Pointers</title>
-      <link>https://printf-scanf.pages.dev/posts/pointers-in-go/</link>
+      <link>http://localhost:1313/posts/pointers-in-go/</link>
       <pubDate>Thu, 20 Jul 2023 00:00:00 +0000</pubDate>
-      <guid>https://printf-scanf.pages.dev/posts/pointers-in-go/</guid>
+      <guid>http://localhost:1313/posts/pointers-in-go/</guid>
       <description>In Go, a pointer is a variable that stores the memory address of another variable. We use the ampersand (&amp;amp;) operator to get the memory address of a variable, and the asterisk (*) operator to declare a pointer variable or to access the value pointed to by a pointer.&#xA;In the example code provided, p is a pointer to the variable x. We can use the * operator to access the value stored in the memory location pointed to by p.</description>
     </item>
   </channel>
