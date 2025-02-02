@@ -3,10 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://printf-scanf.pages.dev/posts/</loc>
-    <lastmod>2025-01-19T00:00:00+00:00</lastmod>
+    <lastmod>2025-02-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://printf-scanf.pages.dev/</loc>
-    <lastmod>2025-01-19T00:00:00+00:00</lastmod>
+    <lastmod>2025-02-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://printf-scanf.pages.dev/posts/task-processing-queue/</loc>
+    <lastmod>2025-02-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://printf-scanf.pages.dev/posts/typescript-in-node/</loc>
     <lastmod>2025-01-19T00:00:00+00:00</lastmod>

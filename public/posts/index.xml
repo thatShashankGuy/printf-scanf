@@ -6,10 +6,17 @@
     <description>Recent content in Posts on PrintF/ScanF</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 19 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 02 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://printf-scanf.pages.dev/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Using Typescript with  NodeJS Natively</title>
+      <title>Task processing queue with RabbitMQ</title>
+      <link>https://printf-scanf.pages.dev/posts/task-processing-queue/</link>
+      <pubDate>Sun, 02 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://printf-scanf.pages.dev/posts/task-processing-queue/</guid>
+      <description>Hi There! This is going to be long article so I am not gonna waste much time and we will dive deep into it!.&#xA;What are we buidling 🔗We are building and simulating a task processing queue using message broker service called RabbitMQ. We will talk about Pub Sub architecture, message brokage and advance message protocol.&#xA;For the sake of simplicity have build a node monolith , but often the producer and consumers are build and deployed seperately as microservices.</description>
+    </item>
+    <item>
+      <title>Using Typescript with  NodeJS natively</title>
       <link>https://printf-scanf.pages.dev/posts/typescript-in-node/</link>
       <pubDate>Sun, 19 Jan 2025 00:00:00 +0000</pubDate>
       <guid>https://printf-scanf.pages.dev/posts/typescript-in-node/</guid>
