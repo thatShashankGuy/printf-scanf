@@ -659,3 +659,10 @@ This decoupled and scalable design allows the application to handle asynchronous
 I hope you found this article interesting. We will discuss Asyncronous messaging details along with stream processing and other features. So stay tuned
 
 Cheers and Happy coding!
+
+## Further reading and references
+
+- [Message Broker](https://www.ibm.com/think/topics/message-brokers)
+- [Getting Started with Rabbit MQ](https://www.rabbitmq.com/tutorials)
+- [AMPQLib for Node JS](https://www.cloudamqp.com/docs/nodejs.html)
+- [Pub Sub Architecture](https://cloud.google.com/pubsub/architecture)
