@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head>
     <title>Node.js Module Caching | PrintF/ScanF</title>
 
     <meta charset="utf-8">
@@ -60,7 +60,7 @@ Node.js optimizes performance by caching imported modules to prevent redundant e
           ·
         </span>
         <span>
-          408 words
+          416 words
         </span>
         <span class="split">
           ·
@@ -84,6 +84,7 @@ Singleton patterns allow caching class instances manually</p>
 <p>Node.js optimizes performance by <strong>caching imported modules</strong> to prevent redundant execution.
 This means that when a module is required or imported multiple times, it is <strong>loaded and executed only once</strong>—subsequent
 imports simply reuse the cached version. However, same behavior does not apply to <strong>class instances</strong>.</p>
+<p>Example code can be accessed at <a href="https://github.com/thatShashankGuy/code-examples/tree/master/node-module-caching" target="_blank" rel="noopener">github repo</a></p>
 <h2 id="how-nodejs-caches-modules">How Node.js Caches Modules <a href="#how-nodejs-caches-modules" class="anchor">🔗</a></h2><p>When a module is imported using <code>require()</code> (CommonJS) or <code>import</code> (ES Modules), Node.js stores it in its <strong>module cache</strong>.
 This prevents re-executing the module every time it is imported. Following code demonstrate the module caching.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// utils.js
