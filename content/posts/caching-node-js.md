@@ -43,7 +43,7 @@ console.log(addAgain(5, 5)); // 10
 
 #### **Output:**
 
-```
+```bash
 Module loaded
 5
 10
@@ -78,7 +78,7 @@ console.log(user2.name); // Bulma
 
 #### **Output:**
 
-```
+```bash
 User module loaded
 Alice
 Bob
@@ -117,7 +117,7 @@ console.log(db1 === db2); // true
 
 #### **Output:**
 
-```
+```bash
 New Database instance created
 Connected to database
 Connected to database
