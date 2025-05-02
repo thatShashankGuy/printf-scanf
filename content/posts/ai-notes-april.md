@@ -4,7 +4,7 @@ author: Shashank Shekhar
 date: 2025-05-02
 ---
 
-![headline image](/notetakingwithai.png "Note taking with AI")
+![headline image](/notesonai.png "Note taking with AI")
 
 ## 1 · Machine–Learning Model Taxonomy
 
