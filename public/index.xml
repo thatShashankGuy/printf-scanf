@@ -16,6 +16,13 @@
       <description>1 · Machine–Learning Model Taxonomy 🔗1.1 Discriminative vs Generative 🔗 Discriminative models learn the conditional distribution $P(y\mid x)$ to separate classes.&#xA;Primary use · classification/regression. Typical nature · often deterministic at inference. Examples · Logistic Regression, SVM, plain Feed‑forward NNs, ResNet‑like CNNs. Generative models learn the joint distribution $P(x,y)=P(x\mid y)P(y)$ and can synthesize new x.&#xA;Primary use · both classification and data generation/simulation. Typical nature · probabilistic/stochastic. Examples · Naïve Bayes, Hidden Markov Models, GANs, VAEs, Diffusion models.</description>
     </item>
     <item>
+      <title>Why I Don’t Care About the &#34;Best&#34; Programming Language</title>
+      <link>https://printf-scanf.pages.dev/posts/opinion-best-coding-language/</link>
+      <pubDate>Fri, 02 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://printf-scanf.pages.dev/posts/opinion-best-coding-language/</guid>
+      <description>I’ve been coding for nearly a decade, and I still enjoy writing code — across different languages, for different problems. But one thing that’s always bugged me is the community.&#xA;Don’t get me wrong: coding communities can be amazing, helpful, and generous. But they’re also filled with ego battles — endless fights over which language is “better,” which one makes you a “real” programmer, and why you’re somehow lesser if you’re using that language instead of this one.</description>
+    </item>
+    <item>
       <title>Anatomy of a prompt</title>
       <link>https://printf-scanf.pages.dev/posts/anatomy-of-a-prompt/</link>
       <pubDate>Wed, 23 Apr 2025 00:00:00 +0000</pubDate>
