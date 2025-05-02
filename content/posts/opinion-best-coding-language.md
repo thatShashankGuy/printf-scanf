@@ -1,7 +1,8 @@
 ---
 title: Why I Don’t Care About the "Best" Programming Language
 author: Shashank Shekhar
-date: 2025-05-02
+date: 2025-05-07
+draft: true
 ---
 
 ![Opinion](/Opinion.png "Opinion")

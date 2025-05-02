@@ -2,89 +2,86 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://printf-scanf.pages.dev/posts/ai-notes-april/</loc>
+    <loc>http://localhost:1313/posts/ai-notes-april/</loc>
     <lastmod>2025-05-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://printf-scanf.pages.dev/posts/</loc>
+    <loc>http://localhost:1313/posts/</loc>
     <lastmod>2025-05-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://printf-scanf.pages.dev/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2025-05-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://printf-scanf.pages.dev/posts/opinion-vibe-coding-doesnt-work/</loc>
+    <loc>http://localhost:1313/posts/opinion-best-coding-language/</loc>
     <lastmod>2025-05-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://printf-scanf.pages.dev/posts/opinion-best-coding-language/</loc>
-    <lastmod>2025-05-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://printf-scanf.pages.dev/posts/anatomy-of-a-prompt/</loc>
+    <loc>http://localhost:1313/posts/anatomy-of-a-prompt/</loc>
     <lastmod>2025-04-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://printf-scanf.pages.dev/posts/caching-node-js/</loc>
+    <loc>http://localhost:1313/posts/caching-node-js/</loc>
     <lastmod>2025-02-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://printf-scanf.pages.dev/posts/task-processing-queue/</loc>
+    <loc>http://localhost:1313/posts/task-processing-queue/</loc>
     <lastmod>2025-02-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://printf-scanf.pages.dev/posts/typescript-in-node/</loc>
+    <loc>http://localhost:1313/posts/typescript-in-node/</loc>
     <lastmod>2025-01-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://printf-scanf.pages.dev/posts/nginx-load-balancing/</loc>
+    <loc>http://localhost:1313/posts/nginx-load-balancing/</loc>
     <lastmod>2024-10-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://printf-scanf.pages.dev/posts/web-socket-chat-server/</loc>
+    <loc>http://localhost:1313/posts/web-socket-chat-server/</loc>
     <lastmod>2024-10-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://printf-scanf.pages.dev/posts/browser-extension/</loc>
+    <loc>http://localhost:1313/posts/browser-extension/</loc>
     <lastmod>2024-09-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://printf-scanf.pages.dev/posts/store-fm-1/</loc>
+    <loc>http://localhost:1313/posts/store-fm-1/</loc>
     <lastmod>2024-08-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://printf-scanf.pages.dev/posts/store-fm-2/</loc>
+    <loc>http://localhost:1313/posts/store-fm-2/</loc>
     <lastmod>2024-08-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://printf-scanf.pages.dev/posts/javascript-garbage-collection/</loc>
+    <loc>http://localhost:1313/posts/javascript-garbage-collection/</loc>
     <lastmod>2024-08-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://printf-scanf.pages.dev/posts/node-js-profiling/</loc>
+    <loc>http://localhost:1313/posts/node-js-profiling/</loc>
     <lastmod>2024-08-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://printf-scanf.pages.dev/posts/love-being-boring/</loc>
+    <loc>http://localhost:1313/posts/love-being-boring/</loc>
     <lastmod>2024-06-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://printf-scanf.pages.dev/posts/acid-base-cap/</loc>
+    <loc>http://localhost:1313/posts/acid-base-cap/</loc>
     <lastmod>2024-01-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://printf-scanf.pages.dev/posts/burnout/</loc>
+    <loc>http://localhost:1313/posts/burnout/</loc>
     <lastmod>2023-12-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://printf-scanf.pages.dev/posts/io-in-node/</loc>
+    <loc>http://localhost:1313/posts/io-in-node/</loc>
     <lastmod>2023-12-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://printf-scanf.pages.dev/externals/</loc>
+    <loc>http://localhost:1313/externals/</loc>
     <lastmod>2023-11-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://printf-scanf.pages.dev/posts/typescript-guide/</loc>
+    <loc>http://localhost:1313/posts/typescript-guide/</loc>
     <lastmod>2023-11-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://printf-scanf.pages.dev/about/</loc>
+    <loc>http://localhost:1313/about/</loc>
     <lastmod>2023-11-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://printf-scanf.pages.dev/posts/errors-as-values/</loc>
+    <loc>http://localhost:1313/posts/errors-as-values/</loc>
     <lastmod>2023-10-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://printf-scanf.pages.dev/posts/structs/</loc>
+    <loc>http://localhost:1313/posts/structs/</loc>
     <lastmod>2023-10-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://printf-scanf.pages.dev/posts/array-slices/</loc>
+    <loc>http://localhost:1313/posts/array-slices/</loc>
     <lastmod>2023-08-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://printf-scanf.pages.dev/posts/pointers-in-go/</loc>
+    <loc>http://localhost:1313/posts/pointers-in-go/</loc>
     <lastmod>2023-07-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://printf-scanf.pages.dev/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
   </url><url>
-    <loc>https://printf-scanf.pages.dev/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
   </url>
 </urlset>
