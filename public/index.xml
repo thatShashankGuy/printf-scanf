@@ -16,6 +16,13 @@
       <description>1 · Machine–Learning Model Taxonomy 🔗1.1 Discriminative vs Generative 🔗 Discriminative models learn the conditional distribution $P(y\mid x)$ to separate classes.&#xA;Primary use · classification/regression. Typical nature · often deterministic at inference. Examples · Logistic Regression, SVM, plain Feed‑forward NNs, ResNet‑like CNNs. Generative models learn the joint distribution $P(x,y)=P(x\mid y)P(y)$ and can synthesize new x.&#xA;Primary use · both classification and data generation/simulation. Typical nature · probabilistic/stochastic. Examples · Naïve Bayes, Hidden Markov Models, GANs, VAEs, Diffusion models.</description>
     </item>
     <item>
+      <title>Why “Vibe Coding” Doesn’t Work for Me</title>
+      <link>https://printf-scanf.pages.dev/posts/opinion-vibe-coding-doesnt-work/</link>
+      <pubDate>Fri, 02 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://printf-scanf.pages.dev/posts/opinion-vibe-coding-doesnt-work/</guid>
+      <description>In the programming world, there’s a rising trend some call vibe coding — a term popularized by Andrej Karpathy, meaning you let AI agents write all the code for you, blindly, without personally reviewing or understanding it. You just “vibe,” prompt after prompt, never stopping to check, learn, or correct the output yourself.&#xA;Let me be clear: I’m not talking about using LLMs, RAG, or prompting to assist coding, generate snippets, or look up APIs.</description>
+    </item>
+    <item>
       <title>Why I Don’t Care About the &#34;Best&#34; Programming Language</title>
       <link>https://printf-scanf.pages.dev/posts/opinion-best-coding-language/</link>
       <pubDate>Fri, 02 May 2025 00:00:00 +0000</pubDate>

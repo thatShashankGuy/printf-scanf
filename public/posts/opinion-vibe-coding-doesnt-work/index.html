@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <title>PrintF/ScanF</title>
+    <title>Why “Vibe Coding” Doesn’t Work for Me | PrintF/ScanF</title>
 
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
-<meta name="description" content="">
+<meta name="description" content="In the programming world, there’s a rising trend some call vibe coding — a term popularized by Andrej Karpathy, meaning you let AI agents write all the code for you, blindly, without personally reviewing or understanding it. You just “vibe,” prompt after prompt, never stopping to check, learn, or correct the output yourself.
+Let me be clear: I’m not talking about using LLMs, RAG, or prompting to assist coding, generate snippets, or look up APIs.">
 <meta name="generator" content="Hugo 0.126.1">
 
 
@@ -24,17 +25,14 @@
 
 
 
-  
-    <link href="/index.xml" rel="alternate" type="application/rss+xml" title="PrintF/ScanF" />
-    <link href="/index.xml" rel="feed" type="application/rss+xml" title="PrintF/ScanF" />
-  
-
 
 
   </head>
 
   <body>
     <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
 	
 	<a href="/about">About</a>
 	<a href="/externals">References</a>
@@ -46,86 +44,61 @@
 
 	
 	
-	<a class="button" href="https://printf-scanf.pages.dev/index.xml">Subscribe</a>
-	
 	
 </nav>
 
 
     <main class="main">
       
-<header class="profile">
-    
-        <img class="avatar" alt="avatar" src="/images/avatar.png" />
-    
 
-    <h1>PrintF/ScanF</h1>
-    
-    
-</header>
+<section id="single">
+    <h1 class="title">Why “Vibe Coding” Doesn’t Work for Me</h1>
 
-<div id="list-page">
-    
-    
-    
-        
-        
-        <section class="item">
-          <div>
-            <h1 class="title"><a href='/posts/caching-node-js/'>Node.js Module Caching</a></h1>
-            <div class ="date">
-                <time datetime="2025-02-04 00:00:00 &#43;0000 UTC">Feb 4, 2025</time>  
-            </div>
-          </div>
-
-          
-              <div class="summary">Introduction 🔗In this article we will discuss NodeJs process of optimize application by caching modules. We will also discuss how Class definitions are cached, but new instances are not and Singleton patterns allow caching class instances manually
-Node.js optimizes performance by caching imported modules to prevent redundant execution. This means that when a module is required or imported multiple times, it is loaded and executed only once—subsequent imports simply reuse the cached version.</div>
-          
-
-        </section>
-    
-        
-        
-        <section class="item">
-          <div>
-            <h1 class="title"><a href='/posts/task-processing-queue/'>Task processing queue with RabbitMQ</a></h1>
-            <div class ="date">
-                <time datetime="2025-02-02 00:00:00 &#43;0000 UTC">Feb 2, 2025</time>  
-            </div>
-          </div>
-
-          
-              <div class="summary">Hi There! This is going to be long article so I am not gonna waste much time and we will dive deep into it!.
-What are we buidling 🔗We are building and simulating a task processing queue using message broker service called RabbitMQ. We will talk about Pub Sub architecture, message brokage and advance message protocol.
-For the sake of simplicity have build a node monolith , but often the producer and consumers are build and deployed seperately as microservices.</div>
-          
-
-        </section>
-    
+    <div class="tip">
+        <time datetime="2025-05-02 00:00:00 &#43;0000 UTC">May 2, 2025</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          285 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          2 minute read
+        </span>
+    </div>
 
     
-        <div class="pagination">
-          
-              <span class="prev">
-                  <a href="/page/2/">
-                      <span class="arrow">←</span> Newer posts
-                  </a>
-            </span>
-          
-          
-          
-              <span class="next">
-                  <a href="/page/4/">
-                      Older posts <span class="arrow">→</span>
-                  </a>
-              </span>
-          
-        </div>
     
 
 
-</div>
+    <div class="content">
+      <p><p class="markdown-image">
+  <img src="/Opinion.png" alt="Opinion"  title="Opinion" />
+</p></p>
+<p>In the programming world, there’s a rising trend some call <a href="https://en.wikipedia.org/wiki/Vibe_coding" target="_blank" rel="noopener">vibe coding</a> — a term popularized by <a href="https://en.wikipedia.org/wiki/Andrej_Karpathy" target="_blank" rel="noopener">Andrej Karpathy</a>, meaning you let AI agents write all the code for you, blindly, without personally reviewing or understanding it. You just “vibe,” prompt after prompt, never stopping to check, learn, or correct the output yourself.</p>
+<p>Let me be clear: I’m <strong>not</strong> talking about using LLMs, RAG, or prompting to assist coding, generate snippets, or look up APIs. That’s not new. We’ve always worked like this — from reading manuals, to hunting Stack Overflow in the 2010s, to asking LLMs today. What’s changed is the speed and specificity of the help, not the core idea.</p>
+<p>The <strong>real productivity gain</strong> with AI is that we can offload tedious typing and spend more time doing things we once skipped: writing more tests, reviewing code carefully, improving maintainability, adding comments, and making sure the codebase is clean and efficient.</p>
+<p>In my experience, no software survives untouched after its first draft. There’s always another feature, another change, another revisit. If you build something you don’t understand, you will struggle to extend or fix it later.</p>
+<p>For anyone learning to code today, I strongly recommend this:</p>
+<ul>
+<li><strong>Use AI to assist, but don’t surrender.</strong></li>
+<li><strong>Learn what the AI outputs mean.</strong></li>
+<li><strong>Write some code without AI, too.</strong></li>
+</ul>
+<p>Programming isn’t about memorizing every syntax detail; it’s about building a mental model of how things work. Anyone can learn to code — no gatekeeping here — but you owe it to yourself (and your future projects) to understand what you’re shipping.</p>
+<p>So, no, “vibe coding” doesn’t work for me. And if you want to truly grow as a developer, I believe it won’t work for you either.</p>
+
+    </div>
+
+    
+    
+    
+
+</section>
+
 
     </main>
     
