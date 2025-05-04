@@ -1,8 +1,7 @@
 ---
 title: Why “Vibe Coding” Doesn’t Work for Me
 author: Shashank Shekhar
-date: 2025-05-05
-draft: true
+date: 2025-05-04
 ---
 
 ![Opinion](/Opinion.png "Opinion")
