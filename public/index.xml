@@ -6,8 +6,15 @@
     <description>Recent content on PrintF/ScanF</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 11 Aug 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://printf-scanf.pages.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>From RPA to Agentic Workflows - The Evolution of Automation</title>
+      <link>https://printf-scanf.pages.dev/posts/eval-of-automation/</link>
+      <pubDate>Mon, 11 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://printf-scanf.pages.dev/posts/eval-of-automation/</guid>
+      <description>One of my first jobs as a college graduate was writing Robotic Process Automation (RPA) workflows using Leapwork. I was able to automate several repetitive, time-consuming tasks, which gave me a deep appreciation for the power of engineering.&#xA;RPA involves using software &amp;ldquo;bots&amp;rdquo; to mimic human interactions with digital systems. These aren&amp;rsquo;t physical robots, but rather modular software programs designed to perform tasks like data entry or web scraping.</description>
+    </item>
     <item>
       <title>Why “Vibe Coding” Doesn’t Work for Me</title>
       <link>https://printf-scanf.pages.dev/posts/opinion-vibe-coding-doesnt-work/</link>
