@@ -1,5 +1,5 @@
 ---
-title: Learning from Agentic Automation
+title: Learnings from Agentic Automation
 author: Shashank Shekhar
 date: 2025-08-23
 ---
