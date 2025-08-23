@@ -6,8 +6,15 @@
     <description>Recent content in Posts on PrintF/ScanF</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 11 Aug 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 23 Aug 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://printf-scanf.pages.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning from Agentic Automation</title>
+      <link>https://printf-scanf.pages.dev/posts/learning-from-agentic-automation/</link>
+      <pubDate>Sat, 23 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://printf-scanf.pages.dev/posts/learning-from-agentic-automation/</guid>
+      <description>Over the past few months, I’ve been learning and building AI Agents / LLM-driven automation workflows.&#xA;I learned a lot - some exciting, some challenging and I decided to document my learnings in this blog.&#xA;LLM Workflows and Agentic Automation is Backend Engineering with Extra Steps 🔗Yep! Maybe I’ll ruffle some feathers, but building AI agents is very much a backend / automation pipeline-driven process. The same basic principles apply — and that’s actually a good thing.</description>
+    </item>
     <item>
       <title>From RPA to Agentic Workflows - The Evolution of Automation</title>
       <link>https://printf-scanf.pages.dev/posts/eval-of-automation/</link>
