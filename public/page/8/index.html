@@ -1,53 +1,61 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <title>PrintF/ScanF</title>
+    <title>Blogs | Shashank Shekhar</title>
 
-    <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
-<meta name="viewport" content="width=device-width,minimum-scale=1">
-<meta name="description" content="">
-<meta name="generator" content="Hugo 0.126.1">
-
-
-  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-
-
-<link rel="stylesheet" href="/css/style.css">
-
+    <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width,minimum-scale=1" />
+<meta
+  name="description"
+  content=""
+/>
+<meta name="generator" content="Hugo 0.126.1">  
+<meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+ <link rel="stylesheet" href="/css/style.css">
 
 
-<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+  rel="stylesheet"
+/>
 
-
-
-
-
-
-  
-    <link href="/index.xml" rel="alternate" type="application/rss+xml" title="PrintF/ScanF" />
-    <link href="/index.xml" rel="feed" type="application/rss+xml" title="PrintF/ScanF" />
-  
-
+ <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />    
+<link
+  href="/index.xml"
+  rel="alternate"
+  type="application/rss+xml"
+  title="Blogs | Shashank Shekhar"
+/>
+<link
+  href="/index.xml"
+  rel="feed"
+  type="application/rss+xml"
+  title="Blogs | Shashank Shekhar"
+/>
+ 
 
 
   </head>
 
   <body>
     <nav class="navigation">
-	
-	<a href="/about">About</a>
+
+		<a href="/"> <span class="arrow">Blogs</span></a>
+
 	<a href="/externals">References</a>
 	<a href="/posts">Archive</a>
-	<a href="/tags" style="display: none;">Tags</a>	
-	
+	<a href="/tags" style="display: none;">Tags</a>
 
 	
-
+	<a class="button" href="https://home.shahankshekhar.in">Website</a>
 	
-	
-	<a class="button" href="https://printf-scanf.pages.dev/index.xml">Subscribe</a>
-	
+	  
+	  
+	    <a class="button" href="https://blog.shashankshekhar.in/index.xml">Subscribe</a>
+	  
 	
 </nav>
 
@@ -59,7 +67,7 @@
         <img class="avatar" alt="avatar" src="/images/avatar.png" />
     
 
-    <h1>PrintF/ScanF</h1>
+    <h1>Blogs | Shashank Shekhar</h1>
     
     
 </header>
@@ -72,16 +80,14 @@
         
         <section class="item">
           <div>
-            <h1 class="title"><a href='/posts/javascript-garbage-collection/'>Garbage Collection in JavaScript</a></h1>
+            <h1 class="title"><a href='/posts/typescript-guide/'>The Typescript Programming Guide</a></h1>
             <div class ="date">
-                <time datetime="2024-08-10 00:00:00 &#43;0000 UTC">Aug 10, 2024</time>  
+                <time datetime="2023-11-15 00:00:00 &#43;0000 UTC">Nov 15, 2023</time>  
             </div>
           </div>
 
           
-              <div class="summary">What is Garbage Collection? 🔗Unlike low-level languages like C, where memory management (allocation and freeing of memory) is handled by developers, high-level languages like JavaScript manage memory automatically. JavaScript abstracts the key concepts of allocating and freeing memory by implementing various algorithms.
-The process of identifying memory that has been allocated but is no longer required by the program, referred to as garbage, is known as garbage collection.
-Garbage Collection Algorithms 🔗There are many garbage collection algorithms, such as Mark and Sweep, Reference Counting, Generational Garbage Collection, and Mark-Compact, among others.</div>
+              <div class="summary">Introduction 🔗By now, TypeScript has emerged as a fully-fledged de facto standard for writing secure, enterprise-grade Node apps. I am building this guide from my experience and the TypeScript handbook to offer a brief introduction for those transitioning from JavaScript but please beware I am no SME on typescript. Readers should have some familiarity with JavaScript and Object-Oriented Programming (OOP). As we all are busy people I have kept the guide as concise as possible while being as clear as I can.</div>
           
 
         </section>
@@ -90,14 +96,33 @@ Garbage Collection Algorithms 🔗There are many garbage collection algorithms, 
         
         <section class="item">
           <div>
-            <h1 class="title"><a href='/posts/node-js-profiling/'>Profiling Your Node.js Production Code</a></h1>
+            <h1 class="title"><a href='/posts/errors-as-values/'>Go Basics - Error as values</a></h1>
             <div class ="date">
-                <time datetime="2024-08-04 00:00:00 &#43;0000 UTC">Aug 4, 2024</time>  
+                <time datetime="2023-10-29 00:00:00 &#43;0000 UTC">Oct 29, 2023</time>  
             </div>
           </div>
 
           
-              <div class="summary">Introduction 🔗When building and running code on a production server, it’s crucial to be aware of memory usage, CPU cycles, and other key performance indicators (KPIs) like the time complexity and duration of function calls. Software engineers often obtain and analyze these KPIs to optimize running programs and debug issues, such as memory leaks and CPU utilization, which are difficult to catch in a development environment. This activity is called profiling.</div>
+              <div class="summary">Error Handling in Go is bit different than traditional way you must have seen in programming in languages like JavaScript . Instead of traditional “Try/Catch” Go use something called error as values.
+Go, like most statically-typed languages, mandates that you define the return type of your functions. In order to understand Error handling we must first understand return types .
+Let’s dive in by creating a basic function, demoFunc, that accepts a string argument and returns it in all lowercase letters.</div>
+          
+
+        </section>
+    
+        
+        
+        <section class="item">
+          <div>
+            <h1 class="title"><a href='/posts/structs/'>Go Basics - Map and Structs</a></h1>
+            <div class ="date">
+                <time datetime="2023-10-09 00:00:00 &#43;0000 UTC">Oct 9, 2023</time>  
+            </div>
+          </div>
+
+          
+              <div class="summary">While arrays and slices form the core of sequential data structures, maps, interfaces, and structs offer unique capabilities, especially when transitioning from a language like TypeScript. Lets talk about them today.
+Maps: Go’s Key-Value Store: 🔗A map in Go is a composite type that represents a hash table or a dictionary or object/map in typescript’s case. It associates keys and values where each key maps to a unique value. The key can be of any type for which the equality operation is defined, such as integers, floats, strings, etc.</div>
           
 
         </section>

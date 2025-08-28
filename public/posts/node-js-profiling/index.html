@@ -1,48 +1,48 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <title>Profiling Your Node.js Production Code | PrintF/ScanF</title>
+    <title>Profiling Your Node.js Production Code | Blogs | Shashank Shekhar</title>
 
-    <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
-<meta name="viewport" content="width=device-width,minimum-scale=1">
-<meta name="description" content="Introduction 🔗When building and running code on a production server, it&rsquo;s crucial to be aware of memory usage, CPU cycles, and other key performance indicators (KPIs) like the time complexity and duration of function calls. Software engineers often obtain and analyze these KPIs to optimize running programs and debug issues, such as memory leaks and CPU utilization, which are difficult to catch in a development environment. This activity is called profiling.">
-<meta name="generator" content="Hugo 0.126.1">
-
-
-  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-
-
-<link rel="stylesheet" href="/css/style.css">
-
+    <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width,minimum-scale=1" />
+<meta
+  name="description"
+  content="Introduction 🔗When building and running code on a production server, it&rsquo;s crucial to be aware of memory usage, CPU cycles, and other key performance indicators (KPIs) like the time complexity and duration of function calls. Software engineers often obtain and analyze these KPIs to optimize running programs and debug issues, such as memory leaks and CPU utilization, which are difficult to catch in a development environment. This activity is called profiling."
+/>
+<meta name="generator" content="Hugo 0.126.1">  
+<meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+ <link rel="stylesheet" href="/css/style.css">
 
 
-<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+  rel="stylesheet"
+/>
 
-
-
-
-
-
+ <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />   
 
 
   </head>
 
   <body>
     <nav class="navigation">
-	
-		<a href="/"> <span class="arrow">←</span>Home</a>
-	
-	<a href="/about">About</a>
+
+		<a href="/"> <span class="arrow">Blogs</span></a>
+
 	<a href="/externals">References</a>
 	<a href="/posts">Archive</a>
-	<a href="/tags" style="display: none;">Tags</a>	
-	
+	<a href="/tags" style="display: none;">Tags</a>
 
 	
-
+	<a class="button" href="https://home.shahankshekhar.in">Website</a>
 	
-	
+	  
+	  
+	    <a class="button" href="https://blog.shashankshekhar.in/index.xml">Subscribe</a>
+	  
 	
 </nav>
 
@@ -51,29 +51,22 @@
       
 
 <section id="single">
-    <h1 class="title">Profiling Your Node.js Production Code</h1>
-
-    <div class="tip">
+    <div class="post-header">
+      <h1 class="title">Profiling Your Node.js Production Code</h1>
+      <div class="meta-row">
         <time datetime="2024-08-04 00:00:00 &#43;0000 UTC">Aug 4, 2024</time>
-        <span class="split">
-          ·
-        </span>
-        <span>
-          928 words
-        </span>
-        <span class="split">
-          ·
-        </span>
-        <span>
-          5 minute read
-        </span>
+        <span class="split">·</span>
+        <span>928 words</span>
+        <span class="split">·</span>
+        <span>5 minute read</span>
+      </div>
     </div>
 
     
     
 
 
-    <div class="content">
+    <div class="content card">
       <p><p class="markdown-image">
   <img src="/nodeJS.svg" alt="Nodejs"  title="Node" />
 </p></p>

@@ -1,15 +1,15 @@
-baseURL = 'https://printf-scanf.pages.dev/'
+baseURL = 'https://blog.shashankshekhar.in/'
 languageCode = 'en-us'
-title = 'PrintF/ScanF'
+title = 'Blogs | Shashank Shekhar'
 
 
-paginate = 2
+paginate = 3
 
 [params]
  externals = 'References'
  colortheme = "dark"
  favicon = "fav.png"    
- enablerss = true
+ enableRSS = true
  author = "Shashank Shekhar"
 
 

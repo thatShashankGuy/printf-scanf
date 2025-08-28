@@ -1,50 +1,50 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <title>Go Basics - Error as values | PrintF/ScanF</title>
+    <title>Go Basics - Error as values | Blogs | Shashank Shekhar</title>
 
-    <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
-<meta name="viewport" content="width=device-width,minimum-scale=1">
-<meta name="description" content="Error Handling in Go is bit different than traditional way you must have seen in programming in languages like JavaScript . Instead of traditional &ldquo;Try/Catch&rdquo; Go use something called error as values.
+    <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width,minimum-scale=1" />
+<meta
+  name="description"
+  content="Error Handling in Go is bit different than traditional way you must have seen in programming in languages like JavaScript . Instead of traditional &ldquo;Try/Catch&rdquo; Go use something called error as values.
 Go, like most statically-typed languages, mandates that you define the return type of your functions. In order to understand Error handling we must first understand return types .
-Let&rsquo;s dive in by creating a basic function, demoFunc, that accepts a string argument and returns it in all lowercase letters.">
-<meta name="generator" content="Hugo 0.126.1">
+Let&rsquo;s dive in by creating a basic function, demoFunc, that accepts a string argument and returns it in all lowercase letters."
+/>
+<meta name="generator" content="Hugo 0.126.1">  
+<meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+ <link rel="stylesheet" href="/css/style.css">
 
 
-  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+  rel="stylesheet"
+/>
 
-
-<link rel="stylesheet" href="/css/style.css">
-
-
-
-<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
-
-
-
-
-
-
+ <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />   
 
 
   </head>
 
   <body>
     <nav class="navigation">
-	
-		<a href="/"> <span class="arrow">←</span>Home</a>
-	
-	<a href="/about">About</a>
+
+		<a href="/"> <span class="arrow">Blogs</span></a>
+
 	<a href="/externals">References</a>
 	<a href="/posts">Archive</a>
-	<a href="/tags" style="display: none;">Tags</a>	
-	
+	<a href="/tags" style="display: none;">Tags</a>
 
 	
-
+	<a class="button" href="https://home.shahankshekhar.in">Website</a>
 	
-	
+	  
+	  
+	    <a class="button" href="https://blog.shashankshekhar.in/index.xml">Subscribe</a>
+	  
 	
 </nav>
 
@@ -53,29 +53,22 @@ Let&rsquo;s dive in by creating a basic function, demoFunc, that accepts a strin
       
 
 <section id="single">
-    <h1 class="title">Go Basics - Error as values</h1>
-
-    <div class="tip">
+    <div class="post-header">
+      <h1 class="title">Go Basics - Error as values</h1>
+      <div class="meta-row">
         <time datetime="2023-10-29 00:00:00 &#43;0000 UTC">Oct 29, 2023</time>
-        <span class="split">
-          ·
-        </span>
-        <span>
-          510 words
-        </span>
-        <span class="split">
-          ·
-        </span>
-        <span>
-          3 minute read
-        </span>
+        <span class="split">·</span>
+        <span>510 words</span>
+        <span class="split">·</span>
+        <span>3 minute read</span>
+      </div>
     </div>
 
     
     
 
 
-    <div class="content">
+    <div class="content card">
       <p><p class="markdown-image">
   <img src="/Go.png" alt="Go"  title="Go" />
 </p></p>

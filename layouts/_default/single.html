@@ -1,22 +1,15 @@
 {{ define "main" }}
 
 <section id="single">
-    <h1 class="title">{{ .Title }}</h1>
-
-    <div class="tip">
+    <div class="post-header">
+      <h1 class="title">{{ .Title }}</h1>
+      <div class="meta-row">
         <time datetime="{{ .PublishDate }}">{{ i18n "publishDateFull" . }}</time>
-        <span class="split">
-          ·
-        </span>
-        <span>
-          {{ i18n "wordCount" . }}
-        </span>
-        <span class="split">
-          ·
-        </span>
-        <span>
-          {{ i18n "minuteRead" . }}
-        </span>
+        <span class="split">·</span>
+        <span>{{ i18n "wordCount" . }}</span>
+        <span class="split">·</span>
+        <span>{{ i18n "minuteRead" . }}</span>
+      </div>
     </div>
 
     
@@ -25,7 +18,7 @@
     {{ end }}
 
 
-    <div class="content">
+    <div class="content card">
       {{ .Content }}
     </div>
 
