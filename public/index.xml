@@ -6,8 +6,15 @@
     <description>Recent content on Blogs | Shashank Shekhar</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 23 Aug 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 28 Aug 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://blog.shashankshekhar.in/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Text Processing via CLI</title>
+      <link>https://blog.shashankshekhar.in/posts/text-processing-cli/</link>
+      <pubDate>Thu, 28 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.shashankshekhar.in/posts/text-processing-cli/</guid>
+      <description>As IT professionals, we live in a world of text. From source code and markup to configuration files and terabytes of logs, our days are spent creating, reading, and manipulating text in its many forms—JSON, XML, CSV, and beyond.&#xA;In the last decade, our toolkits have become incredibly sophisticated. We lean heavily on powerful GUI editors like VS Code and, more recently, on LLMs to handle even minor text processing jobs.</description>
+    </item>
     <item>
       <title>Learnings from Agentic Automation</title>
       <link>https://blog.shashankshekhar.in/posts/learning-from-agentic-automation/</link>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>Text Processing via CLI | Blogs | Shashank Shekhar</title>
+
+    <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width,minimum-scale=1" />
+<meta
+  name="description"
+  content="As IT professionals, we live in a world of text. From source code and markup to configuration files and terabytes of logs, our days are spent creating, reading, and manipulating text in its many forms—JSON, XML, CSV, and beyond.
+In the last decade, our toolkits have become incredibly sophisticated. We lean heavily on powerful GUI editors like VS Code and, more recently, on LLMs to handle even minor text processing jobs."
+/>
+<meta name="generator" content="Hugo 0.126.1">  
+<meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+ <link rel="stylesheet" href="/css/style.css">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+  rel="stylesheet"
+/>
+
+ <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />   
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+
+		<a href="/"> <span class="arrow">Blogs</span></a>
+
+	<a href="/externals">References</a>
+	<a href="/posts">Archive</a>
+	<a href="/tags" style="display: none;">Tags</a>
+
+	
+	<a class="button" href="https://home.shashankshekhar.in" target="_blank" rel="noopener">
+		<svg
+			class="nav-external-icon"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			stroke-width="2"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			aria-hidden="true"
+			style="width:16px;height:16px;vertical-align:middle;margin-right:8px"
+		>
+			<path d="M18 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+			<polyline points="15 3 21 3 21 9" />
+			<line x1="10" y1="14" x2="21" y2="3" />
+		</svg>
+		Homepage
+	</a>
+	
+	  
+	  
+	    <a class="button" href="https://blog.shashankshekhar.in/index.xml">Subscribe</a>
+	  
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <div class="post-header">
+      <h1 class="title">Text Processing via CLI</h1>
+      <div class="meta-row">
+        <time datetime="2025-08-28 00:00:00 &#43;0000 UTC">Aug 28, 2025</time>
+        <span class="split">·</span>
+        <span>1170 words</span>
+        <span class="split">·</span>
+        <span>6 minute read</span>
+      </div>
+    </div>
+
+    
+    
+
+
+    <div class="content card">
+      <p><p class="markdown-image">
+  <img src="/awk-sed-grep.png" alt="shell"  title="shell" />
+</p>
+As IT professionals, we live in a world of text. From source code and markup to configuration files and terabytes of logs, our days are spent creating, reading, and manipulating text in its many forms—JSON, XML, CSV, and beyond.</p>
+<p>In the last decade, our toolkits have become incredibly sophisticated. We lean heavily on powerful GUI editors like VS Code and, more recently, on LLMs to handle even minor text processing jobs. These tools are fantastic, but they&rsquo;re not always the sharpest or most efficient solution.</p>
+<p>This article is an invitation to ditch the fancy GUI and the AI assistant—just for a moment. Let&rsquo;s explore the old-fashioned way with three command-line titans that have powered the software industry for decades: awk, sed, and grep.</p>
+<p>The Problem with Our Modern Comfort Zone</p>
+<p>I love VS Code; it&rsquo;s been my primary editor for most of my career. But relying on it for everything has its costs.</p>
+<ul>
+<li>
+<p><em>The GUI Performance Bottleneck</em>: Open a truly massive codebase or a gigabyte-sized log file in a GUI editor. You&rsquo;ll feel it—the laggy LSP, the slow search, the seconds that tick by when you&rsquo;re in a high-pressure situation. These tools can buckle under weight.</p>
+</li>
+<li>
+<p><em>The Editor &ldquo;Lock-In&rdquo;</em>: Mastering VS Code&rsquo;s shortcuts and extensions is great, but that muscle memory doesn&rsquo;t pay dividends outside of that specific application. What happens when you&rsquo;re SSH&rsquo;d into a barebones server and just need to make a quick, powerful change?</p>
+</li>
+<li>
+<p><em>The AI Crutch</em>: LLMs are revolutionary, but they aren&rsquo;t free. Why burn expensive tokens and wait for an API call just to extract a few columns from a file? Save your AI budget for brainstorming architecture, not for tasks you can solve yourself in seconds.</p>
+</li>
+</ul>
+<p>Why Go Back to the Terminal?</p>
+<p>So, why bother learning these cryptic old tools? The reasons are as practical today as they were thirty years ago.</p>
+<ul>
+<li>
+<p><em>Blazing Speed</em>: These utilities are written in C, optimized for one job, and they do it at blistering speeds. They handle massive files without breaking a sweat.</p>
+</li>
+<li>
+<p><em>Universal Availability</em>: awk, sed, and grep are installed on virtually every Linux, macOS, and Unix-like system on the planet. The skills you build are universally portable.</p>
+</li>
+<li>
+<p><em>Unmatched Composability</em>: The true magic is how they work together. You can grep to find the right lines, awk to extract the right columns, and sed to transform the output, all in a single, elegant chain.</p>
+</li>
+<li>
+<p>And Yes, <em>It&rsquo;s Empowering</em>: Let&rsquo;s be honest—there&rsquo;s an undeniable satisfaction in crafting a command that solves a complex problem in seconds. It&rsquo;s the mark of a true power user.</p>
+</li>
+</ul>
+<h2 id="so-fire-up-your-terminal-lets-get-our-hands-dirty-and-see-what-these-legendary-tools-can-do">So, fire up your terminal. Let&rsquo;s get our hands dirty and see what these legendary tools can do. <a href="#so-fire-up-your-terminal-lets-get-our-hands-dirty-and-see-what-these-legendary-tools-can-do" class="anchor">🔗</a></h2><p>First, let&rsquo;s assume we have two sample files for our examples.</p>
+<p><strong>Sample Log File: <code>access.log</code></strong></p>
+<pre tabindex="0"><code>192.168.1.5 - - [28/Aug/2025:12:15:01 +0530] &#34;GET /index.html HTTP/1.1&#34; 200 512
+10.0.0.2 - - [28/Aug/2025:12:15:03 +0530] &#34;GET /styles/main.css HTTP/1.1&#34; 200 1024
+192.168.1.5 - - [28/Aug/2025:12:15:05 +0530] &#34;GET /images/logo.png HTTP/1.1&#34; 200 2048
+10.0.0.3 - - [28/Aug/2025:12:16:10 +0530] &#34;POST /api/login HTTP/1.1&#34; 401 128
+192.168.1.5 - - [28/Aug/2025:12:16:12 +0530] &#34;GET /does-not-exist.html HTTP/1.1&#34; 404 128
+</code></pre><p><strong>Sample Config File: <code>config.conf</code></strong></p>
+<pre tabindex="0"><code># Server Settings
+hostname = webapp.dev.local
+port = 8080
+debug_mode = true
+</code></pre><hr>
+<h3 id="grep-the-line-finder"><code>grep</code>: The Line Finder <a href="#grep-the-line-finder" class="anchor">🔗</a></h3><p><code>grep</code> is your go-to tool for searching files and finding lines that contain a specific pattern.</p>
+<h4 id="example-1-find-all-error-lines">Example 1: Find all error lines <a href="#example-1-find-all-error-lines" class="anchor">🔗</a></h4><ul>
+<li><strong>Scenario:</strong> You need to quickly find all the requests in your log file that resulted in a client-side error (like a <code>404 Not Found</code> or <code>401 Unauthorized</code>).</li>
+<li><strong>Command:</strong>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>grep <span style="color:#e6db74">&#34; 40&#34;</span> access.log
+</span></span></code></pre></div></li>
+<li><strong>Output:</strong>
+<pre tabindex="0"><code>10.0.0.3 - - [28/Aug/2025:12:16:10 +0530] &#34;POST /api/login HTTP/1.1&#34; 401 128
+192.168.1.5 - - [28/Aug/2025:12:16:12 +0530] &#34;GET /does-not-exist.html HTTP/1.1&#34; 404 128
+</code></pre></li>
+<li><strong>Explanation:</strong> <code>grep</code> searches <code>access.log</code> for any line containing the string <code>&quot; 40&quot;</code>. We use a space before it to avoid accidentally matching something in the timestamp or file size. This effectively finds lines with status codes <code>401</code> and <code>404</code>.</li>
+</ul>
+<hr>
+<h3 id="sed-the-stream-editor-"><code>sed</code>: The Stream Editor ✍️ <a href="#sed-the-stream-editor-" class="anchor">🔗</a></h3><p><code>sed</code> is used for performing transformations on text, most commonly for finding and replacing strings.</p>
+<h4 id="example-1-update-a-configuration-value">Example 1: Update a configuration value <a href="#example-1-update-a-configuration-value" class="anchor">🔗</a></h4><ul>
+<li><strong>Scenario:</strong> You&rsquo;re preparing to deploy an application and need to change the hostname in the config file from the development value to the production value.</li>
+<li><strong>Command:</strong>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sed <span style="color:#e6db74">&#39;s/webapp.dev.local/webapp.prod.com/&#39;</span> config.conf
+</span></span></code></pre></div></li>
+<li><strong>Output:</strong>
+<pre tabindex="0"><code># Server Settings
+hostname = webapp.prod.com
+port = 8080
+debug_mode = true
+</code></pre></li>
+<li><strong>Explanation:</strong> The command <code>s/old/new/</code> tells <code>sed</code> to <strong>s</strong>ubstitute the <code>old</code> string with the <code>new</code> one. By default, <code>sed</code> just prints the result to the terminal without changing the original file, which is great for a safe preview. To save the changes, you would use the <code>-i</code> flag (e.g., <code>sed -i 's/...' config.conf</code>).</li>
+</ul>
+<hr>
+<h3 id="awk-the-column-processor"><code>awk</code>: The Column Processor <a href="#awk-the-column-processor" class="anchor">🔗</a></h3><p><code>awk</code> is a powerful tool that sees text as a series of columns (or fields), making it perfect for extracting data and generating reports.</p>
+<h4 id="example-1-extract-specific-columns-from-a-log">Example 1: Extract specific columns from a log <a href="#example-1-extract-specific-columns-from-a-log" class="anchor">🔗</a></h4><ul>
+<li><strong>Scenario:</strong> You don&rsquo;t need all the information in the log file. You just want a simple list of the IP addresses and the URLs they requested.</li>
+<li><strong>Command:</strong>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>awk <span style="color:#e6db74">&#39;{print $1, $7}&#39;</span> access.log
+</span></span></code></pre></div></li>
+<li><strong>Output:</strong>
+<pre tabindex="0"><code>192.168.1.5 /index.html
+10.0.0.2 /styles/main.css
+192.168.1.5 /images/logo.png
+10.0.0.3 /api/login
+192.168.1.5 /does-not-exist.html
+</code></pre></li>
+<li><strong>Explanation:</strong> <code>awk</code> automatically splits each line into fields based on spaces. <code>$1</code> refers to the first field (the IP address) and <code>$7</code> refers to the seventh field (the URL). The <code>print</code> command simply outputs these two fields.</li>
+</ul>
+<h4 id="example-2-conditional-reporting">Example 2: Conditional reporting <a href="#example-2-conditional-reporting" class="anchor">🔗</a></h4><ul>
+<li><strong>Scenario:</strong> You want to find out which IP addresses are causing &ldquo;Not Found&rdquo; errors.</li>
+<li><strong>Command:</strong>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>awk <span style="color:#e6db74">&#39;$9 == &#34;404&#34; {print &#34;404 Error from IP:&#34;, $1}&#39;</span> access.log
+</span></span></code></pre></div></li>
+<li><strong>Output:</strong>
+<pre tabindex="0"><code>404 Error from IP: 192.168.1.5
+</code></pre></li>
+<li><strong>Explanation:</strong> This command adds a condition. It checks if the ninth field (<code>$9</code>, the status code) is exactly <code>&quot;404&quot;</code>. If it is, <code>awk</code> then executes the action in the curly braces <code>{...}</code>, which is to print a custom string along with the IP address (<code>$1</code>).</li>
+</ul>
+<hr>
+<h3 id="putting-it-all-together">Putting It All Together <a href="#putting-it-all-together" class="anchor">🔗</a></h3><p>The real power of these tools comes from combining them with the pipe <code>|</code> operator.</p>
+<ul>
+<li><strong>Scenario:</strong> You want to generate a report of the top 3 IP addresses that are making requests to your server.</li>
+<li><strong>Command:</strong>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>awk <span style="color:#e6db74">&#39;{print $1}&#39;</span> access.log | sort | uniq -c | sort -nr | head -n <span style="color:#ae81ff">3</span>
+</span></span></code></pre></div></li>
+<li><strong>Output:</strong>
+<pre tabindex="0"><code>      3 192.168.1.5
+      2 10.0.0.2
+      1 10.0.0.3
+</code></pre></li>
+<li><strong>Explanation (Step-by-Step):</strong>
+<ol>
+<li><code>awk '{print $1}' access.log</code>: Extracts only the IP addresses (the first column).</li>
+<li><code>| sort</code>: Sorts the list of IPs so that identical ones are grouped together.</li>
+<li><code>| uniq -c</code>: Collapses the sorted list, counting (<code>-c</code>) the occurrences of each unique (<code>uniq</code>) IP.</li>
+<li><code>| sort -nr</code>: Sorts the result numerically (<code>-n</code>) and in reverse (<code>-r</code>) order to put the highest counts first.</li>
+<li><code>| head -n 3</code>: Shows only the top 3 lines of the final sorted list.</li>
+</ol>
+</li>
+</ul>
+<hr>
+<p>This was a short and concise demo to see what can we do using CLI. Needless to say, we have barely scrathed the surface.</p>
+<p>In coming days I will focus more on text-processing and automation via CLI as this is my favorite topic to dive into.</p>
+<p>Stay tuned and happy coding!</p>
+<h3 id="further-reading">Further Reading <a href="#further-reading" class="anchor">🔗</a></h3><ul>
+<li>
+<p><a href="https://www-users.york.ac.uk/~mijp1/teaching/2nd_year_Comp_Lab/guides/grep_awk_sed.pdf" target="_blank" rel="noopener">GREP AWK SED by University of York</a></p>
+</li>
+<li>
+<p><a href="https://www.gnu.org/software/gawk/manual/gawk.html" target="_blank" rel="noopener">GNU AWK User Guide</a></p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+        <div id="social">
+
+
+    <a class="symbol" href="mailto:shashankforworkshekhar@gmail.com" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0" y="0" width="72" height="72" rx="8" ry="8" fill="#bbbbbb" />
+    <polyline points="12,22 36,40 60,22" fill="none" stroke="#FFFFFF" stroke-width="3"/>
+    <rect x="12" y="22" width="48" height="28" fill="none" stroke="#FFFFFF" stroke-width="3" />
+    <line x1="12" y1="50" x2="60" y2="50" stroke="#FFFFFF" stroke-width="3"/>
+</svg>
+
+    </a>
+
+    <a class="symbol" href="https://github.com/thatShashankGuy/" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>Github</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
+            <g id="Github" transform="translate(264.000000, 939.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="https://www.linkedin.com/in/thatshashanguy/" rel="me" target="_blank">
+        
+        <svg width="28" height="28" fill="#bbbbbb" viewBox="0 0 500 500">
+  <g fill="none" fill-rule="evenodd">
+    <rect width="500" height="500" fill="#bbbbbb" rx="50"/>
+    <path fill="#FFF" d="M154.703 100.183c-19.121 0-34.689 15.565-34.703 34.701 0 19.136 15.568 34.704 34.703 34.704 19.128 0 34.688-15.568 34.688-34.704 0-19.134-15.561-34.701-34.688-34.701zm26.045 83.348h-52.094a4.488 4.488 0 0 0-4.488 4.489v167.675a4.488 4.488 0 0 0 4.488 4.488h52.093a4.49 4.49 0 0 0 4.489-4.488V188.02a4.486 4.486 0 0 0-4.488-4.489zm133.176-1.974c-19.064 0-35.817 5.805-46.04 15.271v-8.808c0-2.48-2.01-4.489-4.489-4.489h-49.971a4.489 4.489 0 0 0-4.489 4.489v167.675a4.488 4.488 0 0 0 4.489 4.488h52.044a4.49 4.49 0 0 0 4.489-4.488v-82.957c0-23.802 4.378-38.555 26.227-38.555 21.526.026 23.137 15.846 23.137 39.977v81.535a4.489 4.489 0 0 0 4.49 4.488h52.068a4.489 4.489 0 0 0 4.488-4.488v-91.977c-.001-38.253-7.553-82.161-66.443-82.161z"/>
+  </g>
+</svg>
+
+    </a>
+
+
+</div>
+
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2025 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       Shashank Shekhar
+    
+    </div>
+
+    
+      <div class="powerby">
+        Powered by <a href='http://www.gohugo.io/'>Hugo</a> 
+      </div>
+    
+</footer>
+
+
+
+  </body>
+</html>
