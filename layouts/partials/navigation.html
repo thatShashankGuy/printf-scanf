@@ -9,7 +9,7 @@
 	{{ range $element := .Site.Params.Links }}
 		<a href="{{ $element.path }}">{{ $element.name }}</a>
 	{{ end }}
-	<a class="button" href="https://home.shahankshekhar.in">Website</a>
+	<a class="button" href="https://home.shashankshekhar.in">Website</a>
 	{{ if .Site.Params.enableRSS }}
 	  {{/* Prefer site-wide RSS (available from home) so link shows on any page */}}
 	  {{ with $.Site.Home.OutputFormats.Get "RSS" }}
