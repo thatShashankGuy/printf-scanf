@@ -159,6 +159,10 @@ body{
     line-height: 1.35;
     border-radius: 3px;
   }
+  /* consistent spacing between successive nav links */
+  nav.navigation a + a { margin-left: 14px; }
+  /* slightly larger click target for nav buttons */
+  nav.navigation a.button { padding: 9px 14px; }
   nav.navigation a:hover {
     color: #0366d6;
   }
