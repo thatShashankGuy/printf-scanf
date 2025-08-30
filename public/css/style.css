@@ -518,4 +518,9 @@ body{
     top: 1px;
     color: #bbb;
   }
-  
+
+/* Content spacing for blog posts */
+#single .content {
+  margin-top: 28px;
+  padding: 0;
+}

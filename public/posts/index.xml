@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Blogs | Shashank Shekhar</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 28 Aug 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 30 Aug 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://blog.shashankshekhar.in/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My Timeline with Gen AI- A Developer&#39;s Journey from Fear to Fluency</title>
+      <link>https://blog.shashankshekhar.in/posts/timeline-of-genai-in-coding/</link>
+      <pubDate>Sat, 30 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.shashankshekhar.in/posts/timeline-of-genai-in-coding/</guid>
+      <description>For the past couple of years, like many other software developers, I have fully integrated generative AI into my development toolkit. I want to share my journey and my experience with the different tools that have shaped my workflow.&#xA;Early Days: ChatGPT and the Beginning of a New Age 🔗When ChatGPT launched in late 2022, the reaction was immediate. We tried it, we were horrified it would take our jobs, and I decided I didn&amp;rsquo;t want that anxiety.</description>
+    </item>
     <item>
       <title>Text Processing via CLI</title>
       <link>https://blog.shashankshekhar.in/posts/text-processing-cli/</link>
