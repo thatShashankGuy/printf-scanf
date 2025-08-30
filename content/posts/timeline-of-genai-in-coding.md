@@ -4,6 +4,8 @@ author: Shashank Shekhar
 date: 2025-08-30
 ---
 
+![Image not found](/programming-gen.png "programming")
+
 For the past couple of years, like many other software developers, I have fully integrated generative AI into my development toolkit. I want to share my journey and my experience with the different tools that have shaped my workflow.
 
 #### **Early Days: ChatGPT and the Beginning of a New Age**
