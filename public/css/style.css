@@ -1,6 +1,6 @@
 :root{
-  --bg: #ffffff;
-  --surface: #ffffff;
+  --bg: #fafafa;
+  --surface: #fafafa;
   --text: #1f2937;
   --muted: #6b7280;
   --primary: #2563eb;
@@ -401,12 +401,10 @@ body{
     margin-bottom: 12px;
   }
 
-  /* card and list item styles */
-  .card{background:var(--surface);border-radius:12px;padding:18px;box-shadow:0 8px 20px rgba(16,24,40,0.04);border:1px solid rgba(0,0,0,0.04)}
-
-  .value.card{display:flex;gap:14px;align-items:center;padding:12px}
-  .value.card .meta{min-width:84px;color:var(--muted);font-size:13px}
-  .value.card .title a{color:var(--text);font-weight:600}
+  /* list item styles */
+  .value{display:flex;gap:14px;align-items:center;padding:12px}
+  .value .meta{min-width:84px;color:var(--muted);font-size:13px}
+  .value .title a{color:var(--text);font-weight:600}
 
   .button{background:var(--primary);color:white;padding:8px 12px;border-radius:8px;text-decoration:none}
   .button:hover{opacity:0.95}
@@ -438,7 +436,7 @@ body{
   #archive .group .value .tags a:hover {
     color: #0366d6;
   }
-  
+  */
   /* taxonomy */
   #tags {
     max-width: 700px;
