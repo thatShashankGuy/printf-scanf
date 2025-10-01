@@ -1,15 +1,21 @@
 {{ define "main" }}
-{{ partial "profile.html" . }}
-<section id="tags">
-      {{ $data := .Data }}
+  {{ partial "profile.html" . }}
+  <section class="tag-landing">
+    <header>
+      <h2>Browse by tag</h2>
+      <p>Pick a topic to dive straight into related writing.</p>
+    </header>
+    <ul class="tag-grid">
       {{ range $key, $value := .Data.Terms.ByCount }}
-          {{ if ($value.Name) }}
-              <span class="tag">
-                  <a href="{{ "tags/" | relURL }}{{ $value.Name | urlize }}">
-                    {{ $value.Name | upper }} <span>({{ $value.Count }})</span>
-                </a>
-              </span>
-          {{ end }}
+        {{ if $value.Name }}
+          <li>
+            <a href="{{ "tags/" | relURL }}{{ $value.Name | urlize }}">
+              <span class="tag-name">{{ $value.Name }}</span>
+              <span class="tag-count">{{ $value.Count }}</span>
+            </a>
+          </li>
+        {{ end }}
       {{ end }}
-</section>
+    </ul>
+  </section>
 {{ end }}

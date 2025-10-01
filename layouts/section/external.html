@@ -1,11 +1,9 @@
 {{ define "main" }}
-{{ partial "profile.html" . }}
-
-<section id="section">
-    {{ .Content }}
-
+  {{ partial "profile.html" . }}
+  <section class="page-section">
+    <div class="page-content">
+      {{ .Content }}
+    </div>
     {{ partial "comment.html" . }}
-</section>
-
-
+  </section>
 {{ end }}

@@ -1,41 +1,30 @@
 {{ define "main" }}
-{{ partial "profile.html" . }}
+  {{ partial "profile.html" . }}
 
-<section id="archive">
-   
+  <section class="archive">
+    <header class="archive-header">
+      <h2>{{ .Title }}</h2>
+      <p>Entries filed under this {{ .Data.Singular | default "collection" }}.</p>
+    </header>
     {{ range .Data.Pages.GroupByDate "2006" }}
-        <div class="group">
-            <h3 class="key">
-                {{ .Key }}
-            </h3>
-
-            {{ range .Pages }}
-                <div class="value">
-                  <div class="date">
-                      <time datetime="{{ .PublishDate }}">{{ i18n "publishDateShort" . }}</time>
-                  </div>
-                  <div class="title">
-                      <a href="{{ .Permalink }}">
-                          {{ .Title }}
-                      </a>
-
-                      {{ with .Params.tags }}
-                          <div class="tags">
-                              {{ range . }}
-                                  <a href="{{ "tags/" | absURL }}{{ . | urlize }}">{{ . }}</a>
-                              {{ end }}
-                          </div>
-                      {{ end}}
-                  </div>
-                </div>
-            {{ end }}          
-        </div>
-
+      <div class="archive-group">
+        <h3 class="archive-year">{{ .Key }}</h3>
+        <ul class="archive-list">
+          {{ range .Pages }}
+            <li class="archive-item">
+              <time datetime="{{ .PublishDate }}">{{ i18n "publishDateShort" . }}</time>
+              <a href="{{ .Permalink }}">{{ .Title }}</a>
+              {{ with .Params.tags }}
+                <ul class="tag-list compact">
+                  {{ range first 3 . }}
+                    <li><a href="{{ "tags/" | absURL }}{{ . | urlize }}">#{{ . }}</a></li>
+                  {{ end }}
+                </ul>
+              {{ end }}
+            </li>
+          {{ end }}
+        </ul>
+      </div>
     {{ end }}
-
-
-
-</section>
-
-
+  </section>
 {{ end }}

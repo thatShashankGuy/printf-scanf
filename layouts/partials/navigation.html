@@ -1,39 +1,49 @@
-<nav class="navigation">
+<nav class="site-nav">
+  <div class="nav-inner">
+    {{ $navTitle := .Site.Params.navTitle | default .Site.Params.Author | default .Site.Title }}
+    {{ $markSource := $navTitle | plainify | replace "\n" " " | trim " " }}
+    
+    <a class="brand" href="{{ "/" | relURL }}">
+      <span class="brand-mark">
+      <img src="/images/avatar.png" alt="Logo" style="height:32px;width:32px;"/>
+      </span>
+      <div class="brand-text">
+      <!-- <span class="brand-title">{{ $navTitle }}</span> -->
+      <span class="brand-subtitle">{{ .Site.Title }}</span>
+      </div>
+    </a>
 
-		<a href="{{ "/" | relURL }}"> <span class="arrow">Blogs</span></a>
+    <div class="nav-links" role="navigation" aria-label="Main">
+      <a href="{{ "/" | relURL }}">Home</a>
+      <a href="{{ "/externals" | relURL }}">{{ with .Site.Params.externals }}{{ . }}{{ else }}{{ i18n "externals" }}{{ end }}</a>
+      <a href="{{ "/posts" | relURL }}">{{ with .Site.Params.archive }}{{ . }}{{ else }}{{ i18n "archive" }}{{ end }}</a>
+      <a href="{{ "/tags" | relURL }}">Tags</a>
+      {{ range $element := .Site.Params.Links }}
+        <a href="{{ $element.path }}" target="_blank" rel="noopener">{{ $element.name }}</a>
+      {{ end }}
+    </div>
 
-	<a href="{{ "/externals" | relURL }}">{{ with .Site.Params.externals }}{{ . }}{{ else }}{{ i18n "externals" }}{{ end }}</a>
-	<a href="{{ "/posts" | relURL }}">{{ with .Site.Params.archive }}{{ . }}{{ else }}{{ i18n "archive" }}{{ end }}</a>
-	<a href="{{ "/tags" | relURL }}" style="display: none;">{{ with .Site.Params.tags }}{{ . }}{{ else }}{{ i18n "tags" }}{{ end }}</a>
-
-	{{ range $element := .Site.Params.Links }}
-		<a href="{{ $element.path }}">{{ $element.name }}</a>
-	{{ end }}
-	<a class="button" href="https://home.shashankshekhar.in" target="_blank" rel="noopener">
-		<svg
-			class="nav-external-icon"
-			viewBox="0 0 24 24"
-			fill="none"
-			stroke="currentColor"
-			stroke-width="2"
-			stroke-linecap="round"
-			stroke-linejoin="round"
-			aria-hidden="true"
-			style="width:16px;height:16px;vertical-align:middle;margin-right:8px"
-		>
-			<path d="M18 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-			<polyline points="15 3 21 3 21 9" />
-			<line x1="10" y1="14" x2="21" y2="3" />
-		</svg>
-		Homepage
-	</a>
-	{{ if .Site.Params.enableRSS }}
-	  {{/* Prefer site-wide RSS (available from home) so link shows on any page */}}
-	  {{ with $.Site.Home.OutputFormats.Get "RSS" }}
-	    <a class="button" href="{{ .Permalink }}">{{ with $.Site.Params.subscribe }}{{ . }}{{ else }}{{ i18n "subscribe" }}{{ end }}</a>
-	  {{ else }}
-	    {{/* Fallback to a conventional RSS path */}}
-	    <a class="button" href="{{ "/index.xml" | relURL }}">{{ with $.Site.Params.subscribe }}{{ . }}{{ else }}{{ i18n "subscribe" }}{{ end }}</a>
-	  {{ end }}
-	{{ end }}
+    <div class="nav-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode">
+        <span class="icon icon-sun" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 4.75V3M12 21v-1.75M5.636 5.636 4.46 4.46M19.54 19.54l-1.176-1.176M4.75 12H3M21 12h-1.75M5.636 18.364 4.46 19.54M19.54 4.46l-1.176 1.176M12 16.5a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="icon icon-moon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 12.79A9 9 0 0 1 11.21 3 7.5 7.5 0 1 0 21 12.79Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </span>
+      </button>
+      <a class="nav-button" href="https://home.shashankshekhar.in" target="_blank" rel="noopener">Homepage</a>
+      {{ if .Site.Params.enableRSS }}
+        {{ with $.Site.Home.OutputFormats.Get "RSS" }}
+          <a class="nav-button" href="{{ .Permalink }}">{{ with $.Site.Params.subscribe }}{{ . }}{{ else }}{{ i18n "subscribe" }}{{ end }}</a>
+        {{ else }}
+          <a class="nav-button" href="{{ "/index.xml" | relURL }}">{{ with $.Site.Params.subscribe }}{{ . }}{{ else }}{{ i18n "subscribe" }}{{ end }}</a>
+        {{ end }}
+      {{ end }}
+    </div>
+  </div>
 </nav>

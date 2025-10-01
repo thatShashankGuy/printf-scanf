@@ -1,40 +1,22 @@
 {{ define "main" }}
-
-<div id="page-404">
-  <div class="text">
-      {{ with .Site.Params.title404 }}
-          <h1>{{ . }}</h1>
-      {{ else }}
-          <h1>{{ i18n "404title" }}</h1>
-      {{ end }}
-
-      {{ with .Site.Params.subtitle404 }}
-          <div>{{ . }}</div>
-      {{ else }}
-          <div>{{ i18n "404subtitle" }}</div>
-      {{ end }}
+  <section class="page-404">
+    <div class="page-404-inner">
+      <h1>{{ with .Site.Params.title404 }}{{ . }}{{ else }}{{ i18n "404title" }}{{ end }}</h1>
+      <p>{{ with .Site.Params.subtitle404 }}{{ . }}{{ else }}{{ i18n "404subtitle" }}{{ end }}</p>
+      <a class="button" href="{{ "/" | relURL }}">Go back home</a>
     </div>
 
-  {{ with .Site.Params.readMore }}
-      <h2 class="read-more">{{ . }}</h2> 
-  {{ else }}
-      <h2 class="read-more">{{ i18n "readMore" }}</h2> 
-  {{ end }}
-
-  
-
-
-    {{ $pages := .Site.RegularPages }}
-    {{ $paginator := .Paginate ($pages) }}
-    {{ range $paginator.Pages }}
-        {{ $title := .Title }}
-        {{ $date := dateFormat "Jan 2, 2006" .Date }}
-        <section class="item">
-          <div>
-            <h1 class="title"><a href='{{ .RelPermalink }}'>{{ $title }}</a></h1>   
-            <div class="date">{{ $date }}</div>
-          </div>
-        </section>
-    {{ end }}
-</div>
+    <div class="page-404-suggestions">
+      <h2>{{ with .Site.Params.readMore }}{{ . }}{{ else }}{{ i18n "readMore" }}{{ end }}</h2>
+      <div class="suggestion-grid">
+        {{ $pages := .Site.RegularPages }}
+        {{ range first 4 $pages }}
+          <article class="post-card compact">
+            <time datetime="{{ .PublishDate }}">{{ i18n "publishDateShort" . }}</time>
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
 {{ end }}

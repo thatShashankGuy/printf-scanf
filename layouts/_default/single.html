@@ -1,38 +1,40 @@
 {{ define "main" }}
-
-<section id="single">
-    <div class="post-header">
-      <h1 class="title">{{ .Title }}</h1>
-      <div class="meta-row">
+  <article class="article">
+    <header class="article-header">
+      <p class="eyebrow">Article</p>
+      <h1 class="article-title">{{ .Title }}</h1>
+      <div class="article-meta">
         <time datetime="{{ .PublishDate }}">{{ i18n "publishDateFull" . }}</time>
-        <span class="split">·</span>
+        <span aria-hidden="true">•</span>
         <span>{{ i18n "wordCount" . }}</span>
-        <span class="split">·</span>
+        <span aria-hidden="true">•</span>
         <span>{{ i18n "minuteRead" . }}</span>
+      </div>
+    </header>
+
+    <div class="article-layout">
+      {{ if or .Site.Params.showToc .Params.showToc }}
+        <aside class="article-toc">
+          {{ partial "toc.html" . }}
+        </aside>
+      {{ end }}
+
+      <div class="article-content">
+        {{ .Content }}
       </div>
     </div>
 
-    
-    {{ if or .Site.Params.showToc .Params.showToc }}
-        {{ partial "toc.html" . }}
+    {{ with .Params.tags }}
+      <footer class="article-footer">
+        <h2>Tagged</h2>
+        <ul class="tag-list">
+          {{ range . }}
+            <li><a href="{{ "tags/" | absURL }}{{ . | urlize }}">#{{ . }}</a></li>
+          {{ end }}
+        </ul>
+      </footer>
     {{ end }}
 
-
-    <div class="content">
-      {{ .Content }}
-    </div>
-
-    {{ with .Params.tags }}
-        <div class="tags">
-            {{ range . }}
-                <a href="{{ "tags/" | absURL }}{{ . | urlize }}">{{ . }}</a>
-            {{ end }}
-        </div>
-    {{ end}}
-    
     {{ partial "comment.html" . }}
-
-</section>
-
+  </article>
 {{ end }}
-
