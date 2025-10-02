@@ -12,8 +12,9 @@
       </div>
     </header>
 
-    <div class="article-layout">
-      {{ if or .Site.Params.showToc .Params.showToc }}
+    {{ $showToc := or .Site.Params.showToc .Params.showToc }}
+    <div class="article-layout{{ if $showToc }} has-toc{{ end }}">
+      {{ if $showToc }}
         <aside class="article-toc">
           {{ partial "toc.html" . }}
         </aside>
