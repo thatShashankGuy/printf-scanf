@@ -4,8 +4,6 @@ author: Shashank Shekhar
 date: 2025-09-08
 ---
 
-![JS Image](/javascript2.png "js")
-
 JavaScript is the language of the web. This dual role requires it to constantly evolve with new features while maintaining backward compatibility so older websites don't break. This means that adopting modern, improved features is the developer's responsibility.
 
 You'll still find outdated practices, like using `var`, in brand-new codebases in 2025. Today, we'll focus on one modern feature that should be strictly adopted: using the **Nullish Coalescing operator (`??`)** in place of the **Logical OR (`||`)** for providing default values.
