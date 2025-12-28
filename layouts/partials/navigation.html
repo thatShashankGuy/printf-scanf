@@ -17,7 +17,8 @@
       <a href="{{ "/" | relURL }}">Home</a>
       <a href="{{ "/externals" | relURL }}">{{ with .Site.Params.externals }}{{ . }}{{ else }}{{ i18n "externals" }}{{ end }}</a>
       <a href="{{ "/posts" | relURL }}">{{ with .Site.Params.archive }}{{ . }}{{ else }}{{ i18n "archive" }}{{ end }}</a>
-      <a href="{{ "/tags" | relURL }}">Tags</a>
+       <a href="{{ "/about" | relURL }}">{{ with .Site.Params.about }}{{ . }}{{ else }}{{ i18n "about" }}{{ end }}</a>
+      <!-- <a href="{{ "/tags" | relURL }}">Tags</a> -->
       {{ range $element := .Site.Params.Links }}
         <a href="{{ $element.path }}" target="_blank" rel="noopener">{{ $element.name }}</a>
       {{ end }}
@@ -36,7 +37,7 @@
           </svg>
         </span>
       </button>
-      <a class="nav-button" href="https://home.shashankshekhar.in" target="_blank" rel="noopener">Homepage</a>
+      <!-- <a class="nav-button" href="https://home.shashankshekhar.in" target="_blank" rel="noopener">Homepage</a> -->
       {{ if .Site.Params.enableRSS }}
         {{ with $.Site.Home.OutputFormats.Get "RSS" }}
           <a class="nav-button" href="{{ .Permalink }}">{{ with $.Site.Params.subscribe }}{{ . }}{{ else }}{{ i18n "subscribe" }}{{ end }}</a>
