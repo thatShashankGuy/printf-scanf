@@ -2,7 +2,7 @@
   {{ partial "profile.html" . }}
 
   <section class="post-feed">
-    {{ $pages := .Site.RegularPages }}
+    {{ $pages := where .Site.RegularPages "Section" "posts" }}
     {{ $paginator := .Paginate ($pages) }}
     {{ range $paginator.Pages }}
       <article class="post-card">
