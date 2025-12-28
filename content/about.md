@@ -6,9 +6,9 @@ type: "page"
 menu: "main"
 ---
 
-<p>
+<!-- <p>
  <img src="/images/avatar.png" alt="DP" class="about-avatar" width="120" height="120" />
-</p>
+</p> -->
 
 ### **Software Developer | Cloud-Native Solutions**
 
