@@ -4,9 +4,6 @@
     {{ $markSource := $navTitle | plainify | replace "\n" " " | trim " " }}
     
     <a class="brand" href="{{ "/" | relURL }}">
-      <span class="brand-mark">
-      <img src="/images/avatar.png" alt="Logo" style="height:32px;width:32px;"/>
-      </span>
       <div class="brand-text">
       <!-- <span class="brand-title">{{ $navTitle }}</span> -->
       <span class="brand-subtitle">{{ .Site.Title }}</span>

@@ -5,9 +5,11 @@ type: "page"
 menu: "main"
 ---
 
-<img src="/images/avatar.png" alt="DP" class="about-avatar" width="120" height="120" />
+<p>
+ <img src="/images/avatar.png" alt="DP" class="about-avatar" width="120" height="120" />
+</p>
 
-**Software Developer | Cloud-Native Solutions**
+### **Software Developer | Cloud-Native Solutions**
 
 I am a software developer based in Bengaluru, India, specializing in building scalable, enterprise-grade cloud solutions. I focus on creating robust architectures that prioritize high availability and complex integrations.
 
