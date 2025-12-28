@@ -1,6 +1,7 @@
 ---
 title: "About Me"
-date: 2025-12-28
+date: 2025-12-25
+draft: false
 type: "page"
 menu: "main"
 ---
