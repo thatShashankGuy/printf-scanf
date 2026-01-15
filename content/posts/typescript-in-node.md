@@ -8,7 +8,7 @@ date: 2025-01-19
 
 Since v22.6.0, Node.js has experimental support for some TypeScript syntax via "type stripping." You can write code that's valid TypeScript directly in Node.js without needing to transpile it first.
 
-Today, we will do a small demo and explain how "type stripping" works, allowing users to run .ts files directly with the Node.js command, without requiring a tsconfig file or build step. Scripts for demos are available at my [Github Repo](https://github.com/thatShashankGuy/code-examples/tree/master/node-typescript-native)
+Today, we will do a small demo and explain how "type stripping" works, allowing users to run .ts files directly with the Node.js command, without requiring a tsconfig file or build step. Scripts for demos are available at my [Github Repo](https://github.com/thatShashankGuy/printf-scanf-labs/tree/master/node-typescript-native)
 
 ## Transpilation
 
@@ -50,7 +50,7 @@ We can install node v23 using `node version manger - nvm`
 
 ## Demo
 
-First demo we are writing a small search and replace function , with types and result functions. Scripts for demos are available at my [Github Repo](https://github.com/thatShashankGuy/code-examples/tree/master/node-typescript-native).
+First demo we are writing a small search and replace function , with types and result functions. Scripts for demos are available at my [Github Repo](https://github.com/thatShashankGuy/printf-scanf-labs/tree/master/node-typescript-native).
 
 ```typescript
 interface SearchReplaceOperation {

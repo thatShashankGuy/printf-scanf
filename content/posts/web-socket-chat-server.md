@@ -9,7 +9,7 @@ WebSockets are powerful tools for real-time communication, allowing clients and 
 
 In this blog post, we'll walk through creating a WebSocket server in Node.js using the `ws` library. We'll maintain a queue of connected clients, notify users when new clients join or leave, and ensure every client stays up-to-date with the current lobby status.
 
-All the code is available in my [Git Repo](https://github.com/thatShashankGuy/code-examples/tree/master/web-socket-chat-app)
+All the code is available in my [Git Repo](https://github.com/thatShashankGuy/printf-scanf-labs/tree/master/web-socket-chat-app)
 
 You'll also need the `ws` library, which we will use to manage WebSocket connections.
 

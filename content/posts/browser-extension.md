@@ -36,7 +36,7 @@ To create a web extension, you need two files:
 
 The `content.js` file contains the code that will run in the browser, while `manifest.json` is the configuration file that defines the extension’s settings, permissions, name, and description. You can think of `manifest.json` as similar to a `package.json` in a Node.js project.
 
-Here is the code for our extension. You can also find all the demo code for this exercise at [this GitHub repository](https://github.com/thatShashankGuy/code-examples/tree/master/firefox-extension).
+Here is the code for our extension. You can also find all the demo code for this exercise at [this GitHub repository](https://github.com/thatShashankGuy/printf-scanf-labs/tree/master/firefox-extension).
 
 ```js
 // Hide the comments section

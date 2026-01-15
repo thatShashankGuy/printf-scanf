@@ -42,7 +42,7 @@ There are two API endpoints:
 
 We've also ensured that the files played in the browser are not downloadable. Additional APIs with POST, PUT, and PATCH calls will be added later in the app, which we will cover in a future article.
 
-The application source code can be found in this [GitHub repo](https://github.com/thatShashankGuy/code-examples/tree/master/storeFM).
+The application source code can be found in this [GitHub repo](https://github.com/thatShashankGuy/printf-scanf-labs/tree/master/storeFM).
 
 #### Initial Setup
 

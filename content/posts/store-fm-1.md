@@ -14,7 +14,7 @@ We will focus on three packages from the standard library in this article:
 - `net/http`
 - `html/template`
 
-The FM Store source code can be accessed at this [GitHub repo](https://github.com/thatShashankGuy/code-examples/tree/master/storeFM).
+The FM Store source code can be accessed at this [GitHub repo](https://github.com/thatShashankGuy/printf-scanf-labs/tree/master/storeFM).
 
 ### Formatting I/O with fmt
 

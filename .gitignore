@@ -1,2 +1,6 @@
 paste.txt
 public/
+
+# Environment variables with sensitive data
+.env
+blog-cli/.env

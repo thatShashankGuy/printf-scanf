@@ -12,7 +12,7 @@ NGINX is a popular web server often used to host Node.js applications in product
 
 Today, we will perform a simple exercise using a basic JavaScript backend to demonstrate the **load balancing** capabilities of the NGINX web server. Alongside the backend server script, we’ll also host a single webpage on NGINX to showcase static file serving.
 
-As usual, code examples are available in my [GitHub repository](https://github.com/thatShashankGuy/code-examples/tree/master/nginx-load-balancer). Let’s get started!
+As usual, code examples are available in my [GitHub repository](https://github.com/thatShashankGuy/printf-scanf-labs/tree/master/nginx-load-balancer). Let’s get started!
 
 In this exercise, our web page will send a request to the backend, and the backend will respond with a joke. We will simulate load balancing among different servers by running our backend script on four separate ports. The backend script will check the `PORT` value for each request and return a **port-specific joke** to the webpage.
 
@@ -27,67 +27,75 @@ Here is the code for the backend server and the web page.
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Joke Balancing with NGINX</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Here are Random Jokes</h1>
-    <p>With each request the server responds to, NGINX will serve a port-specific joke.</p>
-    <div>JOKE FROM PORT: <b><i id="server-port">waiting...</i></b></div>
+    <p>
+      With each request the server responds to, NGINX will serve a port-specific
+      joke.
+    </p>
+    <div>
+      JOKE FROM PORT: <b><i id="server-port">waiting...</i></b>
+    </div>
     <div id="server-response">Fetching a joke from the server...</div>
 
     <script>
-        fetch('/api/data')
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('server-response').innerText = data.joke;
-                document.getElementById('server-port').innerText = data.port;
-            })
-            .catch(error => {
-                document.getElementById('server-response').innerText = 'Error fetching data';
-                console.error('Error:', error);
-            });
+      fetch("/api/data")
+        .then((response) => response.json())
+        .then((data) => {
+          document.getElementById("server-response").innerText = data.joke;
+          document.getElementById("server-port").innerText = data.port;
+        })
+        .catch((error) => {
+          document.getElementById("server-response").innerText =
+            "Error fetching data";
+          console.error("Error:", error);
+        });
     </script>
-</body>
+  </body>
 </html>
 ```
 
 #### `server.js`
 
 ```js
-const http = require('http');
-const os = require('os');
+const http = require("http");
+const os = require("os");
 
 const PORT = process.env.PORT || "3000";
 
-http.createServer((req, res) => {
+http
+  .createServer((req, res) => {
     let joke = `THIS IS SERIOUS BUSINESS`;
     switch (PORT) {
-        case "3000":
-            joke = `Why don't skeletons fight each other? Because they don't have the guts.`;
-            break;
-        case "8080":
-            joke = `What do you call fake spaghetti? An impasta!`;
-            break;
-        case "1313":
-            joke = `Why did the scarecrow win an award? Because he was outstanding in his field!`;
-            break;
-        case "1517":
-            joke = `Why don’t eggs tell jokes? Because they might crack up!`;
-            break;
-        default:
-            break;
-    }    
+      case "3000":
+        joke = `Why don't skeletons fight each other? Because they don't have the guts.`;
+        break;
+      case "8080":
+        joke = `What do you call fake spaghetti? An impasta!`;
+        break;
+      case "1313":
+        joke = `Why did the scarecrow win an award? Because he was outstanding in his field!`;
+        break;
+      case "1517":
+        joke = `Why don’t eggs tell jokes? Because they might crack up!`;
+        break;
+      default:
+        break;
+    }
 
     console.log(JSON.stringify({ port: PORT, joke }));
 
-    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.writeHead(200, { "Content-Type": "application/json" });
     res.end(JSON.stringify({ port: PORT, joke }));
-}).listen(PORT, () => {
+  })
+  .listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}/`);
-});
+  });
 ```
 
 #### A Script to Start All Servers Together
@@ -122,13 +130,13 @@ The behavior of NGINX is determined by its configuration file, typically named `
 You can read the configuration file with the following command:
 
 ```bash
-nginx -c /your/path/to/code-examples/nginx-load-balancer/nginx.conf
+nginx -c /your/path/to/printf-scanf-labs/nginx-load-balancer/nginx.conf
 ```
 
 Before running the server, it’s always a good idea to test the configuration using the `-t` flag:
 
 ```bash
-nginx -t -c /your/path/to/code-examples/nginx-load-balancer/nginx.conf
+nginx -t -c /your/path/to/printf-scanf-labs/nginx-load-balancer/nginx.conf
 ```
 
 #### NGINX Configuration (`nginx.conf`)
@@ -151,7 +159,7 @@ http {
         server_name localhost;
 
         location / {
-            root code-examples/nginx-load-balancer;
+            root printf-scanf-labs/nginx-load-balancer;
             index index.html;
         }
 
@@ -170,12 +178,11 @@ http {
 
 **Upstream Block**: The `upstream` block defines a pool of backend servers, each running on a different port (3000, 8080, 1313, and 1517). NGINX will distribute the load across these servers using a **round-robin method**, sending each request to a different server in turn.
 
+**Port 80**: NGINX listens on port 80, which is the default HTTP port.
 
-   **Port 80**: NGINX listens on port 80, which is the default HTTP port.
-   
-   **Serving Static Files**: When a request is made to `/`, NGINX serves the static HTML file (`index.html`) located in the `code-examples/nginx-load-balancer` directory.
-   
-   **Proxying Requests**: When a request is made to `/api/data`, NGINX acts as a **proxy** and forwards the request to one of the backend servers, which will respond with a port-specific joke.
+**Serving Static Files**: When a request is made to `/`, NGINX serves the static HTML file (`index.html`) located in the `printf-scanf-labs/nginx-load-balancer` directory.
+
+**Proxying Requests**: When a request is made to `/api/data`, NGINX acts as a **proxy** and forwards the request to one of the backend servers, which will respond with a port-specific joke.
 
 ---
 
@@ -183,10 +190,10 @@ http {
 
 Once everything is set up, open a browser and go to `http://localhost`. Each time you refresh the page, NGINX will serve the static HTML file and fetch data from different backend servers running on different ports, showing a new joke with each request.
 
-Request 1 
+Request 1
 ![image not found](/nginx-req1.png)
 
-Request 2 
+Request 2
 ![image not found](/nginx-req2.png)
 
 ---
@@ -200,6 +207,7 @@ This is a basic example demonstrating some of NGINX's capabilities. In future ex
 ---
 
 ### Further Reading
+
 - [What is a Web Server?](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_web_server)
 - [NGINX Beginner's Guide](https://nginx.org/en/docs/beginners_guide.html)
 - [Load Balancing Node.js Applications on NGINX](https://docs.nginx.com/nginx/deployment-guides/load-balance-third-party/node-js/)

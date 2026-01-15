@@ -16,7 +16,7 @@ Node.js optimizes performance by **caching imported modules** to prevent redunda
 This means that when a module is required or imported multiple times, it is **loaded and executed only once**—subsequent
 imports simply reuse the cached version. However, same behavior does not apply to **class instances**.
 
-Example code can be accessed at [github repo](https://github.com/thatShashankGuy/code-examples/tree/master/node-module-caching)
+Example code can be accessed at [github repo](https://github.com/thatShashankGuy/printf-scanf-labs/tree/master/node-module-caching)
 
 ## How Node.js Caches Modules
 
