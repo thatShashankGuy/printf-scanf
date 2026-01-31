@@ -11,4 +11,6 @@ So I built this new CLI tool to help me write my thoughts well without ever leav
 
 This is by the way a test. I write my raw thoughts, "why CLI," my CLI processes it into markdown - it's pretty simple. I have also added some commands to git commit and push as well as build my Hugo (yes, my blogs are in Hugo).
 
-One thing I am experimenting with, and this might turn people off, is using AI in my writing. Hold on - I am not gonna give ChatGPT my prompt and ask it to generate an article. Instead, I have added an AI flag which feeds my raw - bad grammar, spelling error-ridden text to an AI to create a nice markdown to read. Often thoughts are ugly, and I don't want to stop writing to do semantic changes or open a browser to check if spelling is correct. So that's it - I am gonna add the repo link down below for people to check out.
+One thing I am experimenting with this tool, and this might turn people off, is using AI in my writing. Hold on - I am not gonna give ChatGPT my prompt and ask it to generate an article. Instead, I have added an AI flag which feeds my raw - bad grammar, spelling error-ridden text to an AI to create a nice markdown to read. Often thoughts are ugly, and I don't want to stop writing to do semantic changes or open a browser to check if spelling is correct. So that's it - I am gonna add the repo link down below for people to check out.
+
+[Blog CLI](https://github.com/thatShashankGuy/blog-cli-utils.git)
