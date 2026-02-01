@@ -1,12 +1,15 @@
 ---
-title: "You still need to read code"
+title: "You still need to learn code"
 author: Shashank Shekhar
 date: 2026-02-01
-draft: true
+draft: false
 ---
-# The Reality of AI-Assisted Coding
+# 
 
 I've written numerous automation tools over the past two years with AI assistance, evolving from simply copying and pasting generated code from ChatGPT to letting AI plan full features using the plan/exec mode of Open Code.
+
+Something that hasn't changed or infact has been more important than before - I am reading more code than ever before. 
+I still need to understand the behavior of programs which own. I ask LLMs questions about decision it constantly. I really don't think we can let AI take care of coding on its own and engineer still needs to own every line of code and hence learning code is more valuable not less. 
 
 It's true that we've come a long way from the early days of buggy, overly hallucinated code from initial models to the very good code generation we see with newer models. Fantastic tools bundled together as coding agents - Codex and Open Code are something I use quite regularly to write most of my code these days.
 
