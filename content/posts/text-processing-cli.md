@@ -2,7 +2,9 @@
 Title: Text Processing via CLI
 Author: Shashank Shekhar
 Date: 2025-08-28
+Draft: true
 ---
+
 
 ![shell](/awk-sed-grep.png "shell")
 As IT professionals, we live in a world of text. From source code and markup to configuration files and terabytes of logs, our days are spent creating, reading, and manipulating text in its many forms—JSON, XML, CSV, and beyond.
