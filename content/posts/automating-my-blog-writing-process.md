@@ -73,6 +73,7 @@ blog-cli new --ai
 [Editor Interface]
   └── Open editor for content entry
       │
+      │ Automated Steps 
       ├───────────────┐
       │               │
       ▼               │
@@ -81,8 +82,8 @@ blog-cli new --ai
       ▼               │
 [LLM Processing]      │
       │               │
-      ▼               │ Automated
-[GitHub Integration]  │  Steps
+      ▼               │
+[GitHub Integration]  │
       │               │
       ▼               │
 [GitHub Actions/CI]   │
@@ -99,15 +100,7 @@ It cut out most of the manual work, letting me focus on the writing part only. I
 
 As I discussed, this automation has a very important AI/LLM component. The component is only called when your blog is finished. You can use the in-tool editor or write separately and paste it into the in-tool editor to process your blogs. The component is **not built for generating blogs on title itself** - it will take your article as user prompts and add additional context from system prompt to improve upon your writing without changing it. It checks for spelling errors, grammar, and adds markdown semantics - so the writer can focus on just writing. For example: adding semantic tags in markdown or breaking a chain of thought into paragraphs. It doesn't add or cut your article. Although I have given user prompt enough freedom to change your input if the user explicitly asks. For example: if you add "make it shorter" - it will, but that's up to the writer - I'm not doing that.
 
-#### Technical design
-
-LLM is called via API calls - with BYOK capability. API call is generic and can be used with any Model/Offering/Service. Currently, I am using APIs from OpenRouter. GitHub Integration is a bit tighter but very easy to change if you are using GitLab or Bitbucket.
-
-#### Some constraints
-
-It's a CLI tool because I like CLI tools over web UI or desktop apps. No other reason. This could have been a web app, but then I might have never used it. It's also built entirely for Bash. If a writer wants to run this on Windows - the best way to do it is on WSL. It's not packaged for distribution - primarily because it's a personal tool. Also, you need to pass on env variables for GitHub, LLM token, API keys, author name, etc. I may distribute this via GitHub at some point, but I'm not thinking about that currently. You can run this locally by following steps in Readme, but you need to install Bun Runtime.
-
-Here is the system prompt 
+Here is the system prompt.
 ```sh
  [
       {
@@ -128,6 +121,15 @@ Here is the system prompt
       },
 ]
 ```
+
+#### Technical design
+
+LLM is called via API calls - with BYOK capability. API call is generic and can be used with any Model/Offering/Service. Currently, I am using APIs from OpenRouter. GitHub Integration is a bit tighter but very easy to change if you are using GitLab or Bitbucket.
+
+#### Some constraints
+
+It's a CLI tool because I like CLI tools over web UI or desktop apps. No other reason. This could have been a web app, but then I might have never used it. It's also built entirely for Bash. If a writer wants to run this on Windows - the best way to do it is on WSL. It's not packaged for distribution - primarily because it's a personal tool. Also, you need to pass on env variables for GitHub, LLM token, API keys, author name, etc. I may distribute this via GitHub at some point, but I'm not thinking about that currently. You can run this locally by following steps in Readme, but you need to install Bun Runtime.
+
 
 #### Blog-cli Development tools
 
