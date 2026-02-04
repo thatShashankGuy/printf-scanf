@@ -73,24 +73,24 @@ blog-cli new --ai
 [Editor Interface]
   └── Open editor for content entry
       │
-      ├─────────────────────────────┐
-      │                             │
-      ▼                             │
-[File Generation]                   │
-      │                             │
-      ▼                             │
-[LLM Processing]                    │
-      │                             │
-      ▼                             │ [Automated via CLI Tool]
-[GitHub Integration]                │
-      │                             │
-      ▼                             │
-[GitHub Actions/CI]                 │
-      │                             │
-      ▼                             │
-[Cloudflare Pages]                  │
-      │                             │
-      └─────────────────────────────┘
+      ├───────────────┐
+      │               │
+      ▼               │
+[File Generation]     │
+      │               │
+      ▼               │
+[LLM Processing]      │
+      │               │
+      ▼               │ Automated
+[GitHub Integration]  │  Steps
+      │               │
+      ▼               │
+[GitHub Actions/CI]   │
+      │               │
+      ▼               │
+[Cloudflare Pages]    │
+      │               │
+      └───────────────┘
 ```
 
 It cut out most of the manual work, letting me focus on the writing part only. It also let me do everything from the command line. The tool is packaged and installed, so it can be called from any directory. It doesn't require you to open a code base or any IDE. To write, I have used the `$EDITOR` variable set in bashrc file of the system, which is used to open a temp page to write the blog. Completely removed manual update of Hugo repository by calling GitHub APIs via PAT. Deployment is still taken care of by GitHub itself.
