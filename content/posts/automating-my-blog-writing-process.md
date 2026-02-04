@@ -17,7 +17,32 @@ I started out in 2023 when ChatGPT was already around. Even the earlier models (
 ## The manual process
 
 ```
-I wrote a full blog with examples -> processed it through ChatGPT/Gemini -> reviewed the output -> put the processed file into my blog repo -> built the blog -> published it -> deployed it
+[Drafting]
+  └── Write blog with examples
+      │
+      ▼
+[Processing]
+  └── ChatGPT/Gemini optimization
+      │
+      ▼
+[Validation]
+  └── Manual review of output
+      │
+      ▼
+[Integration]
+  └── Move to blog repository
+      │
+      ▼
+[Compilation]
+  └── Build the blog
+      │
+      ▼
+[Release]
+  └── Publish content
+      │
+      ▼
+[Distribution]
+  └── Deployment
 ```
 
 There were already some automations around:
@@ -41,8 +66,33 @@ I built a utility tool which is a very simple command-line tool called `blog-cli
 ```sh
 blog-cli new --ai
 ```
-
-Opening up a wizard that asks for title -> whether the blog will be a draft or not -> opens an editor and calls an LLM to improve upon it -> generates a markdown file -> calls GitHub integration code to push the file -> GitHub takes over and deploys the code to Cloudflare.
+```
+[Wizard UI]
+  └── Input Title & Status (Draft/Live)
+      │
+      ▼
+[Editor Interface]
+  └── Open editor for content entry
+      │
+      ├─────────────────────────────┐
+      │                             │
+      ▼                             │
+[File Generation]                   │
+      │                             │
+      ▼                             │
+[LLM Processing]                    │
+      │                             │
+      ▼                             │ [Automated via CLI Tool]
+[GitHub Integration]                │
+      │                             │
+      ▼                             │
+[GitHub Actions/CI]                 │
+      │                             │
+      ▼                             │
+[Cloudflare Pages]                  │
+      │                             │
+      └─────────────────────────────┘
+```
 
 It cut out most of the manual work, letting me focus on the writing part only. It also let me do everything from the command line. The tool is packaged and installed, so it can be called from any directory. It doesn't require you to open a code base or any IDE. To write, I have used the `$EDITOR` variable set in bashrc file of the system, which is used to open a temp page to write the blog. Completely removed manual update of Hugo repository by calling GitHub APIs via PAT. Deployment is still taken care of by GitHub itself.
 
@@ -57,6 +107,28 @@ LLM is called via API calls - with BYOK capability. API call is generic and can 
 ## Some constraints
 
 It's a CLI tool because I like CLI tools over web UI or desktop apps. No other reason. This could have been a web app, but then I might have never used it. It's also built entirely for Bash. If a writer wants to run this on Windows - the best way to do it is on WSL. It's not packaged for distribution - primarily because it's a personal tool. Also, you need to pass on env variables for GitHub, LLM token, API keys, author name, etc. I may distribute this via GitHub at some point, but I'm not thinking about that currently. You can run this locally by following steps in Readme, but you need to install Bun Runtime.
+
+Here is the system prompt 
+```json
+ [
+      {
+        role: "system",
+        content: `Transform the following raw thoughts into a well-structured blog post in Markdown format.
+- Correct grammar and sentence structure
+- Improve readability and flow
+- Add appropriate headings (H2, H3) for sections
+- Preserve the user's original writing style and vocabulary
+- DO NOT add new content or expand beyond what's provided
+- DO NOT change the meaning or intent of the original text
+- Use Markdown syntax for formatting
+- Keep the tone consistent with the original`,
+      },
+      {
+        role: "user",
+        content: prompt,
+      },
+]
+```
 
 ## Blog-cli Development tools
 
