@@ -61,7 +61,7 @@ It was time-consuming, and because I'm building AI agents at work, I decided to 
 
 ## The automated process
 
-I built a utility tool which is a very simple command-line tool called `blog-cli` (I'm horrible at naming things). It starts with a simple command:
+I built a [utility tool](https://github.com/thatShashankGuy/blog-cli-utils) which is a very simple command-line tool called `blog-cli` (I'm horrible at naming things). It starts with a simple command:
 
 ```sh
 blog-cli new --ai
