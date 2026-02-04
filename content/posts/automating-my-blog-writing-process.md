@@ -2,7 +2,7 @@
 title: "Automating my blog writing process"
 author: Shashank Shekhar
 date: 2026-02-04
-draft: true
+draft: false
 ---
 # Automating My Blog Writing Process with AI
 
