@@ -1,10 +1,9 @@
 ---
-title: "AI workflows are not good substitute to programming knowledge"
+title: "Keep your AI assisted workflows simple, stupid  "
 author: Shashank Shekhar
 date: 2026-02-10
 draft: false
 ---
-# The AI Programming Paradox: Why Simpler is Faster
 
 I sometimes end up in programming/AI rabbit holes on Reddit. This weekend I browsed for many, many posts where the point of discussion was AI skill issues. "You don't prompt well," "add a Agent.md," "Ask LLM to re-eval their work," "Ask to create a feedback loop to optimize initial prompts," and many more. So many pre-implementation steps. So many guardrails. It's like baby-proofing a house or, likely, asking the baby to baby-proof the house.
 
