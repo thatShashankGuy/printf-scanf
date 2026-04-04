@@ -1,10 +1,11 @@
 ---
-title: "Extend Your Database features with Postgres Extensions "
+title: "PostgreSQL Extensions"
 author: Shashank Shekhar
 date: 2026-04-04
 draft: false
 ---
-# PostgreSQL Extensions
+
+## What are Extensions 
 
 PostgreSQL added support for extensions in version 9.1. These extensions can be loaded into a database to add new functionalities without modifying the core engine.
 
