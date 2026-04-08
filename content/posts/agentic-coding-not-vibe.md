@@ -1,10 +1,9 @@
 ---
-title: "agentic-coding-not-vibe"
+title: "How I Use AI Coding Agents Without Vibes"
 author: Shashank Shekhar
 date: 2026-04-08
-draft: true
+draft: false
 ---
-# Agentic Programming: My Journey from Skepticism to Enjoyment
 
 I'm knee deep into AI coding agents and agentic programming. Yes, I have strong opinions about Vibe coding and I'm a big advocate of vetting your code. We are still responsible for our code, and AI doesn't take accountability away from us.
 
