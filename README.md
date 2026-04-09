@@ -1,6 +1,6 @@
 ### Personal blog build with Hugo 
 
-I manage all my blogs via this  repository - I build my blog with SSG frameowork [Hugo](https://gohugo.io/) and manage my blogs via Markdowns. The blogs are deployed over [my personal website](blog.shashankshekhar.in)
+I manage all my blogs via this  repository - I build my blog with SSG frameowork [Hugo](https://gohugo.io/) and manage my blogs via Markdowns. The blogs are deployed over [my personal website](https://blog.shashankshekhar.in)
 ### 🚀 Blog CLI Tool
 
 This blog includes a [CLI automation tool](https://github.com/thatShashankGuy/blog-cli-utils) for creating, managing, and publishing blog posts. Built with Bun and TypeScript, it supports both manual writing and AI-powered content generation.
