@@ -2,7 +2,7 @@
 title: "Strategies to minmize social media usage"
 author: Shashank Shekhar
 date: 2026-02-06
-draft: false
+draft: true
 ---
 # Breaking Free from Social Media Addiction
 
