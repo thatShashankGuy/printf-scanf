@@ -2,7 +2,7 @@
 title: "PostgreSQL Extensions"
 author: Shashank Shekhar
 date: 2026-04-04
-draft: false
+draft: true
 ---
 
 ## What are Extensions 
