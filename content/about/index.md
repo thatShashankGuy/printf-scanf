@@ -31,4 +31,5 @@ When I am not at my desk, I enjoy reading historical accounts, fiction, and stay
 ### About This Blog
 
 This blog is a small engineering notebook — a place to record technical learnings, professional experiences, and reflections that emerge from working with software systems. Most posts are short pieces on backend engineering, architecture decisions, and trade-offs, with occasional writing on industry patterns and life outside code.
+
 ---
