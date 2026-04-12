@@ -1,36 +1,24 @@
 {{ define "main" }}
-{{ partial "profile.html" . }}
+  <div class="archive">
+    <header class="archive-header">
+      <h1>Posts Archive</h1>
+    </header>
 
-<section id="archive">
-    {{ range .Data.Pages.GroupByDate "2006" }}
-        <div class="group">
-            <h3 class="key">
-                {{ .Key }}
-            </h3>
+    {{ $pages := where .Site.RegularPages "Section" "posts" }}
+    {{ $years := $pages.GroupByDate "2006" }}
 
-            {{ range .Pages }}
-                                <article class="value card">
-                                    <div class="meta">
-                                        <time datetime="{{ .PublishDate }}">{{ i18n "publishDateShort" . }}</time>
-                                    </div>
-                                    <div class="title">
-                                            <a href="{{ .Permalink }}">{{ .Title }}</a>
-
-                                            {{ with .Params.tags }}
-                                                    <div class="tags">
-                                                            {{ range . }}
-                                                                    <a href="{{ "tags/" | absURL }}{{ . | urlize }}">{{ . }}</a>
-                                                            {{ end }}
-                                                    </div>
-                                            {{ end}}
-                                    </div>
-                                </article>
-            {{ end }}          
-        </div>
+    {{ range $years }}
+      <section class="archive-group">
+        <h2 class="archive-year">{{ .Key }}</h2>
+        <ul class="archive-list">
+          {{ range .Pages }}
+            <li class="archive-item">
+              <time datetime="{{ .PublishDate }}">{{ .PublishDate.Format "2006-01-02" }}</time>
+              <a href="{{ .Permalink }}">{{ .Title }}</a>
+            </li>
+          {{ end }}
+        </ul>
+      </section>
     {{ end }}
-
-
-</section>
-
-
+  </div>
 {{ end }}

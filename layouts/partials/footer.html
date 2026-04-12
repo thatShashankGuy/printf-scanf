@@ -1,17 +1,17 @@
 <footer class="site-footer">
   <div class="footer-inner">
-    {{ if .Site.Social }}
-      <div class="footer-social">
-        {{ partial "social.html" . }}
-      </div>
-    {{ end }}
     <div class="footer-meta">
-      <p class="copyright">
+      <p>
         {{ with .Site.Params.copyright }}
           {{ . | markdownify }}
         {{ else }}
           © {{ now.Format "2006" }} {{ .Site.Params.Author }}
         {{ end }}
+      </p>
+      <p>
+        <a href="https://github.com/thatShashankGuy/" target="_blank" rel="noopener">GitHub</a> •
+        <a href="https://www.linkedin.com/in/thatshashanguy/" target="_blank" rel="noopener">LinkedIn</a> •
+        <a href="mailto:shashankforworkshekhar@gmail.com" rel="noopener">Email</a>
       </p>
       {{ if ne .Site.Params.showPowerBy false }}
         <p class="powered">{{ i18n "poweredBy" | safeHTML }}</p>

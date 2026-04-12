@@ -1,9 +1,12 @@
 {{ define "main" }}
+  {{ partial "ascii-art.html" . }}
+  
   {{ partial "profile.html" . }}
 
   <section class="post-feed">
     {{ $pages := where .Site.RegularPages "Section" "posts" }}
     {{ $paginator := .Paginate ($pages) }}
+    
     {{ range $paginator.Pages }}
       <article class="post-card">
         <div class="post-meta">
