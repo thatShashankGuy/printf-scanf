@@ -1,7 +1,7 @@
 ---
 title: Why Coding Agents Became the First Real Breakout Success of AI
 author: Shashank Shekhar
-date: 2023-04-22
+date: 2026-04-22
 ---
 
 It is not far off to say that coding agents have been the most visible and widely adopted AI product to date.
