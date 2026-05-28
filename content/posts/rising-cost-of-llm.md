@@ -1,5 +1,5 @@
 ---
-title: AI’s Growing Infrastructure Problem
+title: AI’s Growing Cost Problem
 author: Shashank Shekhar
 date: 2026-05-28
 ---
