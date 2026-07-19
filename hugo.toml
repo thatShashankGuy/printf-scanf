@@ -7,7 +7,7 @@ paginate = 3
 
 [params]
  externals = 'References'
- colortheme = "dark"
+ colortheme = "light"
  favicon = "fav.png"    
  enableRSS = true
  author = "Shashank Shekhar"
