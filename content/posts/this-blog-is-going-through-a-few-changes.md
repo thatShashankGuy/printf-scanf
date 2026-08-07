@@ -1,5 +1,5 @@
 ---
-title: "This blog is going through a few changes"
+title: This blog is going through a few changes
 author: Shashank Shekhar
 date: 2026-08-08
 ---
