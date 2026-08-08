@@ -20,8 +20,8 @@ Currently at **NTT DATA Inc.**, I design and implement integration solutions usi
 
 ### Technical Stack
 
-- **Languages:** TypeScript, Python & Go
-- **Cloud:** Azure, AWS (Serverless, IaC)
+- **Languages:** TypeScript, Python
+- **Cloud:** Azure, AWS
 - **Specialties:** Backend Services, ETL Pipelines, Web Interfaces
 
 ### Beyond the Code
@@ -30,6 +30,6 @@ When I am not at my desk, I enjoy reading historical accounts, fiction, and stay
 
 ### About This Blog
 
-This blog is a small engineering notebook — a place to record technical learnings, professional experiences, and reflections that emerge from working with software systems. Most posts are short pieces on backend engineering, architecture decisions, and trade-offs, with occasional writing on industry patterns and life outside code.
+This blog documents my personal journey - thought process act as a communication broadcast.I write about my growth in IT space, opinions on current trends, byte size engineering caveate and career moves.
 
----
+I hope that some of my readers may find this useful and may engage in meaningful and nuance discussion - reflecting their own life as software engineer or a technologist.
