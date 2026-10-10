@@ -1,5 +1,5 @@
 ---
-title: Software Engineering After AI: Disruption, Not Displacement
+title: "Software Engineering After AI: Disruption, Not Displacement"
 author: Shashank Shekhar
 date: 2026-10-10
 ---
