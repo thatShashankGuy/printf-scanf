@@ -12,7 +12,7 @@ menu: "main"
 
 ### **Software Developer | Cloud-Native Solutions**
 
-I am a software developer based in Bengaluru, India, specializing in building scalable, enterprise-grade cloud solutions. I focus on creating robust architectures that prioritize high availability and complex integrations.
+I am a software developer based in Bengaluru, India, specializing in building scalable, enterprise-grade cloud native solutions. I focus on creating robust architectures that prioritize high availability and complex integrations.
 
 ### Professional Profile
 
