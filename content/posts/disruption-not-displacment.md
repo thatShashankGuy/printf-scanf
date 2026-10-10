@@ -16,7 +16,7 @@ Do I regret learning to code? Absolutely not. Eight years of writing code taught
 
 Something unexpected has happened: I feel more ownership over my code now than ever. I didn’t curate every line, so I feel a strong responsibility to make sure what I approved meets the standard I’d hold myself to, or a higher one. I demand more from the agent than I ever demanded from myself. The time it frees up goes into the work I never had room for when I was shipping features every day: more unit tests, security review, performance optimization, and design decisions.
 
-The anxiety is real. The industry feels it too. [Insert State of Dev survey link] paints a discouraging picture of how developers feel about their future. Seeing a single-page app build in seconds and deploy to the cloud through a one-line script is unsettling, and I won’t pretend otherwise.
+The anxiety is real. The industry feels it too. [State of Dev survey 2026](https://2026.stateofdevs.com/en-US) paints a discouraging picture of how developers feel about their future. Seeing a single-page app build in seconds and deploy to the cloud through a one-line script is unsettling, and I won’t pretend otherwise.
 
 We need to start thinking about what comes next: what the next abstraction layer looks like and where engineers add the most value. I don’t have a full answer yet. But I’m not waiting to find out. I’m already in the rooms where requirements get clarified, design decisions get made, and questions about adoption and security get asked. AI has removed the bottleneck of writing code, so the time to sit back and wait is over.
 
