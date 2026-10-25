@@ -56,3 +56,5 @@ it seems to me that existing vulnerabilities dramatically less likely to remain 
 
 For software engineers, that means keeping our eyes and ears open for security is no longer optional.
 It is becoming part of the basic job of building and maintaining software.
+
+_AI disclosure: I wrote this post myself. I used AI tools only to check grammar and sentence structure_
